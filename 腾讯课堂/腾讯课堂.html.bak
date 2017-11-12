@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html>
+     <head>
+	    <title>腾讯大学 | 首页</title>
+		<meta charset="utf-8"/>
+		<link  rel="icon" href="tengxun/daxue.png"/>
+		<link  rel="stylesheet" href="tengxun1.css"/>
+		<link  rel="stylesheet" href="tengxun2.css"/>
+		<link  rel="stylesheet" href="tengxun3.css"/>
+	   <script type="text/javascript" src="js/jquery-3.2.1.min.js">
+        </script>
+		<script>
+		     window.onload=function(){ 
+				 //  alert("打开了腾讯大学");
+				    //点击最新排行
+		                    $("#xuangxiang>.div2").click(function(){
+
+						    $("#xuangxiang>.div2").css({
+								  "background":"red",
+							});
+
+						    $("#xuangxiang>.div2>.par1").css({
+								  "position":"absolute",
+								  "z-index":"100"}
+							);
+		
+							$("#xuangxiang>.div2>.par2").css({
+								  "position":"absolute",
+								  "z-index":"100"
+							});
+		
+							$("#xuangxiang>.div2>.par3").css({
+								  "position":"absolute",
+								  "z-index":"100"
+							});
+		
+							$("#xuangxiang>.div1>.par1").css({
+								  "z-index":"-10"
+							});
+
+							$("#xuangxiang>.div1>.par2").css({
+								  "z-index":"-10"
+							});
+
+							$("#xuangxiang>.div1>.par3").css({
+								  "z-index":"-10"
+							});
+					});
+		
+					//点击新课上线
+
+					 $("#xuangxiang>.div1").click(function(){
+
+						    $("#xuangxiang>.div1").css({
+								  "background":"green",
+							});
+
+						    $("#xuangxiang>.div2>.par1").css({
+								  "position":"absolute",
+								  "z-index":"-10"}
+							);
+		
+							$("#xuangxiang>.div2>.par2").css({
+								  "position":"absolute",
+								  "z-index":"-10"
+							});
+		
+							$("#xuangxiang>.div2>.par3").css({
+								  "position":"absolute",
+								  "z-index":"-10"
+							});
+		
+							$("#xuangxiang>.div1>.par1").css({
+								  "z-index":"100"
+							});
+
+							$("#xuangxiang>.div1>.par2").css({
+								  "z-index":"100"
+							});
+
+							$("#xuangxiang>.div1>.par3").css({
+								  "z-index":"100"
+							});
+					});
+
+
+		     }
+		</script>
+	 </head>
+	 <body>
+	     <div class="header">
+		     <div class="header-part1">
+	             <a href="#" class="a1"></a>
+				 <ul>
+				     <li id="x1"></li>
+					 <li id="x2"></li>
+					 <li id="x3"></li>
+					 <li id="x4"></li>
+					 <li id="x5"></li>
+				 </ul>
+				 <a href="#" class="a2"></a>
+				 <a href="#" class="a3"></a>
+                   <p class="p1"></p>
+				 <p class="p2">登陆</p>
+			 </div>
+			 <div class="header-part2">
+			 </div>
+			 <div class="header-part3">
+			      <div class="yugao"></div>
+				  <a class="button1" href="#"></a>
+			      <div class="content">
+				      <img src="tengxun/111_03.gif"/>
+					  <div>
+					  <h2>【破晓x新火种】腾讯研究院年会</h2>
+					  <p class="b1">&nbsp&nbsp&nbsp&nbsp&nbsp 2017年1月06日</p>
+					  <p class="b2">2016年的煞笔特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多特别多</p>
+					  </div>
+				  </div>
+				  <a class="button2" href="#"></a>
+			 </div>
+		 </div>
+		 <div class="section">
+		       <div class="neirong">
+				   <div class="zuobian">
+						<div class="article1">
+						   <div id="title1">
+						        <img src="tengxun/icon-lesson.png">
+						        <h2>热门课程</h2>
+								<a href="#">more</a>
+						   </div>
+
+						   	<div id="box">
+								   <div id="box1">
+									   <div id="pic1"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+
+								   	<div id="box2">
+									   <div id="pic2"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+
+								   	<div id="box3" style="margin:0">
+									   <div id="pic3"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+							</div>
+						   
+						</div>
+						<div class="article2">
+						    	<div id="title1">
+										<img src="tengxun/shu.png">
+										<h2>干货分享</h2>
+										<a href="#">more</a>
+						        </div>
+
+								<div id="c1">
+								    <img src="tengxun/g1.jpg">
+									<div>
+									   <h3>
+									      <a href="#">鹅厂热文丨一名游戏设计师的“反杀”：别总拿“用户习惯”说事</a>
+									   </h3>
+									   <p class="dd">2017/7/29</p>
+									   <p>每天都被人用“用户习惯”怼得无力反驳，那到底什么是用户习惯？用户习惯
+									   从哪儿得到的？我们如何正确利用用户习惯？
+									   </p>
+									</div>
+								</div>
+
+								<div id="c2">
+								  	<img src="tengxun/g2.jpg">
+									<div>
+		  							   <h3>
+									      <a href="#">必杀技"来袭丨鹅厂技术专家的"软实力"是如何炼成的？</a>
+									   </h3>
+									   <p class="dd">2017/7/29</p>
+									   <p>6月27日，鹅厂举办了专家分享沙龙，邀请大咖专家分享成长心得，干货满满，作为鹅厂“大熊猫”级别的专家测试工程师， Victor拥有非常丰富的...
+									   </p>
+									</div>
+								</div>
+
+								<div id="c3">
+								    <img src="tengxun/g3.jpg">
+									<div>
+									   <h3>
+									      <a href="#">斋戒实验：离开微信15天，你会怎么样？</a>
+									   </h3>
+									   <p class="dd">2017/7/29</p>
+									   <p>过去十余年，我们经历了一场传统社交的革命。社会交往是人类的基本需求，社交网络将这一需求整合入网，用简单的“0/1”承载起丰富的讯息、互...
+									   </p>
+									</div>
+								</div>
+								
+						</div>
+						<div class="article3">
+						        <div id="title3">
+									<img src="tengxun/icon-lesson.png">
+									<h2>专题课程</h2>
+									<a href="#">more</a>
+						        </div>
+
+								<div id="box">
+								   <div id="box1">
+									   <div id="pic4"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+
+								   	<div id="box2">
+									   <div id="pic5"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+
+								   	<div id="box3" style="margin:0">
+									   <div id="pic6"></div>
+									   <p><span>写代码到吐血</span></p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+									   <p>写代码到吐血</p>
+								   </div>
+							</div>
+
+
+						</div>
+						<div class="article4">
+                            <div id="title4">
+						        <img src="tengxun/icon-lesson.png">
+						        <h2>精品课程</h2>
+								<a href="#">more</a>
+						   </div>
+						    
+						    <div id="s">
+							   <div id="s1">
+							       <div class="t1">
+								      <a href="#">more</a>
+								   </div>
+								   <div class="t2"></div>
+								   <a href="#" style="background:none;">王晓峰:智能共享--让自行车回归城市</a>
+								   <p>2016年11月，摩拜单车CEO王晓峰在“智能新生态与商业的未来”高峰论坛上就城市交通与共享单车的话题...</p>
+								   <a href="#">徐佳义：独立开发者如何玩转小程序</a>
+								   </br>
+								   <a href="#">优图周可菁：0.15%的价值</a>
+							   </div>
+							   <div id="s2" style="margin-right:0;">
+							       <div class="t1">
+								   <a href="#">more</a>
+								   </div>
+								   <div class="t2"></div>
+								   <a href="#" style="background:none;">飞利浦科特勒经典分享--新媒体营销</a>
+								   <p>如何面对并迎接全球挑战如何建立营销组织如何实现传统营销到数字化营销的转变如何改变营销3.0时代</p>
+								   <a href="#">清华大数据时代高端论坛</a>
+								   </br>
+								   <a href="#">销售晨夕会</a>
+							   </div>
+
+							   <div id="s3">
+                                   <div class="t1">
+								      <a href="#">more</a>
+								   </div>
+								   <div class="t2"></div>
+								   <a href="#" style="background:none;">Bjarne Stroustrup：C++背后的驱动力</a>
+								   <p>2016年10月，被誉为“C++之父”的摩根士丹利董事总经理Bjarne Stroustrup在TEDx漕河泾“科技的原...</p>
+								   <a href="#">去哪儿网总裁张强：“地推”要靠计算的力量</a>
+								   </br>
+								   <a href="#">【云计算分论坛】2017“互联网+”数字经济峰会</a>
+							   </div>
+
+							   <div id="s4" style="margin-right:0;">
+							       <div class="t1">
+								      <a href="#">more</a>
+								   </div>
+								   <div class="t2"></div>
+								   <a href="#" style="background:none;">熟悉这些神级办公软件，你将极速成为职场战神</a>
+								   <p>熟悉这些神级办公软件,你将极速成为职场战神</p>
+								   <a href="#">不可诗意的网游时代第一章萌芽期</a>
+								   </br>
+								   <a href="#">不可诗意的网游时代第一章萌芽期</a>
+							   </div>
+
+							</div>
+
+						</div>
+				   </div>
+				   <div class="youbian">
+				         <h2>排行榜</h2>
+						 <div id="xuangxiang">
+						     <div class="div1">
+						           <p id="pp1">最新排行</p>
+								   <div class="par1">
+								         <div class="hh1">
+										       <p class="pp1">1</p>
+										       <p class="pp2">张小龙：微信四大价值观</p>
+										 </div>
+										 <div class="hh2">
+										       <p class="pp1" style="background:#ec5a2e">2</p>
+										       <p class="pp2" >马化腾：腾讯将专注于做互联网的连接器</p>
+										 </div>
+										 <div class="hh3">
+										       <p class="pp1" style="background:#f6a544">3</p>
+										       <p class="pp2">张小龙：小程序正式发布，开启移动应用新时代</p>
+										 </div>
+										 <div class="hh4">
+										       <p class="pp1" style="background:#ec5a2e">4</p>
+										       <p class="pp2">IT领袖巅峰对话：未来下一个风口在哪里？</p>
+										 </div>
+										 <div class="hh5">
+										       <p class="pp1" style="background:#f6a544">5</p>
+										       <p class="pp2">微信支付对实体商业的价值几何？</p>
+										 </div>
+										 <div class="hh6" style="margin:0;">
+										       <a href="#">马化腾：通向互联网未来的七个路标</a>
+											   <a href="#">马化腾：“互联网+”时代，腾讯只做连接器和内容</a>
+											   <a href="#">【小程序分论坛】2017“互联网+”数字经济峰会</a>
+											   <a href="#">Epic Games王祢：使用UE4对VR内容进行优化</a>
+											   <a href="#">何凌南：谣言在想什么</a>
+										 </div>
+									</div>
+
+								   <div class="par2">
+								          <div class="ss1"></div>
+										  <div class="ss2">
+										      <h1>腾讯大学</h1>
+											  腾讯大学作为腾讯特色的学习交流平台，服务于腾讯合作伙伴及用户，面向互联网产业链，传播腾讯经验，分享行业知识及优秀实践，助力合作伙伴成长，推动开放共赢的互联网生态圈的建立。
+										  </div>
+								   </div>
+								   <div class="par3">
+								            <h1>联系我们</h1>
+											<a href="#">university@tencent.com</a>
+											<p>QQ：2813343187</p>
+											<div>
+								
+											<p>在线考试</p>
+											<a id="sb" href="#"> ENTER入口</a>
+											</div>
+								   </div>
+							 </div>
+
+							 <div class="div2">
+							      <p id="pp2">新课上线</p>
+								  <div class="par1" id="par1">
+								         <div class="hh1">
+										       <p class="pp1">1</p>
+										       <p class="pp2">鹅厂热文丨一名游戏设计师的“反杀”：别总拿“用户习惯”说事</p>
+										 </div>
+										 <div class="hh2">
+										       <p class="pp1" style="background:#ec5a2e">2</p>
+										       <p class="pp2" >"必杀技"来袭丨鹅厂技术专家的"软实力"是如何炼成的？</p>
+										 </div>
+										 <div class="hh3">
+										       <p class="pp1" style="background:#f6a544">3</p>
+										       <p class="pp2">5 Senses Design 创始人杨晟：设计的地位</p>
+										 </div>
+										 <div class="hh4">
+										       <p class="pp1" style="background:#ec5a2e">4</p>
+										       <p class="pp2">Magic Mirror邓志钊：Sketch插件开发</p>
+										 </div>
+										 <div class="hh5">
+										       <p class="pp1" style="background:#f6a544">5</p>
+										       <p class="pp2">360洪斯胜：为Sketch打造高效工具</p>
+										 </div>
+										 <div class="hh6" style="margin:0;">
+										       <a href="#">腾讯郑小雪，朱辉：复合式设计</a>
+											   <a href="#">斋戒实验：离开微信15天，你会怎么样？</a>
+											   <a href="#">这道鹅厂产品经理面试题，你会如何回答？</a>
+											   <a href="#">林采宜：腾讯理财通大讲堂脱口秀专场</a>
+											   <a href="#">李德林：工资少，梦想大怎么办</a>
+										 </div>
+									</div>
+
+								   <div class="par2">
+								          <div class="ss1"  id="sss1"></div>
+										  <div class="ss2" id="sss2">
+										      <h1>腾讯大学</h1>
+											  腾讯大学作为腾讯特色的学习交流平台，服务于腾讯合作伙伴及用户，面向互联网产业链，传播腾讯经验，分享行业知识及优秀实践，助力合作伙伴成长，推动开放共赢的互联网生态圈的建立。
+										  </div>
+								   </div>
+								   <div class="par3">
+								            <h1>联系我们</h1>
+											<a href="#">university@tencent.com</a>
+											<p>QQ：2813343187</p>
+											<div>
+								
+											<p>在线考试</p>
+											<a id="sb" href="#"> ENTER入口</a>
+											</div>
+								   </div>
+						
+								  
+							 
+
+							 </div>
+						 </div>
+
+
+	
+				   </div>
+			   </div>
+
+		 </div>
+		 <div class="footer">
+		       	 <div class="line">
+								<div class="blue"></div>
+								<div class="orange"></div>
+								<div class="green"></div>
+								<div class="red"></div>
+				 </div>
+		       <div class="footerbox">
+					
+						  <div class="pingtai">
+							 <p>开放平台</p>
+							 <a href="#" id="aa1"></a>
+							 <a href="#" id="aa2"></a>
+							 <a href="#" id="aa3"></a>
+							 <a href="#" id="aa4"></a>
+							 <a href="#" id="aa5"></a>
+							 <a href="#" id="aa6"></a>
+							 <a href="#" id="aa7"></a>
+							 <a href="#" id="aa8"></a>
+							 <a href="#" id="aa9"></a>
+							 <a href="#" id="aa10"></a>
+							 <a href="#" id="aa11"></a>
+							 <a href="#" id="aa12"></a>
+							 <a href="#" id="aa13"></a>
+							 <a href="#" id="aa14"></a>
+							 <a href="#" >更多</a>
+					  </div>
+					  <div class="huoban">
+						    <p>合作伙伴</p>
+							<a href="#" id="bb1">腾讯云论坛</a>
+							<a href="#" id="bb2">TechWeb</a>
+							<a href="#" id="bb3">腾讯Alloyteam</a>
+							<a href="#" id="bb4">CSDN</a>
+							<a href="#" id="bb5">36Kr</a>
+							<a href="#" id="bb6">DoNews</a>
+							<a href="#" id="bb7">APP游戏部落</a>
+							<a href="#" id="bb8">天极网 </a>
+							<a href="#" id="bb9">凤凰网科技频道</a>
+							<a href="#" id="bb10">易观网</a>
+							<a href="#" id="bb11">馒头商学院</a>
+							<a href="#" id="bb12">雷锋网</a>
+							<a href="#" id="bb13">飞象网</a>
+							<a href="#" id="bb14">数码港</a>
+							<a href="#" id="bb15">艾瑞网</a>
+							<a href="#" id="bb16">落伍者</a>
+							<a href="#" id="bb17">LAMP人</a>
+							<a href="#" id="bb18">QQ浏览器</a>
+
+
+
+					  </div>
+                </div>
+		 </div>
+
+		  <div class="last">
+		       <div>
+		         <a href="#">服务协议</a>
+				 <a href="#">隐私政策</a>
+				 <a href="#" style="border:0">版权保护投诉指引</a>
+				 <p>Copyright © 1998 - 2017 Tencent. All Rights Reserved.</p>
+				 <p>腾讯公司 版权所有</p>
+               </div>
+		  </div>
+	 </body>
+</html>

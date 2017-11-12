@@ -1,0 +1,170 @@
+/* 这里是右边内容第二部分，相互切换的*/
+#xuangxiang{
+        position:relative;
+        
+}
+
+
+#xuangxiang>.div2>.par1{
+       position:absolute;
+	   top:40px;
+	   left:0px;	
+	   z-index:-100;
+	   width:230px;
+       height:1098px;
+		 /* background:red; */
+	    margin-top:20px;
+		 /* z-index:-10; */
+}
+#xuangxiang>.div2>.par2{
+       position:absolute;
+	   top:1145px;
+	   left:0px;	 
+	   z-index:-100;
+	   width:230px;
+       height:398px;
+		 /* background:red; */
+	   margin-top:15px;
+	   border-bottom:1px solid #cccccc;
+}
+#xuangxiang>.div2>.par3{
+       position:absolute;
+	   top:1560px;
+	   left:0px;	
+	   z-index:-100;
+	    width:230px;
+        height:490px;
+		line-height:20px;
+     
+}
+
+
+
+#xuangxiang>.div2>.par1 div{
+          width:230px;
+		  height:165px;
+		  margin-bottom:20px;
+		  /* background:black; */
+}
+#xuangxiang>.div2>.par1>.hh1>.pp1,#xuangxiang>.div2>.par1>.hh2>.pp1,
+#xuangxiang>.div2>.par1>.hh3>.pp1,#xuangxiang>.div2>.par1>.hh4>.pp1,#xuangxiang>.div2>.par1>.hh5>.pp1
+{
+          margin-top:133px;
+		  font-size:24px;
+		  color:white;
+		  float:left;
+		  background-color:red;
+		  width:30px;
+		  text-align:center;
+}
+#xuangxiang>.div2>.par1>.hh1>.pp2,#xuangxiang>.div2>.par1>.hh2>.pp2,#xuangxiang>.div2>.par1>.hh3>.pp2,
+#xuangxiang>.div2>.par1>.hh4>.pp2,#xuangxiang>.div2>.par1>.hh5>.pp2
+{         
+          width:170px;
+          color:white;
+		  font-size:15px;
+		  /* padding-left:; */
+		  float:left;
+		  margin-top:135px;
+		  margin-left:15px;
+		  overflow:hidden;
+		  white-space:nowrap;
+		  text-overflow:ellipsis;
+}
+#xuangxiang>.div2>.par1>.hh6{border-bottom:1px solid #cccccc;}
+#xuangxiang>.div2>.par1>.hh6>a{
+          display:block;
+		  color:black;
+		  overflow:hidden;
+		  white-space:nowrap;
+		  text-overflow:ellipsis;
+		  font-size:16px;
+		  line-height:20px;
+		  margin:10px 0 0 10px;
+}
+
+
+#xuangxiang>.div2>.par1>.hh1{
+          background-image:url("images/rr1.jpg");
+		  background-size:100% 100%;       
+}
+
+#xuangxiang>.div2>.par1>.hh2{
+          background-image:url("images/rr2.jpg");
+		  background-size:100% 100%;
+         
+}
+#xuangxiang>.div2>.par1>.hh3{
+          background-image:url("images/rr3.jpg);
+		  background-size:100% 100%;
+         
+}
+#xuangxiang>.div2>.par1>.hh4{
+          background-image:url("images/rr4.jpg");
+		  background-size:100% 100%;         
+}
+#xuangxiang>.div2>.par1>.hh5{
+          background-image:url("images/rr5.jpg");
+		  background-size:100% 100%;         
+}
+
+
+/* 右边第二部分的左边第二部分 */
+
+
+#xuangxiang>.div2>.par2>.ss1{
+         width:230px;
+         height:160px;
+		 background:url("tengxun/1437012075279.png");
+		 background-size:100% 100%;
+}
+
+#xuangxiang>.div2>.par2>.ss2{
+         margin-top:15px;
+         width:230px;
+         height:200px;
+		 font-size:12px;
+		 line-height:25px;
+
+}
+
+#xuangxiang>.div2>.par2>.ss2>h1,#xuangxiang>.div1>.par3>h1{
+         font-size:16px;
+}
+
+
+/* 右边第三部分 */
+
+
+#xuangxiang>.div2>.par3>h1{
+         margin-top:15px;
+		 padding-left:25px;
+		 background:url("tengxun/dianhua.png") no-repeat left;
+}
+
+#xuangxiang>.div2>.par3>a{
+         color:black;
+}
+
+#xuangxiang>.div2>.par3>div{
+         width:200px;
+         height:120px;
+		 background:#d4d4d4;
+		 margin-top:20px;
+		 padding-top:10px;
+		 text-align:center;
+		/* font-size:30px;  这里设置的字体大小不能影响子代的P（还有A）*/ 
+}
+#xuangxiang>.div2>.par3>div>p{ font-size:30px;height:30px;margin-top:15px;}
+#xuangxiang>.div2>.par3>div>a{
+             display:block;
+             width:150px;
+             height:45px;
+			 background:black ;
+			 color:white;
+			 font-size:18px;
+			 margin-top:10px;
+			 margin-left:30px;
+			 line-height:45px;
+             
+}

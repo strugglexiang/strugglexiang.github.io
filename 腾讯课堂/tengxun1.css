@@ -1,0 +1,291 @@
+body,html{
+  width:100%;
+}
+*{
+   padding:0;
+   margin:0;
+   font-size:12px;
+}
+a{
+   text-decoration:none;
+}
+/* header */
+.header{
+   width:100%;
+   height:695px;
+   /* background:red; */
+   /* margin-bottom:20px; */
+}
+  /* header-part1 左边 */
+.header-part1{
+   width:1180px;
+   height:78px;
+   /* background:red; */
+   margin:0 auto;
+}
+
+.header-part1>.a1{
+   width:310px;
+   height:78px;
+   float:left;
+   background:url("tengxun/logo.png") no-repeat left;
+}
+ /* header-part1中间 */
+.header-part1>ul{
+   float:left;
+   margin-left:45px;
+   list-style:none;
+}
+.header-part1>ul>li{
+   height:78px;
+   background:url("tengxun/nav.png") no-repeat left;
+   float:left;
+   width:120px;
+
+}
+#x1{
+   width:100px;
+   background:url("tengxun/nav.png") no-repeat left;
+}
+#x1:hover{
+   background:url("tengxun/nav-on.png") no-repeat left;
+}
+
+#x2{
+   width:100px;
+   background:url("tengxun/nav.png") no-repeat -120px;
+}
+#x2:hover{
+   background:url("tengxun/nav-on.png") no-repeat -120px;
+}
+
+#x3{
+   background:url("tengxun/nav.png") no-repeat -249px;
+}
+#x3:hover{
+   background:url("tengxun/nav-on.png") no-repeat -249px;
+}
+
+#x4{
+   background:url("tengxun/nav.png") no-repeat -369px;
+}
+#x4:hover{
+   background:url("tengxun/nav-on.png") no-repeat -369px;
+}
+
+#x5{
+   background:url("tengxun/nav.png") no-repeat right;
+}
+#x5:hover{
+   background:url("tengxun/nav-on.png") no-repeat right;
+}
+/* header-part1右边 */
+.header-part1>.a2{
+    width:32px;
+	height:32px;
+	background:url("tengxun/sousuo.png");
+	background-size:100% 100%;
+	float:left;
+	margin-top:23px;
+	margin-left:100px;
+	
+}
+
+.header-part1>.a3{
+    width:35px;
+	height:35px;
+	background:url("tengxun/qq.png");
+	background-size:100% 100%;
+	float:left;
+	margin-left:55px;
+	margin-top:10px;
+	
+}
+.header-part1>.p1{
+    height:32px;
+	width:2px;
+	background:#dcdcdc;
+	float:left;
+	margin-left:-65px;
+	margin-top:24px;
+}
+.header-part1>.p2{
+    margin-left:-30px;
+	margin-top:45px;
+	float:left;
+	color:#a1968c;
+}
+
+.header-part2{
+   width:1440px;
+   height:360px;
+   margin:0 auto;
+   background:black;
+   background:url("tengxun/1472176622732.jpg");
+	
+}
+
+.header-part3{
+   width:1050px;
+   height:250px;
+   background:black;
+   margin:0 auto;
+   /* background:url("tengxun/live-title.png") no-repeat 0px 15px; */
+   background:url("tengxun/live-bg.png") no-repeat right bottom;
+}
+
+.header-part3>.yugao{
+  width:1027px;
+  height:30px;
+  background:url("tengxun/live-title.png") no-repeat; 
+  margin-top:15px;
+  /* float:left; */
+}
+.header-part3>.content{
+  margin-top:15px;
+  /* width:514px; */
+  overflow:hidden;
+  width:900px;
+  float:left;
+  
+  
+}
+.header-part3>.content>img{
+  width:225px;
+  height:160px;
+  float:left;
+}
+.header-part3>.content>div{
+  width:538px;
+  height:185px;
+  float:left;
+  margin-left:15px;
+}
+ 
+.header-part3>.content>div>h2{
+   font-size:25px;
+   margin-left:13px;
+}
+.header-part3>.content>div>.b1{
+  margin:20px 0 10px 15px;
+  background:url("tengxun/naozhong.png") no-repeat left;
+}
+.header-part3>.content>div>.b2{
+  line-height:25px;
+  margin-left:30px;
+  /* float:left; */
+  color:black;
+}
+
+.header-part3>.button1{
+   float:left;
+   width:38px;
+   height:38px;
+   background:red;
+   background:url("tengxun/sliders-btn.png") no-repeat 3px -8px;
+   margin:75px 10px 0 10px;
+   
+}
+
+.header-part3>.button2{
+   float:right;
+   width:50px;
+   height:50px;
+   background:red;
+   background:url("tengxun/sliders-btn.png") no-repeat 3px -143px;
+   margin:75px 10px 0 30px;
+}
+
+
+/* 内容部分section*/
+.section{
+   width:100%;
+   background:#d6dae2;
+   /* height:100px; */
+   padding-top:20px;
+   overflow:hidden;
+}
+.section>.neirong{
+   width:1067px;
+   margin:0 auto;
+}
+
+/* 内容左边 */
+.section>.neirong>.zuobian{
+    width:780px;
+	margin-right:20px;
+	float:left;
+}
+/* 左边内容第一块 */
+.section>.neirong>.zuobian>.article1{
+    height:355px;
+	background:#f2f1ef;
+	margin-bottom:20px;
+	padding:10px;
+}
+#title1,#title2,#title3{
+    height:60px;
+	/* background-color:red; */
+	margin-top:10px;
+}
+
+#title1>img,#title2>img,#title3>img,#title4>img{
+    float:left;
+	width:20px;
+	margin:5px;
+}
+#title1>h2,#title2>h2,#title3>h2,#title3>h2,#title4>h2{
+    font-size:20px;
+	float:left;
+}
+#title1>a,#title2>a,#title3>a,#title4>a{
+    float:right;
+	margin-right:10px;
+}
+
+#box{
+     width:748px;
+	 height:280px;
+	 /* background:red; */    
+}
+
+#box>#box1,#box>#box2,#box>#box3{
+     width:230px;
+	 height:275px;
+	 /* background:red; */
+	 /* text-align:center;在这里字体居中 */
+	 margin-right:25px;
+	 float:left;
+	 line-height:20px;
+	 color:#888888;
+}
+
+#box>#box1 span,#box>#box2 span,#box>#box3 span{
+     color:black;
+}
+
+
+#pic1,#pic2,#pic3,#pic4,#pic5,#pic6{
+     width:227px;
+	 height:165px;
+	
+}
+#pic1{ background:url("tengxun/pic1_03.gif");}
+#pic2{ background:url("tengxun/pic2_03.gif");}
+#pic3{ background:url("tengxun/pic3_03.gif");}
+#pic4{ background:url("tengxun/b1.gif") 0px 2px;}
+#pic5{ background:url("tengxun/b2.gif") 0px 2px;}
+#pic6{ background:url("tengxun/b3.gif") 0px 2px;}
+
+
+/* 左边内容第三块 */
+.section>.neirong>.zuobian>.article3{
+    height:355px;
+	background:#f2f1ef;
+	margin-bottom:20px;
+	padding:10px;
+}
+
+
+
+

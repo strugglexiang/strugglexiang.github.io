@@ -1,0 +1,165 @@
+/* ²ÂÄãÏ²»¶²¿·Ö */
+body{background-color:rgb(246,246,246);}
+.xihuan{
+     width:1190px;
+	 /* height:100px; */
+	 margin:0 auto;
+	 /* background:white; */
+	 /* overflow:hidden; */
+}
+
+.xihuan-top{
+     height:80px;
+	 /* background:red; */ 
+	 text-align:center
+	 
+
+}
+
+.xihuan-top>h1{
+	 width:300px;
+	 margin:0 auto;
+	 text-align:center;
+	 /* line-height:80px; */
+	 padding-left:32px;
+	 background:url("tao/aixin.png") no-repeat 100px;
+}
+.xihuan-top>h1 i{
+     display:inline-block;
+     width:70px;
+	 height:2px;
+	 background:red;
+	 margin-right:30px;
+	 margin-bottom:6px;
+}
+
+
+.xihuan-top>p{color:#999;letter-spacing:10px;}
+
+
+.xihuan-bottom{
+        overflow:hidden; 
+		background:white;
+}
+
+.xihuan-bottom>div{
+    float:left;
+	width:220px;
+	height:304px;
+	margin:15px 15px 0 0;
+	/* background:red; */
+	border:1px solid transparent;
+	position:relative;
+}
+
+.xihuan-bottom>div:hover{border:1px solid orange;}
+
+#cai-top>img{
+     width:220px;
+	 height:223px;
+	 display:block;
+}
+
+#cai-center{
+     line-height:18px;
+	 text-align:center;
+	 color:#6c6c6c;
+	 height:50px;
+	 position:relative;
+	 z-index:10;
+	 background:rgb(246,246,246);
+}
+
+#cai-bottom{
+    height:31px;
+	color:#F40;
+	position:relative;
+	z-index:10;
+    background:rgb(246,246,246);
+}
+
+#cai-bottom>span{margin-left:13px;font-size:18px;font-weight:600;}
+
+#fugai{
+    position:absolute;
+	left:0px;
+    top:223px;
+	z-index:-1000;
+	width:220px;
+	height:80px;
+	background:#F40;
+	color:white;
+	text-align:center;
+	/* display:none; */
+	/* line-height:80px; */
+}
+
+#cai:hover #fugai{z-index:100;}
+#fugai-p2{
+    width:180px;
+	height:1px;
+	background:rgb(246,246,246);
+	margin:0 auto;
+}
+
+#fugai-p1{font-size:18px;margin-top:20px;}
+
+
+
+
+.xinhuan-end{
+     height:40px;
+	 /* background:red; */ 
+	 text-align:center
+	 color:red;
+	 background:white;
+	 
+      
+}
+
+.xinhuan-end>h1{
+	 width:300px;
+	 margin:0 auto;
+	 text-align:center;
+	 color:#ccc;
+	 
+
+}
+.xinhuan-end>h1 i{
+     display:inline-block;
+     width:70px;
+	 height:2px;
+	 background:#ccc;
+	 margin-right:20px;
+	 margin-left:20px;
+	 margin-bottom:6px;
+}
+
+
+.xihuan-last{overflow:hidden;}
+.xihuan-last>div{
+      float:left;
+	  width:275px;
+	  height:250px;
+	  /* background:red; */
+	  margin-right:20px;
+	  /* text-align:center; */
+	  
+}
+.xihuan-last>div>h2{
+     margin:50px 0 20px 30px;
+	 /* color:#6c6c6c; */
+	 padding-left:32px;
+	 height:32px;
+	 background:url("image/dog.png") no-repeat 0 0;
+	 /* background:red; */
+
+	 
+}
+.xihuan-last>div>a{
+      color:#6c6c6c;
+	  margin-left:30px;
+	  line-height:20px;
+}
+
+.xihuan-last>div>a:hover{color:#F40;}

@@ -1,0 +1,86 @@
+/*  ±ØÂò */
+
+.bimai{
+     width:1190px;
+	 height:730px;
+	 margin:0 auto;
+	 background:rgb(200,200,169);
+	 /* background:white; */
+	 overflow:hidden;
+	 margin-bottom:15px;
+}
+
+.bimai-top{
+     height:80px;
+	 /* background:red; */ 
+	 text-align:center;
+	 
+
+}
+
+.bimai-top>h1{
+	 width:300px;
+	 margin:0 auto;
+	 text-align:center;
+	 /* line-height:80px; */
+	 padding-left:32px;
+	 background:url("bimai/bimai.png") no-repeat 100px;
+	  color:#3c3c3c;
+}
+.bimai-top>h1>i{
+     display:inline-block;
+     width:70px;
+	 height:2px;
+	 background:#3c3c3c;
+	 margin-right:30px;
+	 margin-bottom:6px;
+}
+
+.bimai-bottom{
+   height:650px;
+}
+
+.bimai-bottom>a{
+        width:575px;
+	    height:312px;
+		float:left;
+		/* background:red; */
+		margin:0 0 10px 15px;
+		/* border:1px solid #8E8E8E; */
+		border:1px solid transparent;
+}
+
+.bimai-bottom>a:hover{border:1px solid orange;}
+
+.bimai-bottom>a{
+        color:black;
+}
+
+.bimai-bottom-p1{
+     margin:10px 0 5px 10px;
+	 font-size:18px;
+	 /* font-weight:600; */
+}
+
+.bimai-bottom-p2{
+      white-space:nowrap;
+	  overflow:hidden;
+	  text-overflow:ellipsis;
+	  font-size:18px;
+	  margin:10px 0 5px 10px;
+
+}
+
+.bimai-bottom-p3{
+     margin:10px 0 0 10px;
+	 color:#4D4D4D;
+}
+
+.bimai-bottom>a>div{overflow:hidden}
+.bimai-bottom>a>div>img{
+       width:180px;
+	   height:184px;
+	   float:left;
+	   margin-left:10px;
+}
+       

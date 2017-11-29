@@ -1,0 +1,163 @@
+
+/* search部分 */
+
+.search{
+     height:164px;
+	 background:white;   
+	 /* position:relative; */
+	 /* z-index:-10; */
+}
+.search>div{
+     width:1200px;
+	 height:164px;
+	 margin:0 auto;
+	 /* background:red; */   
+}
+/* 搜索部分上部分 */
+.search>div>.searchtop{
+	 width:1200px;
+	 height:132px;
+	 /* background:red; */  
+}
+.search>div>.searchtop>#logo{
+     width:145px;
+     height:58px;
+	 margin:30px 105px 0 22px;
+	 background:url("image/logo.jpg");
+     float:left;
+}
+
+.search>div>.searchtop>.sousuo{
+     width:630px;
+     height:93px;
+	 margin-top:30px;
+	 float:left;
+}
+
+.search>div>.searchtop>.sousuo>#ul1{
+     overflow:hidden;
+}
+
+.search>div>.searchtop>.sousuo>#ul1>li{
+      float:left;
+	  list-style:none;
+	  width:52px;
+      height:26px;
+	  /* margin-right:14px; */
+      /* 这里背景色要通过JS */
+	  /* background:#ff5400; */
+	  color:#e46200;
+	  text-align:center;
+	  line-height:26px;
+	  font-size:14px;
+}
+.search>div>.searchtop>.sousuo>#sousuokuang{
+      width:626px;
+      height:41px;
+	  /* background:black; */
+	  border:3px solid #ff5400;
+	  float:left;
+}
+
+#sousuokuang>input{
+      float:left;
+      width:458px;
+      height:41px;
+	  padding-left:8px;
+	  line-height:41px;
+	  font-size:14px;
+}
+
+#sousuokuang>#a1{
+      float:left;
+      width:32px;
+      height:32px;
+	  background:url("image/xiangji.png");
+	  background-size:100% 100%;
+	  margin-top:6px;
+	  margin-right:10px;
+
+}
+
+#sousuokuang>#a2{
+      width:118px;
+      height:41px;
+	  line-height:41px;
+	  text-align:center;
+	  background:#ff5400;
+	  color:white;
+	  float:left;
+	  font-size:18px;
+	  /* font-weight:700; */
+}
+
+#sousuokuang>ul{}
+#sousuokuang>ul>li{
+      list-style:none;
+	  float:left;
+	  margin-right:10px;
+	  margin-top:8px;
+}
+#sousuokuang>ul>li>a{color:black;}
+#sousuokuang>ul>li>a:hover{color:#f40;}
+#sousuokuang>#a3{
+      margin-top:30px;
+	  margin-left:60px;
+	  font-size:14px;
+	  line-height:31px;
+	  color:black;
+}
+#sousuokuang>#a3:hover{color:#f40;}
+
+/* 搜索部分下部分 */
+.search>div>.searchbottom{
+	 width:1200px;
+	 height:32px;
+	 /* background:black; */  
+	 background:#fff;
+	 position:relative;
+	 /* z-index:10000; */
+}
+.searchbottom>.aa1{float:left;margin-left:208px;font-weight:700;}
+.searchbottom>.aa1>li{
+      height:32px;
+	  list-style:none;
+      float:left;
+	  margin-left:5px;
+      
+}
+.searchbottom>.aa1>li>a{color:#ff5400;font-size:18px;}
+
+.searchbottom>.aa2{float:left;margin-left:30px;}
+.searchbottom>.aa2>li{
+     height:32px;
+	 list-style:none;
+     float:left;
+	 margin-right:10px;
+	 
+}
+.searchbottom>.aa2>li>a{font-size:16px;color:black;}
+
+/* 搜索部分效果 */
+/* 这里设计的时候有问题，所以覆盖只能显示部分效果 */
+#searchbottom{
+    /* position:relative; */
+	/* z-index:10000; */
+}
+
+#searchbottom a{
+    padding-left:8px;
+	padding-right:8px;
+    border:1px solid transparent;
+
+
+
+}
+
+#searchbottom a:hover{	
+    border-radius:20% 20% 20% 20%/50% 50% 50% 50%;
+	border:1px solid #f40;
+	background:#f40;
+	color:white;
+	}
+

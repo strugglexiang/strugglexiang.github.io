@@ -1,0 +1,366 @@
+  /* 内容部分右边 */
+.section-right{
+   float:left;
+   width:285px;
+   margin:0 auto;
+   height:100px;
+   margin-left:15px;
+   /* background:yellow; */
+   margin-top:15px;
+  
+}
+/* 右边第一部分 */
+ 
+.section-right>.r1{
+   height:638px;
+   /* background:pink; */
+   /* background-size:100% 285px; */
+}
+
+.r1-top{
+   height:167px;
+   text-align:center;
+   line-height:20px;
+   background:url("image/r1.png");
+   background-size:100% 100%;
+}
+.r1-top>img{margin-top:10px;}
+
+.r1-top>.pp2>a{
+    color:#F40!important;
+}
+
+.r1-top>.pp3>a{
+     margin-top:10px;
+     color:white;
+	 display:inline-block;
+	 width:60px;
+	 height:20px;
+	 font-size:15px;
+	 background:#ff5000;
+}
+
+.r1-center{
+    height:32px;
+	line-height:32px;
+	background:pink;
+	color:#ffe4dd;
+	text-align:center;
+	/* font-size:12px; */
+	position:relative;
+}
+.r1-center>a{color:#f40;font-size:14px;}
+
+.r1-center span{
+   display:block;
+   width:0px;
+   height:0px;
+   border:7px solid transparent;
+   border-left:7px solid #ff5000;
+   position:absolute;
+   left:236px;
+   top:8px;
+}
+
+.r1-bottom{background:white;position:relative;height:100px;}
+.r1-bottom>ul{margin-left:10px;}
+
+.r1-bottom>ul>li{
+    list-style:none;
+	float:left;
+	width:39px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	margin-right:15px;
+}
+
+.r1-bottom>ul>li:hover{border-bottom:2px solid #ff5000;}
+
+.r1-bottom>ul>li>a{color:black;}
+.r1-bottom>ul>li>a:hover{ font-weight:700;}
+
+/* 这里有鼠标移动事件 没有写*/
+.r1-bottom>ul>li ul li{
+    width:260px;
+    list-style:none;
+	float:left;
+	text-align:left;
+}
+.r1-bottom>ul>li ul li>a{
+    /* margin-left:20px; */
+	color:black;
+}
+
+.r1-bottom>ul>li .ulul2,.r1-bottom>ul>li .ulul3,
+.r1-bottom>ul>li .ulul4,.r1-bottom>ul>li .ulul5,
+.r1-bottom>ul>li .ulul6{
+    position:absolute;
+    display:none;
+
+}
+.r1-xuanxiang{
+     height:207px;
+	 background:white;
+}
+
+.r1-xuanxiang>a{
+     text-align:center;
+     width:69px;
+	 height:67px;
+	 float:left;
+	 /* background:red; */
+	 border:1px solid #f1f1f1;
+}
+
+.r1-xuanxiang>a:hover{color:#ff5000;border:1px solid orange;}
+.r1-xuanxiang>a>img{width:40px;margin-top:5px;}
+
+.app{height:125px;background:white;}
+.app-top{height:40px;}
+.app-top>p{float:left;margin:15px 0 0 15px;}
+.app-top>a{float:right;color:black;margin:15px 15px 0 0;}
+.app-top>a:hover{color:#ff5000;}
+
+.app-bottom{}
+.app-bottom>a{
+     display:block;
+     width:32px;
+	 height:32px;
+	 float:left;
+	 margin:5px 0 5px 21px;
+	 /* background:red; */
+}
+
+.app-bottom-a1{background:url("tao/taobao.png");background-size:100% 100%;}
+.app-bottom-a2{background:url("tao/wangwang.png");background-size:100% 100%;}
+.app-bottom-a3{background:url("tao/youku.png");background-size:100% 100%;}
+.app-bottom-a4{background:url("tao/zhifubao.png");background-size:100% 100%;}
+.app-bottom-a5{background:url("tao/tianmao.png");background-size:100% 100%;}
+.app-bottom-a10{background:url("tao/taobao.png");background-size:100% 100%;}
+.app-bottom-a9{background:url("tao/wangwang.png");background-size:100% 100%;}
+.app-bottom-a8{background:url("tao/dingding.png");background-size:100% 100%;}
+.app-bottom-a7{background:url("tao/zhifubao.png");background-size:100% 100%;}
+.app-bottom-a6{background:url("tao/feizhu.png");background-size:100% 100%;}
+
+
+/* 右边第二部分 */
+.section-right>.r2{
+   margin-top:10px;
+   height:110px;
+   /* background:pink; */
+}
+
+.r2-top{height:125px;background:white;}
+.r2-top{height:40px;}
+.r2-top>p{
+        width:150px;
+		height:40px;
+		float:left;
+		/* margin:15px 0 0 15px; */
+		background:url("tao/x.png")  no-repeat 0px -755px;
+
+}
+.r2-top>a{float:right;color:black;margin:15px 15px 0 0;}
+.r2-top>a:hover{color:#ff5000;}
+
+
+.r2-bottom{
+        height:60px;
+		background:white;
+}
+.r2-bottom-left{
+        float:left;
+		width:50px;
+		height:50px;
+		background:url("tao/q1.webp");
+		background-size:100% 100%;
+		margin-left:10px;
+}
+.r2-bottom-right{
+       float:left;
+	   margin-left:10px;
+	   width:180px;
+        
+}
+.r2-bottom-right a{
+       line-height:15px;
+	   color:black;
+}
+.r2-bottom-right-a1{font-weight:700;font-size:16px;}
+.r2-bottom-right-a1:hover{color:#ff5000;}
+
+/* 右边第三部分 */
+.section-right>.r3{
+   margin-top:10px;
+   height:1225px;
+   background:white;
+/* 285 */
+}
+.r3-top{
+   height:51px;
+   background:url("tao/x.png")  no-repeat 0px -634px;
+   
+}
+
+.r3-bottom{
+   /* height:1225px; */
+}
+
+#r3-bottom-div1-10{
+   height:100px;
+   margin-top:10px;
+   /* background:red; */
+
+}
+
+#r3-bottom-div1-10-left{
+   width:100px
+   height:100px;
+   float:left;
+   margin-left:10px;
+   
+}
+
+#r3-bottom-div1-10-right{
+   width:170px;
+   height:100px;
+   float:left;
+   margin-left:5px;
+   
+}
+
+#r3-bottom-div1-10-right>h3>a{
+   font-size:15px;
+   color:black;
+}
+#r3-bottom-div1-10-right>h3>a:hover{
+   color:#ff5000;
+}
+#r3-bottom-div1-10-right>p{
+      margin-top:7px;
+	 overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis; 
+	  }
+
+
+#r3-bottom-div11{
+   height:27px;
+   margin-top:30px;
+   /* text-align:center; */
+   line-height:27px;
+}
+
+
+#r3-bottom-div11>a{
+   display:block;
+   color:#666;
+   font-size:14px;
+   width:150px;
+   text-align:center;
+   margin:0 auto;
+   padding-left:5px;
+   background:url("tao/jiazai.png") no-repeat left;
+}
+
+#r3-bottom-div11>a:hover{
+     color:#F40;
+	 background:url("tao/jiazai2.png") no-repeat left;
+}
+
+
+
+
+
+
+/* 右边第四部分 */
+.section-right>.r4{
+   margin-top:10px;
+   height:1130px;
+   background:white;
+}
+
+.r4-top{
+   height:51px;
+  background:url("tao/x.png")  no-repeat 8px -791px;
+}
+
+
+#r4-bottom-1-4{
+   width:285px;
+   height:250px;
+   /* background:red; */
+   margin-top:8px;
+   overflow:hidden;
+   line-height:20px;
+   border-bottom:2px solid rgb(246,246,246);
+}
+
+#r4-bottom-1-4>p{margin:0 0 0 9px;font-size:15px;}
+#r4-bottom-1-4>p>a{color:#666;font-weight:600;font-size:15px;}
+#r4-bottom-1-4>p>a:hover{color:#F40;}
+#r4-bottom-1-4>div{height:195px;}
+#r4-bottom-1-4-left{
+     width:100px;
+	 height:195px;
+	 border-right:1px solid white;
+	 float:left;
+}
+#r4-bottom-1-4-left img{width:100px;height:94px;}
+#r4-bottom-1-4-left-top{
+    width:100px;
+	height:95px;
+	border-bottom:1px solid white;
+}
+
+#r4-bottom-1-4-left-bottom{
+    width:100px;
+	height:94px;
+}
+
+#r4-bottom-1-4-right{
+    float:left;
+	height:195px;
+	width:184px;
+	/* background:red; */
+}
+
+#r4-bottom-1-4-right img{width:184px;height:190px;}
+
+
+#r4-bottom-last{
+   height:27px;
+   margin-top:10px;
+   /* text-align:center; */
+   line-height:27px;
+}
+
+#r4-bottom-last>a{
+   display:block;
+   color:#666;
+   font-size:14px;
+   width:150px;
+   text-align:center;
+   margin:0 auto;
+   padding-left:5px;
+   background:url("tao/yanjing.png") no-repeat left;
+}
+
+#r4-bottom-last>a:hover{
+     color:#F40;
+	 background:url("tao/yanjing1.png") no-repeat left;
+}
+
+
+
+/* 右边第5部分 */
+.section-right>.r5{
+   margin-top:10px;
+   height:273px;
+   background:url("tao/aa5.jpg") no-repeat bottom;
+   background-size:100% 87%;
+   font-size:12px;
+   color:#666;
+
+}

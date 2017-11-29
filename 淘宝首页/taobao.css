@@ -1,0 +1,614 @@
+html,body{
+    width:100%;
+	height:100%;
+	font-size:12px;
+}
+
+*{
+    text-decoration:none;
+	padding:0px;
+	margin:0px;
+}
+input{
+    border:0;
+	outline:none;
+}
+/* header */
+.header{
+     /* height:38px; */
+	 height:38px;
+	 /* background-color:pink; */
+}
+
+.header>nav{
+     /* height:38px; */
+	 height:486px;
+	 background-color:green;
+	 background-color:rgb(246,246,246);
+	 overflow:hidden;
+	 
+}
+
+.header>nav>div{
+    width:1200px;
+	margin:0 auto;
+}
+
+.header>nav>div>.left{
+     width:340px;
+     height:38px;
+	 background-color:rgb(246,246,246);
+	 float:left;
+	 
+	 /* text-align:center; */
+} 
+
+.header>nav>div>.left>ul{
+     list-style:none;
+	 font-size:12px;
+}
+
+.header>nav>div>.left>ul>li{
+    float:left;
+	line-height:38px;
+	width:80px;
+	text-align:center;
+}
+.header>nav>div>.left>ul>li>a:hover{color:#F40;}
+
+.header>nav>div>.left>ul>#x>a{
+    color:rgb(214,35,28);
+}
+
+.header>nav>div>.left>ul>li>a{
+    color:black;
+}
+
+/* 导航左边部分下拉框 */
+
+#zgdl{
+     position:relative;
+	 border:1px solid transparent;
+}
+#zgdl:hover{
+		background:white;
+		border:1px solid #ccc;
+		/* border-top:1px solid #ccc; */
+		/* border-left:1px solid #ccc; */
+		/* border-right:1px solid #ccc; */
+}
+#zgdl>span{
+    float:left;
+    
+}
+#zgdl>i{
+    float:left;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+#zgdl>div{
+    height:250px;
+    position:absolute;
+	left:-1px;
+	top:38px;
+	display:none;
+	z-index:1000;
+	background:white;
+	overflow-y:scroll;
+	text-align:left;
+	/* padding-left:10px; */
+	border:1px solid transparent;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#zgdl:hover div{display:block;}
+
+#zgdl>div>p{
+	width:250px;
+	height:29px;
+	line-height:29px;
+	padding-left:10px;
+	/* margin-left:10px; */
+
+}
+#zgdl>div>p:hover{
+   background:#ccc;
+}
+
+#zgdl>div>p>a{color:black;display:block;}
+
+
+
+
+
+
+
+.header>nav>div>.right{
+     width:580px;
+     height:38px;
+	 /* background-color:red; */
+	 float:right;
+	 /* background-color:rgb(246,246,246); */
+	 margin:0 auto;
+} 
+
+.header>nav>div>.right>ul{
+     list-style:none;
+	 font-size:12px;
+	 color:
+}
+
+.header>nav>div>.right>ul>li{
+     float:left;
+	 line-height:38px;
+	 width:80px;
+	 text-align:center;
+	 
+}
+
+.header>nav>div>.right>ul>li>a{
+     /* display:block; */
+     color:black;
+	 /* float:left; */
+}
+.header>nav>div>.right>ul>li>a:hover{color:#f40;}
+.header>nav>div>.right>ul>li>.taobao{
+     /* display:inline-block; */
+	 float:right;
+	 width:17px;
+	 height:17px;
+	 background-image:url(image/xiala.png);
+	 margin-top:12px;
+	 margin-left:-12px;;
+}
+
+/* 导航右边部分的下拉框 */
+/* 我的淘宝 */
+#wdtb{
+     position:relative;
+	 border:1px solid transparent;
+}
+#wdtb:hover{
+        background:white;
+	  	border:1px solid transparent;
+		border-top:1px solid #ccc;
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+		border-bottom:1px solid black;
+}
+#wdtb>i{
+    float:right;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+#wdtb>span{
+    float:left;
+    
+}
+
+#wdtb>div{
+    height:70px;
+    position:absolute;
+	left:-1px;
+	top:38px;
+	display:none;
+	z-index:1000;
+	background:white;
+	/* overflow-y:scroll; */
+	text-align:left;
+	/* padding-left:10px; */
+	/* border:1px solid #ccc; */
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#wdtb:hover div{display:block;}
+
+#wdtb>div>p{
+	width:100px;
+	height:29px;
+	line-height:29px;
+	padding-left:10px;
+	/* margin-left:10px; */
+
+
+}
+#wdtb>div>p:hover{
+   background:#ccc;
+}
+
+#wdtb>div>p>a{color:black;display:block;}
+
+
+/* 收藏夹 */
+#scj{
+     position:relative;
+	 border:1px solid transparent;
+}
+#scj:hover{
+		background:white;
+		border:1px solid transparent;
+		border-top:1px solid #ccc;
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+}
+
+#scj>#ii2{
+    float:left;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/shoucang1.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+#scj>#ii1{
+    float:right;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+#scj>div{
+    height:70px;
+    position:absolute;
+	left:-1px;
+	top:37px;
+	display:none;
+	z-index:1000;
+	background:white;
+	/* overflow-y:scroll; */
+	text-align:left;
+	/* padding-left:10px; */
+	border:1px solid transparent;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#scj:hover div{display:block;}
+#scj:hover #ii2{background:url("daohang/shoucang.png") no-repeat;}
+#scj>div>p{
+	width:65px;
+	height:29px;
+	line-height:29px;
+	padding-left:5px;
+	/* margin-left:10px; */
+
+}
+#scj>div>p:hover{
+   background:#ccc;
+}
+
+#scj>div>p>a{color:black;display:block;}
+
+/* 购物车 */
+#gouwuche>i{
+    float:left;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/gouwuche.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+/* 卖家中心 */
+
+#mjzx{
+     position:relative;
+	 border:1px solid transparent;
+}
+#mjzx:hover{
+		background:white;
+		border:1px solid transparent;
+		border-top:1px solid #ccc;
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+}
+
+#mjzx>i{
+    float:right;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+
+#mjzx>div{
+    height:165px;
+    position:absolute;
+	left:-1px;
+	top:37px;
+	display:none;
+	z-index:1000;
+	background:white;
+	/* overflow-y:scroll; */
+	text-align:left;
+	/* padding-left:10px; */
+	border:1px solid transparent;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#mjzx:hover div{display:block;}
+
+#mjzx>div>p{
+	width:100px;
+	height:22px;
+	line-height:22px;
+	padding-left:5px;
+	/* margin-left:10px; */
+
+}
+#mjzx>div>p:hover{
+   background:#ccc;
+}
+
+#mjzx>div>p>a{color:black;display:block;}
+
+
+/* 联系客服 */
+
+
+#lxkf{
+     position:relative;
+	 border:1px solid transparent;
+}
+#lxkf:hover{
+		background:white;
+		border:1px solid transparent;
+		border-top:1px solid #ccc;
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+}
+
+#lxkf>i{
+    float:right;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 5px;
+}
+
+
+#lxkf>div{
+    height:70px;
+    position:absolute;
+	left:-1px;
+	top:37px;
+	display:none;
+	z-index:1000;
+	background:white;
+	/* overflow-y:scroll; */
+	text-align:left;
+	/* padding-left:10px; */
+	border:1px solid transparent;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#lxkf:hover div{display:block;}
+
+#lxkf>div>p{
+	width:70px;
+	height:29px;
+	line-height:29px;
+	padding-left:5px;
+	/* margin-left:10px; */
+
+}
+#lxkf>div>p:hover{
+   background:#ccc;
+}
+
+#lxkf>div>p>a{color:black;display:block;}
+
+/* 最后的大导航 */
+
+
+#wzdh{
+    
+     width:86px;
+     position:relative;
+	 border:1px solid transparent;
+}
+#wzdh:hover{
+		background:white;
+		border:1px solid transparent;
+		border-top:1px solid #ccc;
+		border-left:1px solid #ccc;
+		border-right:1px solid #ccc;
+}
+
+#wzdh>#ii2{
+    float:left;
+	width:16px;
+	height:16px;
+	background:red;
+	background:url("daohang/daohang.png") no-repeat;
+    margin:12px 0 0 0;
+}
+#wzdh>#ii1{
+    float:right;
+	width:12px;
+	height:12px;
+	background:red;
+	background:url("daohang/xiala.png") no-repeat;
+    margin:12px 0 0 0;
+}
+
+#wzdh>div{
+    width:1200px;
+    height:350px;
+    position:absolute;
+	left:-1115px;
+	top:37px;
+	display:none;
+	z-index:1000;
+	background:white;
+	/* overflow-y:scroll; */
+	text-align:left;
+	/* padding-left:10px; */
+	border:1px solid transparent;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+#wzdh:hover div{display:block;}
+
+#wzdh>div>p>a{color:black;display:block;}
+
+
+
+#wzdh>div>div{
+    width:298px;
+	height:350px;
+	border-left:1px solid #ccc;
+	float:left;
+	/* background:red; */
+}
+
+#dadaohang a{letter-spacing:3px;}
+
+/* 第一小块 */
+#dadaohang1 h2{
+    color:#f40;
+	margin:5px 0 10px 10px;
+
+}
+
+
+#dadaohang1>a{
+   display:inline-block;
+   width:60px;
+   height:20px;
+   /* background:red; */
+   text-align:center;
+   line-height:20px;
+   color:black;
+   margin-left:10px;
+
+}
+
+#dadaohang1>a:hover{
+   background:#F40;
+   color:white;
+}
+
+#ddd{
+   display:inline-block;
+   width:14px;
+   height:9px;
+   background:url("daohang/xx.gif") no-repeat;
+   position:relative;
+   top:-5px;
+   left:3px;
+}
+
+#fff{
+   display:inline-block;
+   width:14px;
+   height:9px;
+   background:url("daohang/xxx.gif") no-repeat;
+   position:relative;
+   top:-5px;
+   left:3px;
+}
+
+/* 第二小块 */
+
+#dadaohang2 h2{
+    color:#9fb838;
+	margin:5px 0 10px 10px;
+
+}
+
+
+#dadaohang2>a{
+   display:inline-block;
+   width:60px;
+   height:20px;
+   /* background:red; */
+   text-align:center;
+   line-height:20px;
+   color:black;
+   margin-left:10px;
+
+}
+
+#dadaohang2>a:hover{
+   background:#9fb838;
+   color:white;
+}
+
+
+
+/* 第三小块 */
+#dadaohang3 h2{
+    color:#d75696;
+	margin:5px 0 10px 10px;
+
+}
+
+
+#dadaohang3>a{
+   display:inline-block;
+   width:60px;
+   height:20px;
+   /* background:red; */
+   text-align:center;
+   line-height:20px;
+   color:black;
+   margin-left:10px;
+
+}
+
+#dadaohang3>a:hover{
+   background:#d75696;
+   color:white;
+}
+
+
+/* 第四小块 */
+#dadaohang4 h2{
+    color:#2e9fdb;
+	margin:5px 0 10px 10px;
+
+}
+
+
+#dadaohang4>a{
+   display:inline-block;
+   width:60px;
+   height:20px;
+   /* background:red; */
+   text-align:center;
+   line-height:20px;
+   color:black;
+   margin-left:10px;
+
+}
+
+#dadaohang4>a:hover{
+   background:#2e9fdb;
+   color:white;
+}
+

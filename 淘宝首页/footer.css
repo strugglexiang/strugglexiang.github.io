@@ -1,0 +1,165 @@
+/* footer */
+
+.footer{
+     width:100%;
+	 height:267px;
+	 background:white;
+}
+
+.footer-top{
+     width:1190px;
+	 height:71px;
+	 margin:0 auto;
+	 border-bottom:1px solid #ccc;
+	 line-height:35px;
+	 
+
+}
+
+.footer-top>a{color:#6c6c6c;padding-left:7px;padding-right:8px;}
+
+.footer-top>a:hover{color:#F40;}
+
+.footer-center{
+     width:1190px;
+	 height:99px;
+	 margin:0 auto;
+	 line-height:25px;
+	 color:#6c6c6c;
+	 
+
+}
+.footer-center>a{color:#6c6c6c;padding-left:7px;padding-right:8px;}
+.footer-center>a:hover{color:#F40;}
+
+.footer-center>p>a{color:#6c6c6c;padding-left:5px;padding-right:8px;border-right:1px solid #ccc;}
+
+.footer-center>p>a:hover{color:#F40;}
+
+#vv{
+   padding-left:32px;
+   background:url("tao/xihuan/jincha.png")  no-repeat left; 
+}
+.footer-bottom{
+     width:1190px;
+	 height:80px;
+	 margin:0 auto;
+
+}
+
+.footer-bottom>a{
+     margin-left:15px;
+}
+
+#la1{   
+    display:inline-block;
+    background-position:0px 0px;
+	height:40px;
+    width:36px;
+    background:url("tao/xihuan/zuihou.jpg") no-repeat;
+}
+
+#la2{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   background-position:-40px 0px;
+   width:33px;
+   height:40px;
+}
+
+
+
+
+#la3{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+   background-position:-80px 0px;
+    width:50px;
+}
+
+
+#la4{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+   background-position:-140px 0px;
+   width:83px
+}
+
+#la5{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+       background-position: -240px 0px;
+    width: 94px;
+   
+}
+
+
+#la6{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+       background-position: -650px 0px;
+    width: 105px;
+   
+   
+}
+
+
+#la7{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+   background-position:-345px 0px;
+    width: 82px;
+   
+}
+
+
+#la8{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+       background-position: -761px 0px;
+    width: 97px;
+   
+}
+
+
+
+#la9{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+       background-position: -884px 0px;
+    width: 249px;
+   
+}
+
+
+#la10{
+   display:inline-block;
+   background:url("tao/xihuan/zuihou.jpg") no-repeat;
+   height:40px;
+   background-position: -426px 0px;
+    width: 223px;
+   
+}
+
+#la11{
+   display:inline-block;
+   background:url("tao/xihuan/lalala.gif") no-repeat;
+   height:40px;
+   background-position:0px 0px;
+   width:40px;
+   
+}
+
+
+
+
+
+
+

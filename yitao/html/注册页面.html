@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/zhuce.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index-footer.css"/>
+		<script src="../js/myajax.js"></script>
+	</head>
+	<body>
+		<div id="" class="header">
+			<div class="header-guanggao">
+				<a href="#">
+					<img src="../resource/imges/guanggao.jpg"/>
+				</a>
+			</div>
+			<div class="header-nav">
+				<div>
+					<span class="span1">
+					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
+					</span>
+				    <ul>
+				    	<li><a href="">我的订单</a></li>
+						<li><a href="">收藏夹</a></li>
+						<li><a href="">我的集分宝</a></li>
+						<li><a href="">消息</a></li>
+						<li><a href="">商家报名</a></li>
+				    </ul>
+				    <span class="span2">
+						<a href="登陆界面.html" name="login" target="_blank" >亲,请登录</a>
+						&nbsp;&nbsp;
+					</span>									
+				 </div>
+			 </div>
+        </div>
+		<div class="zhucesection">
+			    <h1>
+			    	您进入了注册页面
+			    </h1>
+				<div class="zhuce">
+					<p class="zhucezhanghao">
+						<span>
+							请输入要注册的账号：
+						</span></br>
+						<input type="" name="" id="" value="" placeholder="注册号后牢记次账号"/>
+					</p>
+					<p class="zhucemima1">
+						<span>
+							请输入密码：
+						</span></br>
+						<input type="password" name="" id="" value="" />
+					</p>
+					<p class="zhucemima2">
+						<span >
+							再次确认密码：
+						</span></br>
+						<input type="password" name="" id="" value="" />
+					</p>
+					<p class="zhucegongneng">
+						<input type="button" name="" id="" value="注册" />
+						<a href="登陆界面.html">已有账号？进入登陆界面</a>
+					</p>
+				</div>
+				<script type="text/javascript">
+					var zhucezhanghao=document.querySelector(".zhucezhanghao input");
+					var zhucemima1=document.querySelector(".zhucemima1 input");
+					var zhucemima2=document.querySelector(".zhucemima2 input");
+					var zhucegongneng=document.querySelector(".zhucegongneng input");
+					
+					zhucegongneng.onclick=function(){
+		//				console.log(1);
+						if(zhucemima1.value!=zhucemima2.value){
+							zhucemima1.value="";
+							zhucemima2.value="";
+							alert("两次密码不一致");
+						}				
+						myajax.post(
+							"http://h6.duchengjiu.top/shop/api_user.php",
+							{
+								status: 'register',
+						        username:zhucezhanghao.value,
+						        password:zhucemima1.value
+							},
+							function(error,datajson){
+								var obj=JSON.parse(datajson);
+		//						console.log(obj)
+		                        if(obj.message=="注册成功"){
+		                        	alert("恭喜，注册成功");                       	
+		                        }else{
+		                        	alert(obj.message+"请重新注册");
+		                        }
+							
+							}
+						)
+					}
+				</script>
+			</div>	
+			<div class="footer">
+			<div class="footer-top">
+				<div id="">
+					<dl style="margin-left: 90px;">
+						<dt><a href="#">关于我们</a></dt>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">帮助中心</a></dt>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+					</dl>
+					<div>
+						<h2>关注我们</h2>
+						<img src="../resource/imges/erweima.png"/>
+					</div>
+					<dl>
+						<dt><a href="#">优惠地图</a></dt>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">商家合作</a></dt>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div id="">
+					<ul>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+					</ul>
+					<p>Copyright © 2010-2017 ETAO.COM 版权所有</p>
+					<p>增值电信业务经营许可证：浙B2-20080224</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>收货地址界面</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index-footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/dizhisection.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/modal.css"/>
+		<script src="../js/myajax.js"></script>
+		  <style>
+    form {
+      padding-right: 150px;
+    }
+    label {
+      display: block;
+      text-align: right;
+      margin-bottom: 5px;
+    }
+    .address-ul {
+      overflow: hidden;
+      height: 130px;
+    }
+    .address-ul li {
+      width: 250px;
+      height: 120px;
+      overflow: hidden;
+      border: 1px solid #e4e4e4;
+      padding: 5px;
+      background-color: #ccc;
+      line-height: 200%;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .address-ul li.selected {
+      border: 1px solid orange;
+    }
+    .delete {
+      float: right;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 5px;
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+    }
+    .delete:hover {
+      background-color: white;
+      color: orange;
+    }
+    .show-all-address {
+      clear: both;
+      width: 100px;
+      text-align: center;
+      margin-top: 10px;
+      padding: 5px;
+      cursor: pointer;
+      background-color: orange;
+      color: white;
+    }
+    .show-all-address:hover {
+      background-color: white;
+      color: orange;
+    }
+  </style>
+	</head>
+	<body>
+		<div id="" class="header">
+			<div class="header-guanggao">
+				<a href="#">
+					<img src="../resource/imges/guanggao.jpg"/>
+				</a>
+			</div>
+			<div class="header-nav">
+				<div>
+					<span class="span1">
+					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
+					</span>
+				    <ul>
+				    	<li><a href="订单界面.html">查看已有订单</a></li>
+						<li><a href="index.html" style="color: red;">返回首页</a></li>
+						<li><a href="购物车界面.html">返回购物车</a></li>
+						<li><a href="">消息</a></li>
+						<li><a href="">商家报名</a></li>
+				    </ul>
+				     <span class="span2" id="yazhengdenglu">
+						
+					</span>
+					<!--用户登录，显示用户名和退出，否则显示登录和注册接口-->	
+					<script src="../js/yanzhengdenglu.js"></script>
+				 </div>
+			 </div>
+        </div>
+        
+            <!--中间部分-->
+			 <div class="dizhisection">
+			 	 <div>
+                     <p>
+                     	<span class="tishidizhi">
+                     		收货地址如下：
+                     	</span>
+                     	<span class="tishidizhi">
+                     		下订单前请选择收货地址
+                     	</span>
+                     	<span class="tianjiashouhuo" id="tianjiashouhuo">
+                     		添加收货地址
+                     	</span>
+                     	<script src="../js/modal.js"></script>
+                     </p>
+                    
+			 	 </div>
+			 	  
+			 	 <div class="dizhibox">
+			 	 	<ul class="dizhiul" id="dizhiul">
+			 	 		
+			 	 	</ul>
+			 	 	<input type="button" name="" id="xdd" value="下订单" />
+			 	 	<!--这里面申请登录用户的收获地址并且显示出来-->
+                     <script src="../js/xianshidizhi.js"></script>
+			 	 </div>
+			 	 
+			 </div>
+			 
+		       <!--下订单功能-->
+		       <script type="text/javascript">
+		       	   var xdd=document.querySelector("#xdd");
+					xdd.onclick = function() {
+						alert("请登录");
+			       }
+
+                 
+		       </script>
+		   <div class="footer">
+			<div class="footer-top">
+				<div id="">
+					<dl style="margin-left: 90px;">
+						<dt><a href="#">关于我们</a></dt>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+						<dd><a href="#">关于我们</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">帮助中心</a></dt>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+						<dd><a href="#">帮助中心</a></dd>
+					</dl>
+					<div>
+						<h2>关注我们</h2>
+						<img src="../resource/imges/erweima.png"/>
+					</div>
+					<dl>
+						<dt><a href="#">优惠地图</a></dt>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+						<dd><a href="#">优惠地图</a></dd>
+					</dl>
+					<dl>
+						<dt><a href="#">商家合作</a></dt>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+						<dd><a href="#">商家合作</a></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div id="">
+					<ul>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+						<li><a href="#">阿里巴巴</a></li>
+					</ul>
+					<p>Copyright © 2010-2017 ETAO.COM 版权所有</p>
+					<p>增值电信业务经营许可证：浙B2-20080224</p>
+				</div>
+			</div>
+		</div>
+		
+		<!--模态框-->
+		  <div class="modal register">
+    <div class="container">
+      <div class="hd">添加收货地址<span class="close">关闭</span></div>
+      <div class="bd">
+        <form>
+          <label>
+            地址名称: <input type="text" name="address_name" value="家">
+          </label>
+          <label>
+            收货人: <input type="text" name="consignee" value="maxwelldu">
+          </label>
+          <label>
+            国家: <input type="text" name="country" value="中国">
+          </label>
+          <label>
+            省: <input type="text" name="province" value="北京">
+          </label>
+          <label>
+            市: <input type="text" name="city" value="北京">
+          </label>
+          <label>
+            区: <input type="text" name="district" value="石景山">
+          </label>
+          <label>
+            地址: <input type="text" name="address" value="实兴东街11号朗诚大厦南楼二层">
+          </label>
+          <label>
+            邮编: <input type="text" name="zip_code" value="100000">
+          </label>
+          <label>
+            手机号: <input type="text" name="mobile" value="18518368050">
+          </label>
+          <label>
+            邮箱: <input type="text" name="email" value="dcj3sjt@126.com">
+          </label>
+          <label>
+            电话: <input type="text" name="tel" value="010-91519281">
+          </label>
+          <label>
+            最佳送货时间: <input type="text" name="besttime" value="周一到周五">
+          </label>
+          <label>
+            标志物: <input type="text" name="sign_building" value="">
+          </label>
+          <label>
+            <input type="button" value="添加" class="add">
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="../js/modal.js" charset="utf-8"></script>
+  <script>
+    var modal = new Modal("#tianjiashouhuo");
+//  console.log(modal)
+    //给添加按钮添加事件
+    var oAdd = document.querySelector('.add');
+    oAdd.onclick = function() {
+      var postobj = serializeForm(document.querySelector('form'));
+      myajax.post('http://h6.duchengjiu.top/shop/api_useraddress.php?status=add&token='+localStorage.token, postobj, function(err, responseText){
+        var json = JSON.parse(responseText);
+        console.log(json);
+        if (json.code === 0) {
+//        modal.hide();
+//        showAddress();
+          location.reload();
+          
+        }
+      });
+    }
+  </script>
+	</body>
+</html>

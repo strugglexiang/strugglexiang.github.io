@@ -1,0 +1,87 @@
+.dizhisection{
+	width: 100%;
+	position: relative;
+}
+/*下订单按钮*/
+
+.dizhisection>div{
+	width: 1200px;
+	margin: 0 auto;
+	/*background: pink;*/
+	overflow: hidden;
+	/*position: relative;*/
+}
+.dizhisection>div>p{
+	margin-top: 20px;
+}
+
+.dizhisection>div
+.tianjiashouhuo{
+	display: inline-block;
+	width: 100px;
+	height: 35px;
+	text-align: center;
+	margin-left: 15px;
+	cursor: pointer;
+	line-height: 35px;
+	border-radius: 8px;
+	padding-left: 7px;
+	padding-right: 7px;
+	background: #9ACD32;
+	color: sienna;
+}
+.tianjiashouhuo:hover{
+	color: white;
+	background: orange;
+}
+.dizhibox{
+	min-height: 300px;
+	padding: 15px;
+	
+}
+.dizhiul{
+	list-style: none;
+}
+/*地址样式*/
+/*这里是LI*/
+#dizhixiangshi{
+	width: 350px;
+	height: 100px;
+	background: #ccc;
+	overflow: hidden;
+	padding: 7px;
+	position: relative;
+	float: left;
+	margin-top:25px;
+	margin-right: 25px;
+	border: 2px solid transparent;
+}
+
+#dizhiul .selected{
+	border: 2px solid red;
+}
+
+
+
+#dizhixiangshi>span{
+	display: block;
+	line-height: 24px;
+}
+
+#dizhixiangshi>#shanchudizhi{
+	position: absolute;
+	right: 12px;
+	top: 10px;
+	background: orange;
+	padding: 5px;
+	border-radius: 7px;
+	color: black;
+	cursor: pointer;
+}
+#dizhixiangshi>#shanchudizhi:hover{
+	color: ghostwhite;
+}
+
+.dizhibox input{
+	margin: 20px 0 0 20px ;
+}

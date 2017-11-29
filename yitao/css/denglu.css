@@ -1,0 +1,46 @@
+.denglusection{
+	width: 100%;
+	overflow: hidden;
+}
+.denglusection>h1{
+	font-size: 25px;
+	font-weight: 900;
+	text-align: center;
+	margin-top: 25px;
+	color: lightslategrey;
+}
+.denglu{
+	width: 400px;
+	height: 400px;
+	border: 1px solid black;
+	/*登陆盒子的位置*/
+	margin: 20px auto;
+}
+.denglu>.zhanghao{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.denglu>.zhanghao>input,.denglu>.mima>input{
+	padding-left: 10px;
+}
+
+.denglu>.mima{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.denglu>.gongneng{
+	margin-top: 20px;
+}
+.denglu>.gongneng>input{
+	margin-left: 20px;
+}
+.denglu>.gongneng>a{
+	text-decoration: none;
+	font-size: 12px;
+	margin-left: 45px;
+	color: black;
+}
+.denglu>.gongneng>a:hover{
+	color: #FF4200;
+}

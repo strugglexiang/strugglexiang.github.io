@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/huaji.jpg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="线性数据结构我们知道，数组中的数据呈线性一个接一个排列，我们称其数据结构是线性的。在所有的线性数据结构中，最常见的栈、队列以及链表。本篇就记录有关栈、队列、链表的基础知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法面试需要掌握的数据结构（二）">
+<meta property="og:url" content="https://strugglexiang.xyz/2020/05/19/33-算法面试需要掌握的数据结构（二）/index.html">
+<meta property="og:site_name" content="ST&#39;s blog">
+<meta property="og:description" content="线性数据结构我们知道，数组中的数据呈线性一个接一个排列，我们称其数据结构是线性的。在所有的线性数据结构中，最常见的栈、队列以及链表。本篇就记录有关栈、队列、链表的基础知识。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://source.strugglexiang.xyz/20_5_14_4.jpg">
+<meta property="og:image" content="https://source.strugglexiang.xyz/20_5_14_3.jpg">
+<meta property="og:updated_time" content="2022-03-22T19:11:28.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法面试需要掌握的数据结构（二）">
+<meta name="twitter:description" content="线性数据结构我们知道，数组中的数据呈线性一个接一个排列，我们称其数据结构是线性的。在所有的线性数据结构中，最常见的栈、队列以及链表。本篇就记录有关栈、队列、链表的基础知识。">
+<meta name="twitter:image" content="https://source.strugglexiang.xyz/20_5_14_4.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://strugglexiang.xyz/2020/05/19/33-算法面试需要掌握的数据结构（二）/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>算法面试需要掌握的数据结构（二） | ST's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">千里之行，始于足下</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2020/05/19/33-算法面试需要掌握的数据结构（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+      <meta itemprop="description" content="咸鱼的人生">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">算法面试需要掌握的数据结构（二）
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-19 10:51:39" itemprop="dateCreated datePublished" datetime="2020-05-19T10:51:39+08:00">2020-05-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-23 03:11:28" itemprop="dateModified" datetime="2022-03-23T03:11:28+08:00">2022-03-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/数据结构和算法/" itemprop="url" rel="index"><span itemprop="name">数据结构和算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h1><p>我们知道，数组中的数据呈线性一个接一个排列，我们称其数据结构是线性的。在所有的线性数据结构中，最常见的栈、队列以及链表。本篇就记录有关栈、队列、链表的基础知识。</p>
+<a id="more"></a>
+<h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><p>在<code>JS</code>中，栈和队列的实现一般都依托于数组来实现。它们可以看作是一种特殊的数组。它们和数组的区别在于<strong>对增删操作有特殊的限制</strong>。</p>
+<p>普通的数组结构，它的增删没有任何限制，普通数组可以在任意位置增删自己的元素。</p>
+<p>栈只能增删末尾位置的元素。</p>
+<p>队列只能增删头部位置的元素。</p>
+<h2 id="栈（stack）"><a href="#栈（stack）" class="headerlink" title="栈（stack）"></a>栈（stack）</h2><p>栈是一种先进后出的数据结构，它只能增删末尾位置的元素。</p>
+<p>栈可以看作只能使用<code>push</code>和<code>pop</code>方法的数组(push为增，pop为删)。</p>
+<p>为了快速理解和记忆栈，我们可以把它理解为小卖部卖冰淇淋的冰箱，在放入冰淇淋时，越先放入的冰淇淋越接近底部位置。在拿出时，会先拿顶部位置的冰淇淋，再拿位于底部位置的。也就是说，先放入的冰淇淋反而后拿出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栈的增删</span></span><br><span class="line"><span class="keyword">let</span> stack = []</span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line">stack.push(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">while</span>(stack.length) &#123;</span><br><span class="line">    <span class="comment">// 栈顶元素</span></span><br><span class="line">    <span class="keyword">const</span> top = stack[stack.length - <span class="number">1</span>]</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前拿出的元素是'</span>, top)</span><br><span class="line">    stack.pop()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>栈的增删的问题，一边比较关键的点是找到栈顶元素。</p>
+<h2 id="队列（queue）"><a href="#队列（queue）" class="headerlink" title="队列（queue）"></a>队列（queue）</h2><p>队列是一种先进先出的数据结构。它可以看作只能使用<code>push</code>和<code>shift</code>方法的数组（push为增，shift为删）。</p>
+<p>方便记忆与理解，可以将队列看作去麦当劳买餐排队的队伍。排在前面的人先付款买单，因此先脱离队伍。也就是说先排队的人先出去。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> queue = []</span><br><span class="line">queue.push(<span class="number">1</span>)</span><br><span class="line">queue.push(<span class="number">2</span>)</span><br><span class="line">queue.push(<span class="number">3</span>)</span><br><span class="line">queue.push(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(queue.length) &#123;</span><br><span class="line">    <span class="comment">// 队头元素</span></span><br><span class="line">    <span class="keyword">const</span> top = queue[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前出队的元素'</span>, top)</span><br><span class="line">    queue.shift()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在处理有关队列的问题时，一般关键点是找到队头元素</p>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><p>链表也是一种线性数据结构，它和数组的区别主要在于<strong>元素在内存中的存储规律不同</strong>。</p>
+<p>数组在内存中的表现是<strong>一段连续的内存空间</strong>，其中元素紧紧相连，一个接一个，只要知道第一个元素在内存中的位置，就能根据当前元素的索引值推算出当前元素在内存中的位置。因此对于数组来说，每一个元素都可以直接通过下标直接定位。</p>
+<p>链表和数组不同，它允许内部元素散落在内存的不同位置，它的数据在内存中的可以是离散的。正是因为数据离散，当前元素除了存储元素的值，还需存储下一个元素的索引。</p>
+<p>链表中的每个元素称为节点，每个节点的结构都包含两部分：数据域与指针域。</p>
+<p>在js中，链表是以对象嵌套的形式存在<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    val: <span class="number">1</span>,</span><br><span class="line">    next: &#123;</span><br><span class="line">        val: <span class="number">2</span>,</span><br><span class="line">        next: &#123;</span><br><span class="line">            val: <span class="number">3</span>,</span><br><span class="line">            next: <span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>图解如下：<br><img src="https://source.strugglexiang.xyz/20_5_14_4.jpg" alt></p>
+<p>想要访问链表中的节点，我们必须从起点结点开始，逐个访问<code>next</code>，直到找到我们的目标节点。为了确保起点位置是可抵达的，有时我们会创建一个head节点指向链表的开始位置。<br><img src="https://source.strugglexiang.xyz/20_5_14_3.jpg" alt></p>
+<h2 id="链表节点的创建"><a href="#链表节点的创建" class="headerlink" title="链表节点的创建"></a>链表节点的创建</h2><p>创建链表节点，需要创建一个构造函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chainNode</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = val</span><br><span class="line">    <span class="keyword">this</span>.next = <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>节点创建后，将当前节点的<code>next</code>值指向下一个节点就构成一个链表<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> node1 = <span class="keyword">new</span> chainNode(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> node2 = <span class="keyword">new</span> chainNode(<span class="number">2</span>)</span><br><span class="line">node1.next = node2</span><br></pre></td></tr></table></figure></p>
+<h2 id="链表元素的添加"><a href="#链表元素的添加" class="headerlink" title="链表元素的添加"></a>链表元素的添加</h2><p>在末尾添加元素是很简单的，只需将最后一个节点的next指向新的节点就行。</p>
+<p>重要的是如何在任意两个节点间添加一个新的节点。这里的关键是<strong>找到前驱节点和目标节点并调整它们next的指向</strong>。</p>
+<ol>
+<li>找到前驱节点和目标节点。</li>
+<li>目标节点的next指向前驱节点的next</li>
+<li>前驱节点的next指向目标节点<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个链表</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chainNode</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">    <span class="keyword">this</span>.next = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> node1 = <span class="keyword">new</span> chainNode(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> node2 = <span class="keyword">new</span> chainNode(<span class="number">2</span>)</span><br><span class="line">node1.next = node2</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在node1和node2之间添加node3</span></span><br><span class="line"><span class="keyword">const</span> node3 = <span class="keyword">new</span> chainNode(<span class="number">3</span>)</span><br><span class="line">node3.next = node1.next</span><br><span class="line">node1.next = node3</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="链表元素的删除"><a href="#链表元素的删除" class="headerlink" title="链表元素的删除"></a>链表元素的删除</h2><p>删除链表元素的关键是找到要删除元素的前驱，前驱的next指向被删除节点的next就行。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建链表</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chainNode</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">    <span class="keyword">this</span>.next = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> node1 = <span class="keyword">new</span> chainNode(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> node2 = <span class="keyword">new</span> chainNode(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">const</span> node3 = <span class="keyword">new</span> chainNode(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">node1.next = node2</span><br><span class="line">node2.next = node3</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除node2</span></span><br><span class="line">node1.next = node2.next</span><br></pre></td></tr></table></figure></p>
+<p>此时，node2没有被任何地方引用，js的垃圾回收机制会自动回收node2。</p>
+<h2 id="链表和数组辨析"><a href="#链表和数组辨析" class="headerlink" title="链表和数组辨析"></a>链表和数组辨析</h2><h3 id="JS中的数组"><a href="#JS中的数组" class="headerlink" title="JS中的数组"></a>JS中的数组</h3><p>在大部分编程语言中，数组是一段连续的内存空间，但是在<code>JS</code>中却不一定。</p>
+<p>当数组中的元素都是基础类型时，内存中数组的元素地址是相连的。<br>如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 真正的数组</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p>但是当数组中元素同时存在引用类型和基础类型时，它对应的就是一段非连续的地址，它在内存空间中就不据有数组的特征。<br>如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, &#123; <span class="attr">ni</span>: <span class="string">'hao'</span> &#125;]</span><br></pre></td></tr></table></figure></p>
+<p>总之，记住一点: JS中的数组未必是真正的数组。</p>
+<h3 id="链表高效的删除操作"><a href="#链表高效的删除操作" class="headerlink" title="链表高效的删除操作"></a>链表高效的删除操作</h3><p>数组是一段连续的内存空间。当我们在数组的任意位置删除一个元素时，该位置后面的元素都要向前移动一个位置；当我们在任意位置添加一个元素时，那么该位置后面的所有元素都要向后移动一个位置。</p>
+<p>我们假设数组的长度是n，因增加或删除操作而导致需要移动的元素数量，就会随着n的增大而增大，呈现一个线性关系。因此数组增加或删除操作的时间复杂度为O(n)。</p>
+<p>相比于数组，不论链表的节点数n有多大，我们只需明确要插入或删除的位置，改变前驱或后置的指针指向就可以达到目的，不需要移动元素的位置。因此链表增删元素的时间复杂度是常数级别的，表达为O(1)。</p>
+<h3 id="链表麻烦的访问操作"><a href="#链表麻烦的访问操作" class="headerlink" title="链表麻烦的访问操作"></a>链表麻烦的访问操作</h3><p>数组元素的访问只需通过下标就能快速访问。但是链表不一样，链表的访问需要遍历整个链表来找到目标节点。</p>
+<p>假设需要访问链表的第10个节点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = <span class="number">10</span></span><br><span class="line"><span class="keyword">let</span> node = head <span class="comment">// head节点</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; index; i++) &#123;</span><br><span class="line">    node = node.next</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>随着链表长度的增加，搜所范围就会越来越大，访问链表元素的时间成本就会随之提高，呈一个线性关系，时间复杂度为O(n)</p>
+<p>在数组中，可以直接通过索引值访问目标元素，只需要一步操作，这个访问操作的时间复杂度为常数级别O(1)</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/19/32-算法面试需要掌握的数据结构（一）/" rel="next" title="算法面试需要掌握的数据结构（一）">
+                <i class="fa fa-chevron-left"></i> 算法面试需要掌握的数据结构（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/19/34-手写promise/" rel="prev" title="手写promise">
+                手写promise <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xianyu.jpg" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+            
+              <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
+              <div class="site-description motion-element" itemprop="description">咸鱼的人生</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/strugglexiang" title="GitHub &rarr; https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 &rarr; https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性数据结构"><span class="nav-text">线性数据结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈和队列"><span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈（stack）"><span class="nav-text">栈（stack）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列（queue）"><span class="nav-text">队列（queue）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表节点的创建"><span class="nav-text">链表节点的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表元素的添加"><span class="nav-text">链表元素的添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表元素的删除"><span class="nav-text">链表元素的删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表和数组辨析"><span class="nav-text">链表和数组辨析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中的数组"><span class="nav-text">JS中的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表高效的删除操作"><span class="nav-text">链表高效的删除操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表麻烦的访问操作"><span class="nav-text">链表麻烦的访问操作</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>&copy; 2019 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/struggle/love.js"></script>
+  <script type="text/javascript" src="/js/struggle/crash_cheat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+</html>

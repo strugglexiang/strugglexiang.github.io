@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/huaji.jpg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言本篇大幅参考掘金老姚   正则表达式位置匹配攻略正则表达式是匹配模式，要么匹配字符，要么匹配位置，本篇是位置匹配攻略。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则第二章-正则表达式位置匹配攻略">
+<meta property="og:url" content="https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/index.html">
+<meta property="og:site_name" content="ST&#39;s blog">
+<meta property="og:description" content="前言本篇大幅参考掘金老姚   正则表达式位置匹配攻略正则表达式是匹配模式，要么匹配字符，要么匹配位置，本篇是位置匹配攻略。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://source.strugglexiang.xyz/1568172120.jpg">
+<meta property="og:updated_time" content="2022-03-22T17:45:55.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则第二章-正则表达式位置匹配攻略">
+<meta name="twitter:description" content="前言本篇大幅参考掘金老姚   正则表达式位置匹配攻略正则表达式是匹配模式，要么匹配字符，要么匹配位置，本篇是位置匹配攻略。">
+<meta name="twitter:image" content="https://source.strugglexiang.xyz/1568172120.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则第二章-正则表达式位置匹配攻略 | ST's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">千里之行，始于足下</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+      <meta itemprop="description" content="咸鱼的人生">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">正则第二章-正则表达式位置匹配攻略
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-16 11:52:53" itemprop="dateCreated datePublished" datetime="2019-09-16T11:52:53+08:00">2019-09-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/正则表达式/" itemprop="url" rel="index"><span itemprop="name">正则表达式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇大幅参考<a href="https://juejin.im/post/5965943ff265da6c30653879" target="_blank" rel="noopener">掘金老姚</a>  </p>
+<h1 id="正则表达式位置匹配攻略"><a href="#正则表达式位置匹配攻略" class="headerlink" title="正则表达式位置匹配攻略"></a>正则表达式位置匹配攻略</h1><p>正则表达式是匹配模式，要么匹配字符，要么匹配位置，本篇是位置匹配攻略。<br><a id="more"></a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#什么是位置">什么是位置</a></li>
+<li><a href="#如何匹配位置">如何匹配位置</a><ul>
+<li><a href="#^和$">^和$</a></li>
+<li><a href="#\b和\B">\b和\B</a></li>
+<li><a href="#(?=p">(?=p)和(?!p)</a>和(?!p))</li>
+</ul>
+</li>
+<li><a href="#位置的理解">位置的理解</a></li>
+<li><a href="#案例分析">案例分析</a><ul>
+<li><a href="#不匹配任何字符的正则">不匹配任何字符的正则</a></li>
+<li><a href="#数字的千分位表示法">数字的千分位表示法</a></li>
+<li><a href="#验证密码问题">验证密码问题</a><ul>
+<li><a href="#解法一">解法一</a></li>
+<li><a href="#解法二">解法二</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
+</ul>
+<h1 id="什么是位置"><a href="#什么是位置" class="headerlink" title="什么是位置"></a>什么是位置</h1><p>位置是相邻字符之间的位置。如下图的箭头指向的地方：<br><img src="https://source.strugglexiang.xyz/1568172120.jpg" alt="位置"></p>
+<h1 id="如何匹配位置"><a href="#如何匹配位置" class="headerlink" title="如何匹配位置"></a>如何匹配位置</h1><p>正则表达式中有如下字符（锚字符）表示位置：  </p>
+<blockquote>
+<p>^  多行匹配中匹配开头</p>
+<p>$  多行匹配中匹配结尾</p>
+<p>\b 单词边界</p>
+<p>\B 非单词边界</p>
+<p>(?=p) 正向先行断言</p>
+<p>(?!p) 负向先行断言</p>
+</blockquote>
+<p>下面分别详细解释上述位置所代表的含义。</p>
+<h2 id="和"><a href="#和" class="headerlink" title="^和$"></a>^和$</h2><p>^(脱字符)：多行匹配中匹配开头<br>$(美元符号)：多行匹配中匹配结尾</p>
+<p>例1：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>.replace(<span class="regexp">/^|$/g</span>, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// =&gt; #hello#</span></span><br></pre></td></tr></table></figure></p>
+<p>没错，位置的可以替换的，上述示例中开头和结尾都替换成了<code>#</code>。</p>
+<p>注意：   </p>
+<ol>
+<li>上述示例中使用到<code>g</code>修饰符，表示全局匹配，如不使用将只会匹配开头<code>^</code>。</li>
+<li>如果需要替换位置，正则表达式中应只出现表示位置锚字符，如果锚字符和普通字符同时使用，匹配（或替换）的将是普通字符。如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex  = <span class="regexp">/o\b/</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'dnoddfadfno ddd'</span>.replace(regex, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// =&gt; 'dnoddfadfn# ddd'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以看到，第二个<code>0</code>被替换成了<code>#</code>。也就是说，位置符的主要作用是<strong>对要匹配的字符做某种条件限制</strong>（这一点在自己写正则时比较关键）。</p>
+<p>例2：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'I\nlove\njavaScript'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.replace(<span class="regexp">/^|$/gm</span>, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// =&gt; #I#\n#love#\n#javascript#</span></span><br></pre></td></tr></table></figure></p>
+<p>上述示例使用<code>m</code>修饰符，表示多行匹配</p>
+<h2 id="b和-B"><a href="#b和-B" class="headerlink" title="\b和\B"></a>\b和\B</h2><p>\b：单词边界。具体就是<code>\w和\W</code>、<code>\w和^</code>、<code>\w和$</code>之间的位置。</p>
+<p>例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'[xian]yu.jpg'</span></span><br><span class="line">str = str.replace(<span class="regexp">/\b/g</span>, <span class="string">'#'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="comment">// =&gt; [#xian#]#yu#.#jpg#</span></span><br></pre></td></tr></table></figure></p>
+<p>解析：<br>我们知道\w的[0-9a-zA-Z_]的简写，\W是[^0-9a-zA-Z_]的简写  </p>
+<ol>
+<li>第1个# \W与\w 即<code>[</code>与<code>x</code>之间的位置</li>
+<li>第2个# \w与\W 即<code>n</code>与<code>]</code>之间的位置</li>
+<li>第3个# \W与\w 即<code>]</code>与<code>y</code>之间的位置</li>
+<li>第4个# \w与\W 即<code>u</code>与<code>.</code>之间的位置</li>
+<li>第5个# \W与\w 即<code>.</code>与<code>j</code>之间的位置</li>
+<li>第6个# \w与\W 即<code>g</code>与<code>$</code>之间的位置</li>
+</ol>
+<p>\B：非单词边界。它是<code>\b</code>的反义，即去掉字符串的所有的<code>\b</code>，其余位置都是<code>\B</code>。具体表示<code>\w和\w</code>、<code>\W和\W</code>、<code>\W和^</code>、<code>\W和$</code>之间的位置。<br>例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'[xian]yu.jpg'</span></span><br><span class="line">str = str.replace(<span class="regexp">/\B/g</span>, <span class="string">'#'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="comment">// =&gt; #[x#i#a#n]y#u.j#p#g</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>快速记忆：单词之间的所有位置都是\B</p>
+<p>xian =&gt; x#i#a#n</p>
+</blockquote>
+<h2 id="p-和-p"><a href="#p-和-p" class="headerlink" title="(?=p)和(?!p)"></a>(?=p)和(?!p)</h2><p>(?=p)：其中p表示一个子模式，即<strong>p前面的位置</strong>。它的英文是<code>positive lookahead</code>，翻译成正向先行断言。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=l)/g</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regex, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// =&gt; he#l#lo</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，<code>l</code>前的位置被替换成了<code>#</code></p>
+<p>(?!p)：negative lookahead，负向先行断言，它是<code>(?=p)</code>的反义，即某个不是p的字符前面的位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?!l)/g</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regex, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// =&gt;  #h#ell#o#</span></span><br></pre></td></tr></table></figure></p>
+<p>前面说过，位置除了可以替换外，它主要的作用是对某个要匹配的子模式做条件限制。<br>例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/y(?=x)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'y1yx'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regex, <span class="string">'#'</span>))</span><br><span class="line"><span class="comment">// y1#x</span></span><br></pre></td></tr></table></figure></p>
+<p><code>/y(?=x)/</code>的在一些文献中一般都理解为<strong>匹配y当且紧当y后面紧跟x时</strong>。但是我们要将其做位置理解比较好，即：匹配y和x前面的位置。</p>
+<p>除开正向先行断言和负向先行断言，es6中还支持正向后行断言和负向后行断言。 </p>
+<blockquote>
+<p>(?&lt;=p) 正向后行断言(positive lookbehind)，匹配某个位置，该位置前面是p。</p>
+<p>(?&lt;!p) 负向后行断言(negative lookbehind)，匹配某个位置，该位置前面不是p。</p>
+</blockquote>
+<p>有关断言说了这么多，我自己本人都有点被饶糊涂了，以下是我个人的件记忆方式：</p>
+<blockquote>
+<p>(?=p) 匹配某个位置，该位置后面是p，对该位置后面做条件限制。 没有<code>&lt;</code>，是先行断言，没有<code>!</code>，正向，正向先行断言。</p>
+<p>(?!p) 匹配某个位置，该位置后面不是p，对该位置后面做条件限制。没有<code>&lt;</code>，是先行断言，有<code>!</code>，负向，负向先行断言。</p>
+<p>(?&lt;=p) 匹配某个位置，该位置前面是p，对该位置前面做条件限制。有<code>&lt;</code>，是后行断言，没有<code>!</code>，正向，正向后行断言。</p>
+<p>(?&lt;!p) 匹配某个位置，该位置前面不是p，对该位置前面做条件限制。有<code>&lt;</code>，是后行断言，有<code>!</code>，负向，负向后行断言。</p>
+</blockquote>
+<h1 id="位置的理解"><a href="#位置的理解" class="headerlink" title="位置的理解"></a>位置的理解</h1><p>关于位置的理解，我们可以将其理解成空字符””。</p>
+<p>例1：<br>“hello” = “” + “h” + “” + “e” + “” + “l” + “” + “l” + “” + “0” + “”</p>
+<p>例2：<br>“hello” = “” + “” + “hello”</p>
+<p>因此，位置是可以重叠的，<code>/^hello$/</code>也可以写成<code>/^^^hello$$$$/</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^hello$/</span>.test(<span class="string">'hello'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/^^^hello$$$$/</span>.test(<span class="string">'hello'</span>))<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>甚至可以写得更加复杂：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(?=he)^he(?=\w)llo\b\b$/</span>.test(<span class="string">'hello'</span>))<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(?=he)^he(?=\w)ll\$$\B/</span>.test(<span class="string">'hell$'</span>))<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p><code>hello</code>后的结尾是单词边界，<code>hell$</code>结尾是非单词边界，位置重叠使用时注意区分作用。</p>
+<h1 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h1><h2 id="不匹配任何字符的正则"><a href="#不匹配任何字符的正则" class="headerlink" title="不匹配任何字符的正则"></a>不匹配任何字符的正则</h2><p>.^：匹配一个字符，该字符是后面是开头。</p>
+<p>(?=x)y：某个位置后面紧跟x，却紧跟y，自相矛盾。</p>
+<h2 id="数字的千分位表示法"><a href="#数字的千分位表示法" class="headerlink" title="数字的千分位表示法"></a>数字的千分位表示法</h2><p>把<code>&quot;12345678&quot;</code>变成<code>12,345,678</code></p>
+<h3 id="弄出最后一个逗号"><a href="#弄出最后一个逗号" class="headerlink" title="弄出最后一个逗号"></a>弄出最后一个逗号</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=\d&#123;3&#125;$)/</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'12345678'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">//12345,678</span></span><br></pre></td></tr></table></figure>
+<p><code>$</code>符号不能写在括号外，即：/(?=\d{3})$/，位置重叠，这样匹配一个位置，该位置是结尾位置，并且该位置后紧跟3个数字，明显自相矛盾。</p>
+<h3 id="弄出多个逗号"><a href="#弄出多个逗号" class="headerlink" title="弄出多个逗号"></a>弄出多个逗号</h3><p>从结束位置，每3个数字为一组，至少出现1次，因此使用量词<code>+</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=(\d&#123;3&#125;)+$)/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'12345678'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">// 12,345,678</span></span><br></pre></td></tr></table></figure></p>
+<p>即从结尾开始，第n个连续3个数字前的位置替换成<code>,</code></p>
+<h3 id="完善案例漏洞"><a href="#完善案例漏洞" class="headerlink" title="完善案例漏洞"></a>完善案例漏洞</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=(\d&#123;3&#125;)+$)/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'123456789'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">// ,123,456,789</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，需排除开头的位置，使用<code>(?!^)</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?!^)(?=(\d&#123;3&#125;)+$)/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'123456789'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">// 123,456,789</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="支持其他形式"><a href="#支持其他形式" class="headerlink" title="支持其他形式"></a>支持其他形式</h3><p>如果要将<code>&quot;12345678 123456789&quot;</code>替换成<code>&quot;12,345,678 123,456,789&quot;</code>，需要将^、$符号替换成<code>\b</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?!\b)(?=(\d&#123;3&#125;)+\b)/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'12345678 123456789'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">// 12,345,678 123,456,789</span></span><br></pre></td></tr></table></figure></p>
+<p>即从单词边界开始，以3个数字为一组的位置添加<code>,</code>，但是这个位置不是能是单词边界。</p>
+<p>其中，<code>(?!\b)</code>就是<code>\B</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\B(?=(\d&#123;3&#125;)+\b)/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'12345678 123456789'</span>.replace(regex, <span class="string">','</span>))</span><br><span class="line"><span class="comment">// =&gt; 12,345,678 123,456,789</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="验证密码问题"><a href="#验证密码问题" class="headerlink" title="验证密码问题"></a>验证密码问题</h2><p>密码长度为6-12位，由数字、小写字母、大写字母组成，要求至少包含两种字符。</p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>1、数字、小写字母、大写字母组成的6-12位密码，写成<code>/[0-9a-zA-z]{6-12}/</code></p>
+<p>2、要求必须包含某一种字符怎么写呢？前面我们说过，位置的一个很重要的作用是对要匹配的字符做条件限制。以必须包含数字为例，我们可以写成<code>/(?=.*[0-9])/</code>或者<code>(?=.*\d)</code>，意思是某个位置后面必含有一个数字。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=.*[0-9])^[0-9a-zA-z]&#123;6-12&#125;$/</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，<code>/(?=.*[0-9])/</code>写在了开始位置符<code>^</code>的前面，两个位置重叠(即同一个位置，都是开头)，翻译成大白话就是，从开始位置开始，后面的字符必包含一个数字。</p>
+<p>3、那么如何同时包含多个字符呢？举一反三，很容易写出来，以同时包含数字和小写字母为例，正则如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?=.*[0-9])(?=.*[a-z])^[0-9a-zA-z]&#123;6-12&#125;$/</span></span><br></pre></td></tr></table></figure></p>
+<p>4、分析一下，原题可以是以下几种情况之一：     </p>
+<ol>
+<li>同时包含数字和小写字母</li>
+<li>同时包含数字和大写字母</li>
+<li>同时包含小写祖母和大写字母</li>
+<li>同时包含数字、小写字母、大写字母。</li>
+</ol>
+<p>以上4种情况是或的关系，第4钟情况可以省略，我们可以得到一个最终的正则：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[a-z])(?=.*[A-Z]))^[0-9a-zA-Z]&#123;6,12&#125;$/</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"1234567"</span>) ); <span class="comment">//  全是数字 false</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"abcdef"</span>) ); <span class="comment">//  全是小写字母 false</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ABCDEFGH"</span>) ); <span class="comment">//  全是大写字母 false</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ab23C"</span>) ); <span class="comment">//  不足6位 false</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ABCDEF234"</span>) ); <span class="comment">//  大写字母和数字 true</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"abcdEF234"</span>) ); <span class="comment">//  三者都有 true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><p>上述密码问题还要第二种解法。<code>至少包含两种字符</code>的意思，可以理解为不能全是数字，也不能能全是大小写字母。可以使用<code>(?!p)</code>。  </p>
+<ol>
+<li>不能全是数字，<code>(?!^[0-9]{6,12}$)</code></li>
+<li>不能全是小写字母，<code>(?!^[a-z]{6,12}$)</code></li>
+<li>不能全是大写字母，<code>(?!^[A-Z]{6,12}$)</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?!^[0-9]&#123;6,12&#125;$)(?!^[a-z]&#123;6,12&#125;$)(?!^[A-Z]&#123;6,12&#125;$)^[0-9a-zA-z]&#123;6,12&#125;$/</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"1234567"</span>) ); <span class="comment">// false 全是数字</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"abcdef"</span>) ); <span class="comment">// false 全是小写字母</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ABCDEFGH"</span>) ); <span class="comment">// false 全是大写字母</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ab23C"</span>) ); <span class="comment">// false 不足6位</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"ABCDEF234"</span>) ); <span class="comment">// true 大写字母和数字</span></span><br><span class="line"><span class="built_in">console</span>.log( regex.test(<span class="string">"abcdEF234"</span>) ); <span class="comment">// true 三者都有</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>正则表达式的位置匹配，就是灵活使用6种锚字符，<code>^、$、\b、\B、(?=p)、(?!p)、</code></li>
+<li>位置可以替换、重叠，要将其理解成为空字符<code>&quot;&quot;</code></li>
+<li>位置和普通字符组合使用时，主要作用是对普通字符做条件限制。</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/09/19-正则表达式字符匹配攻略/" rel="next" title="正则第一章-正则表达式字符匹配攻略">
+                <i class="fa fa-chevron-left"></i> 正则第一章-正则表达式字符匹配攻略
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/16/21-正则表达式中括号的作用/" rel="prev" title="正则第三章-正则表达式中括号的作用">
+                正则第三章-正则表达式中括号的作用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xianyu.jpg" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+            
+              <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
+              <div class="site-description motion-element" itemprop="description">咸鱼的人生</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/strugglexiang" title="GitHub &rarr; https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 &rarr; https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式位置匹配攻略"><span class="nav-text">正则表达式位置匹配攻略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是位置"><span class="nav-text">什么是位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何匹配位置"><span class="nav-text">如何匹配位置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#和"><span class="nav-text">^和$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b和-B"><span class="nav-text">\b和\B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p-和-p"><span class="nav-text">(?=p)和(?!p)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位置的理解"><span class="nav-text">位置的理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析"><span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不匹配任何字符的正则"><span class="nav-text">不匹配任何字符的正则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字的千分位表示法"><span class="nav-text">数字的千分位表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弄出最后一个逗号"><span class="nav-text">弄出最后一个逗号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弄出多个逗号"><span class="nav-text">弄出多个逗号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完善案例漏洞"><span class="nav-text">完善案例漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持其他形式"><span class="nav-text">支持其他形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证密码问题"><span class="nav-text">验证密码问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解法一"><span class="nav-text">解法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解法二"><span class="nav-text">解法二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>&copy; 2019 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/struggle/love.js"></script>
+  <script type="text/javascript" src="/js/struggle/crash_cheat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+</html>

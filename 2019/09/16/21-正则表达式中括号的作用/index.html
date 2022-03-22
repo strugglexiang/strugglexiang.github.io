@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/huaji.jpg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言本篇大幅参考掘金老姚   正则表达式中括号的作用正则表达式也是一门语言，括号在其中有着十分重要的作用。简单来说，括号的作用就是提供分组，便于引用。下面来详细分析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则第三章-正则表达式中括号的作用">
+<meta property="og:url" content="https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/index.html">
+<meta property="og:site_name" content="ST&#39;s blog">
+<meta property="og:description" content="前言本篇大幅参考掘金老姚   正则表达式中括号的作用正则表达式也是一门语言，括号在其中有着十分重要的作用。简单来说，括号的作用就是提供分组，便于引用。下面来详细分析。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-03-22T17:45:55.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则第三章-正则表达式中括号的作用">
+<meta name="twitter:description" content="前言本篇大幅参考掘金老姚   正则表达式中括号的作用正则表达式也是一门语言，括号在其中有着十分重要的作用。简单来说，括号的作用就是提供分组，便于引用。下面来详细分析。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则第三章-正则表达式中括号的作用 | ST's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ST's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">千里之行，始于足下</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+      <meta itemprop="description" content="咸鱼的人生">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">正则第三章-正则表达式中括号的作用
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-16 11:55:36" itemprop="dateCreated datePublished" datetime="2019-09-16T11:55:36+08:00">2019-09-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/正则表达式/" itemprop="url" rel="index"><span itemprop="name">正则表达式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇大幅参考<a href="https://juejin.im/post/5965943ff265da6c30653879" target="_blank" rel="noopener">掘金老姚</a>  </p>
+<h1 id="正则表达式中括号的作用"><a href="#正则表达式中括号的作用" class="headerlink" title="正则表达式中括号的作用"></a>正则表达式中括号的作用</h1><p>正则表达式也是一门语言，括号在其中有着十分重要的作用。简单来说，括号的作用就是提供分组，便于引用。下面来详细分析。<br><a id="more"></a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#分组与分支结构">分组与分支结构</a><ul>
+<li><a href="#分组">分组</a></li>
+<li><a href="#分支结构">分支结构</a></li>
+</ul>
+</li>
+<li><a href="#引用分组">引用分组</a><ul>
+<li><a href="#提取数据">提取数据</a></li>
+<li><a href="#替换">替换</a></li>
+</ul>
+</li>
+<li><a href="#反向引用">反向引用</a></li>
+<li><a href="#非捕获分组">非捕获分组</a></li>
+<li><a href="#案例分析">案例分析</a><ul>
+<li><a href="#字符串trim方法模拟">字符串trim方法模拟</a></li>
+<li><a href="#将单词首字母大写">将单词首字母大写</a></li>
+<li><a href="#驼峰化">驼峰化</a></li>
+<li><a href="#中划线化">中划线化</a></li>
+<li><a href="#HTML转义与反转义">HTML转义与反转义</a></li>
+<li><a href="#匹配HTML成对标签">匹配HTML成对标签</a></li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
+</ul>
+<h1 id="分组与分支结构"><a href="#分组与分支结构" class="headerlink" title="分组与分支结构"></a>分组与分支结构</h1><p>这两者是括号最直观的作用，也是最原始的功能。</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>我们知道，<code>/ab+/</code>将匹配<strong>a和连续出现的b</strong>，如果想要匹配连续出现的<code>ab</code>，就得用括号将它们分组，写成<code>/(ab)+/</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(ab)+/g</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'abc abab ababa'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.match(regex))</span><br><span class="line"><span class="comment">// ['ab', 'abab', 'abab']</span></span><br></pre></td></tr></table></figure></p>
+<p>括号将其内的内容分组，作为一个整体，使<code>+</code>作用于<code>ab</code>这个整体。</p>
+<h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><p>在分支结构中，括号的作用是<strong>多个子模式任选其一</strong>。</p>
+<p>比如我们要匹配<code>I love javascript</code>和<code>I love regular expression</code>，需写成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/^I love (javascript|regular expression)$/</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'I love javascript'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'I love regular expression'</span>))<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>如果去掉正则中的括号，匹配的将是<strong>以“I love javascript”</strong>开头或者<strong>以“regular expression”</strong>结尾的任何字符串。明显不是我们想要的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javascript 和 regular expression没有构成子模式</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/^I love javascript|regular expression$/</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'I love javascript something something'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'something something regular expression'</span>)) <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>特别注意上述示例中注意操作符^和$的优先级高于|，详情参考第六章。</p>
+<h1 id="引用分组"><a href="#引用分组" class="headerlink" title="引用分组"></a>引用分组</h1><p>这是括号的一个重要作用，有了它我们可以进行<strong>数据提取</strong>，甚至更为强大的<strong>替换操作</strong>。</p>
+<p>引用分组需要配合js中的api来使用。</p>
+<p>我们以日期为例，要求匹配<code>yyyy-mm-dd</code>格式，我们能快的写出以下正则<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/</span></span><br><span class="line"><span class="comment">//上述情况只是简单举例，更加精准的是应该考虑到，月和日不能取00</span></span><br></pre></td></tr></table></figure></p>
+<p>改成括号版：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br></pre></td></tr></table></figure></p>
+<p>改成括号版有什么好处呢？</p>
+<h2 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h2><p>比如说可以提出年、月、日的数据<br>1、使用<code>string.match</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2016-07-11'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.match(regex))</span><br><span class="line"><span class="comment">// ["2016-07-11", "2016", "07", "11", index: 0, input: "2016-07-11", groups: undefined]</span></span><br></pre></td></tr></table></figure></p>
+<p>match返回一个数组，第一个元素是匹配的整体结果，第2，3，4位分别是括号里面的年、月、日，然后是匹配下标，最后是输入的文本。</p>
+<p>注意：修饰符g对match是有影响的。没有g，返回的是标准格式，即第一个元素是整体匹配的内容，然后是各个分组的内容。使用g，返回的是所有匹配的内容。当没有匹配时，不管有没有g，都返回null。</p>
+<p>2、使用正则表达式中的exec方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2016-07-11'</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.exec(str))</span><br><span class="line"><span class="comment">//["2016-07-11", "2016", "07", "11", index: 0, input: "2016-07-11", groups: undefined]</span></span><br></pre></td></tr></table></figure></p>
+<p>3、使用构造函数的全局属性<code>$1</code>至<code>$9</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2016-07-11'</span></span><br><span class="line">regex.test(str)</span><br><span class="line"><span class="comment">// str.match(regex)</span></span><br><span class="line"><span class="comment">// regex.exec(str)</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>)<span class="comment">//2016</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>)<span class="comment">//07</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">3</span>)<span class="comment">//11</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>比如，将<code>yyyy-mm-dd</code>格式替换成<code>yyyy/mm/dd</code>格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2006-04-13'</span></span><br><span class="line"><span class="built_in">console</span>.log(str.replace(regex, <span class="string">'$1/$2/$3'</span>))</span><br><span class="line"><span class="comment">//2006/04/13</span></span><br></pre></td></tr></table></figure>
+<p>在replace方法中，<code>$1、$2、$3</code>分别表示第1、2、3个分组。</p>
+<p>等价于<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2006-04-13'</span></span><br><span class="line"><span class="keyword">var</span> result = str.replace(regex, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">'/'</span> + <span class="built_in">RegExp</span>.$<span class="number">2</span> + <span class="string">'/'</span> +<span class="built_in">RegExp</span>.$<span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure></p>
+<p>也等价于<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2006-04-13'</span></span><br><span class="line"><span class="keyword">var</span> result = str.replace(regex, <span class="function"><span class="keyword">function</span>(<span class="params">match, year, month, day</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> year+ <span class="string">'/'</span> + month + <span class="string">'/'</span> + day</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数match表示整体，然后依次是各个分组的内容。</p>
+<h1 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h1><p>除了在javascript的api里面引用分组，正则表达式内部也能引用已经出现过的分组。</p>
+<p>在正则表达中引用已经出现过的分组，叫反向引用。</p>
+<p>以日期为例，要求写出一个正则匹配以下3中形式： </p>
+<blockquote>
+<p>2016-11-11</p>
+<p>2016/11/11</p>
+<p>2016.11.11</p>
+</blockquote>
+<p>很容易写成下面这种：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\d&#123;4&#125;(-|\/|\.)\d&#123;2&#125;(-|\/|\.)\d&#123;2&#125;/</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016-11-11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016/11/11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016.11.11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016-11/11'</span>)) <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>其中<code>/</code>和<code>.</code>需要转义(有关字符转义的要求参考第5章)。上述正则虽然满足了要求，但是它也能匹配<code>2016-11/11</code>这种形式，这种情况下，可以使用反向引用，保证一致性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/\d&#123;4&#125;(-|\/|\.)\d&#123;2&#125;\1\d&#123;2&#125;/</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016-11-11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016/11/11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016.11.11'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'2016-11/11'</span>)) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>注意我们使用到了<code>\1</code>，它表示引用前面出现的第一个分组(-|\/|.)，不论该分组匹配是什么，<code>\1</code>都表示匹配和它一样的内容，保证了前后的一致性。同理，<code>\2</code>、<code>\3</code>表示前面正则中出现的第2、3个分组，依次类推。</p>
+<h2 id="括号嵌套情况"><a href="#括号嵌套情况" class="headerlink" title="括号嵌套情况"></a>括号嵌套情况</h2><p>当括号嵌套时，反向引用的顺序以开括号<code>(</code>的顺序为主。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d(\d(\d)))\1\2\3/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'123123233'</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(str))<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>) <span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">2</span>) <span class="comment">//23</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">3</span>) <span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>我们来分析一下：<br>第1个\d是1<br>第2个\d是2<br>第3个\d是3<br>第一个<code>(</code>所代表的括号里面的内容是123，所以<code>\1</code>是123<br>第二个<code>(</code>所代表的括号里面的内容是12，所以<code>\1</code>是12<br>第三个<code>(</code>所代表的括号里面的内容是3，所以<code>\1</code>是3    </p>
+<h2 id="10代表什么"><a href="#10代表什么" class="headerlink" title="\10代表什么"></a>\10代表什么</h2><p>那么，\10是意思是<code>\1</code>和0还是第10个分组呢？答案是后者<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(1)(2)(3)(4)(5)(6)(7)(8)(9)(#) \10+/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789# #####'</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(str)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(<span class="string">'123456789# 10000000'</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="引用不存在分组"><a href="#引用不存在分组" class="headerlink" title="引用不存在分组"></a>引用不存在分组</h2><p>如果引用不存在的分组，不会报错，它匹配的是某个转义字符。如<code>\2</code>，当这个分组不存在，它就匹配字符串<code>&quot;\2&quot;</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\1\2\3\4\5/</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'\1\2\3\4\5'</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="非捕获分组"><a href="#非捕获分组" class="headerlink" title="非捕获分组"></a>非捕获分组</h1><p>之前文中出现的分组，都是捕获型分组，它能捕获匹配到的内容，方便后续引用。</p>
+<p>如果只需要括号最原始的分组功能，不需要在js的api中引用，也不需要在正则中反向引用。可以使用非捕获分组(?:p)，其中p代表一个子模式。</p>
+<p>下面比较一下捕获分组和非捕获分组：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 捕获型分组</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2000-03-06'</span></span><br><span class="line"><span class="keyword">var</span> result = str.replace(regex, <span class="string">'$1/$2/$3'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)<span class="comment">//2000/03/06</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非捕获分组</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/(?:\d&#123;4&#125;)-(?:\d&#123;2&#125;)-(?:\d&#123;2&#125;)/</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'2000-03-06'</span></span><br><span class="line"><span class="keyword">var</span> result = str.replace(regex, <span class="string">'$1/$2/$3'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">//$1/$2/$3</span></span><br></pre></td></tr></table></figure>
+<h1 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h1><h2 id="字符串trim方法模拟"><a href="#字符串trim方法模拟" class="headerlink" title="字符串trim方法模拟"></a>字符串trim方法模拟</h2><p><code>trim</code>方法去除字符串开头和结尾的空格。</p>
+<p>方法-：将开头和结尾的空格替换成空白字符’’<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/^\s*|\s*$/g</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = trim( <span class="string">'  test    '</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result, result.length) <span class="comment">//test 4</span></span><br></pre></td></tr></table></figure></p>
+<p>方法二：将中间的非空字符串提取出来<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/^\s*(.*?)\s*$/g</span>, <span class="string">'$1'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = trim( <span class="string">'  test    '</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result, result.length) <span class="comment">//test 4</span></span><br></pre></td></tr></table></figure></p>
+<p>使用到了惰性匹配<code>*?</code>，因为<code>.</code>也能匹配空字符，为了尽量偷懒，<code>(.*?)</code>会把空格尽可能的交给<code>\s*$</code>去匹配。</p>
+<h2 id="将单词首字母大写"><a href="#将单词首字母大写" class="headerlink" title="将单词首字母大写"></a>将单词首字母大写</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">firstLetterUpper</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.toLowerCase().replace(<span class="regexp">/(?:^|\s)\w/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c.toUpperCase()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( firstLetterUpper(<span class="string">'my name is epeli'</span>) ); </span><br><span class="line"><span class="comment">// =&gt; My Name Is Epeli</span></span><br></pre></td></tr></table></figure>
+<p>这里使用了非捕获分组<code>(?:^|\s)</code>，因此第二个参数不会是<code>&#39;&#39;</code>，使用捕获分组也没问题。</p>
+<h2 id="驼峰化"><a href="#驼峰化" class="headerlink" title="驼峰化"></a>驼峰化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">camelize</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/[-_\s]+(.)?/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, letter</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> letter ? letter.toUpperCase() : <span class="string">''</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'-moz-transform'</span></span><br><span class="line"><span class="keyword">var</span> result = camelize(str)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br><span class="line"><span class="comment">// =&gt; -moz-transform</span></span><br></pre></td></tr></table></figure>
+<p>其中<code>[-_\s]+</code>表示连续出现的<strong>中划线</strong>、<strong>下划线</strong>、<strong>空格</strong>或者连续出现的3者组合。</p>
+<p>最后面<code>?</code>的目的是应对<code>str</code>末尾是<code>连续出现的[-_\s]</code>，因为这种情况下<code>(.)</code>必匹配一个字符。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">camelize</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/[-_\s]+(.)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, letter</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> letter ? letter.toUpperCase() : <span class="string">''</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'-moz-transform___'</span></span><br><span class="line"><span class="keyword">var</span> result = camelize(str)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br><span class="line"><span class="comment">// =&gt; MozTransform_</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="中划线化"><a href="#中划线化" class="headerlink" title="中划线化"></a>中划线化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dasherize</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/([A-Z])/g</span>, <span class="string">'-$1'</span>).replace(<span class="regexp">/[-_\s]+/g</span>, <span class="string">'-'</span>).toLowerCase()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HTML转义与反转义"><a href="#HTML转义与反转义" class="headerlink" title="HTML转义与反转义"></a>HTML转义与反转义</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将HTML特殊字符转换成等值的实体</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escapeHTML</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> escapeChars = &#123;</span><br><span class="line">        <span class="string">'¢'</span> : <span class="string">'cent'</span>,</span><br><span class="line">        <span class="string">'£'</span> : <span class="string">'pound'</span>,</span><br><span class="line">        <span class="string">'¥'</span> : <span class="string">'yen'</span>,</span><br><span class="line">        <span class="string">'€'</span>: <span class="string">'euro'</span>,</span><br><span class="line">        <span class="string">'©'</span> :<span class="string">'copy'</span>,</span><br><span class="line">        <span class="string">'®'</span> : <span class="string">'reg'</span>,</span><br><span class="line">        <span class="string">'&lt;'</span> : <span class="string">'lt'</span>,</span><br><span class="line">        <span class="string">'&gt;'</span> : <span class="string">'gt'</span>,</span><br><span class="line">        <span class="string">'"'</span> : <span class="string">'quot'</span>,</span><br><span class="line">        <span class="string">'&amp;'</span> : <span class="string">'amp'</span>,</span><br><span class="line">        <span class="string">'\''</span> : <span class="string">'#39'</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'['</span> + <span class="built_in">Object</span>.keys(escapeChars).join(<span class="string">''</span>) + <span class="string">']'</span>, <span class="string">'g'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">match</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&amp;'</span> + escapeChars[match] + <span class="string">';'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( escapeHTML(<span class="string">'&lt;div&gt;Blah blah blah&lt;/div&gt;'</span>) );</span><br><span class="line"><span class="comment">// =&gt; &amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里并有没用到括号，和本章没有关系，但是它的反例用到了括号</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unescapeHTML</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> htmlEntities = &#123;</span><br><span class="line">        nbsp: <span class="string">' '</span>,</span><br><span class="line">        cent: <span class="string">'¢'</span>,</span><br><span class="line">        pound: <span class="string">'£'</span>,</span><br><span class="line">        yen: <span class="string">'¥'</span>,</span><br><span class="line">        euro: <span class="string">'€'</span>,</span><br><span class="line">        copy: <span class="string">'©'</span>,</span><br><span class="line">        reg: <span class="string">'®'</span>,</span><br><span class="line">        lt: <span class="string">'&lt;'</span>,</span><br><span class="line">        gt: <span class="string">'&gt;'</span>,</span><br><span class="line">        quot: <span class="string">'"'</span>,</span><br><span class="line">        amp: <span class="string">'&amp;'</span>,</span><br><span class="line">        apos: <span class="string">'\''</span></span><br><span class="line">	&#125;;</span><br><span class="line">    <span class="keyword">return</span> str.replace(<span class="regexp">/\&amp;([^;]+);/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(htmlEntities[key]) &#123;</span><br><span class="line">            <span class="keyword">return</span> htmlEntities[key]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> match</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(unescapeHTML(<span class="string">'&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;'</span>))</span><br><span class="line"><span class="comment">// =&gt; &lt;div&gt;Blah blah blah&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>用正则查找到<code>key</code>，然后根据键值对替换。</p>
+<h2 id="匹配HTML成对标签"><a href="#匹配HTML成对标签" class="headerlink" title="匹配HTML成对标签"></a>匹配HTML成对标签</h2><p>要求匹配：</p>
+<blockquote>
+<p><code>&lt;title&gt;regular expression&lt;/title&gt;</code></p>
+<p><code>&lt;p&gt;laoyao bye bye&lt;/p&gt;</code></p>
+</blockquote>
+<p>不能够匹配</p>
+<blockquote>
+<p><code>&lt;title&gt;wrong!&lt;/p&gt;</code></p>
+</blockquote>
+<p>匹配开标签，用<code>&lt;[^&gt;]+&gt;</code><br>匹配闭标签，用<code>&lt;\/[^&gt;]+&gt;</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/&lt;([^&gt;]+)&gt;[\d\D]*&lt;\/\1&gt;/</span>   </span><br><span class="line"><span class="keyword">var</span> string1 = <span class="string">"&lt;title&gt;regular expression&lt;/title&gt;"</span></span><br><span class="line"><span class="keyword">var</span> string2 = <span class="string">"&lt;p&gt;laoyao bye bye&lt;/p&gt;"</span></span><br><span class="line"><span class="keyword">var</span> string3 = <span class="string">"&lt;title&gt;wrong!&lt;/p&gt;"</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(string1)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(string2)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(regex.test(string3)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p>开标签里面的内容用括号括起来，方面后面<code>\1</code>引用，使前后标签保持一致。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>括号主要用于分组，在分支结构中表示多个子模式任选其一</li>
+<li>使用括号记忆括号内的匹配内容，可以在<code>js api</code>引用，也可以在正则表达式中反向引用。正是由于这个特性，正则表达式可以进行数据提取和替换。</li>
+<li>按情况使用非捕获括号<code>(?:)</code></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/16/20-正则表达式位置匹配攻略/" rel="next" title="正则第二章-正则表达式位置匹配攻略">
+                <i class="fa fa-chevron-left"></i> 正则第二章-正则表达式位置匹配攻略
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/23/22-正则表达式回溯法原理/" rel="prev" title="正则第四章-正则表达式回溯法原理">
+                正则第四章-正则表达式回溯法原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/xianyu.jpg" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+            
+              <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
+              <div class="site-description motion-element" itemprop="description">咸鱼的人生</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/strugglexiang" title="GitHub &rarr; https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 &rarr; https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式中括号的作用"><span class="nav-text">正则表达式中括号的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分组与分支结构"><span class="nav-text">分组与分支结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-text">分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支结构"><span class="nav-text">分支结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用分组"><span class="nav-text">引用分组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提取数据"><span class="nav-text">提取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-text">替换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反向引用"><span class="nav-text">反向引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#括号嵌套情况"><span class="nav-text">括号嵌套情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10代表什么"><span class="nav-text">\10代表什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用不存在分组"><span class="nav-text">引用不存在分组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#非捕获分组"><span class="nav-text">非捕获分组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析"><span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串trim方法模拟"><span class="nav-text">字符串trim方法模拟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将单词首字母大写"><span class="nav-text">将单词首字母大写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#驼峰化"><span class="nav-text">驼峰化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中划线化"><span class="nav-text">中划线化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML转义与反转义"><span class="nav-text">HTML转义与反转义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配HTML成对标签"><span class="nav-text">匹配HTML成对标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>&copy; 2019 – <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/struggle/love.js"></script>
+  <script type="text/javascript" src="/js/struggle/crash_cheat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+</html>

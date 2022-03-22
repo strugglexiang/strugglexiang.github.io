@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ST&#39;s blog</title>
+  
+  <subtitle>千里之行，始于足下</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://strugglexiang.xyz/"/>
+  <updated>2022-03-22T17:45:55.626Z</updated>
+  <id>https://strugglexiang.xyz/</id>
+  
+  <author>
+    <name>𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器的Event Loop</title>
+    <link href="https://strugglexiang.xyz/2020/05/19/35-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84Event%20Loop/"/>
+    <id>https://strugglexiang.xyz/2020/05/19/35-浏览器的Event Loop/</id>
+    <published>2020-05-19T02:51:50.000Z</published>
+    <updated>2022-03-22T17:45:55.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;浏览器的Event-Loop&quot;&gt;&lt;a href=&quot;#浏览器的Event-Loop&quot; class=&quot;headerlink&quot; title=&quot;浏览器的Event Loop&quot;&gt;&lt;/a&gt;浏览器的Event Loop&lt;/h1&gt;&lt;p&gt;Event Loop是JavaScript运行时的异步处理机制。学习Event Loop，就得深入了解JS引擎的内部运行过程，理解起来有一些难度。JS可以运行在浏览器中，也可以运行在Node.js中，Event Loop在这两种环境下的运行机制有明显的区别。本篇是自己对浏览器环境下Event Loop的学习笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>手写promise</title>
+    <link href="https://strugglexiang.xyz/2020/05/19/34-%E6%89%8B%E5%86%99promise/"/>
+    <id>https://strugglexiang.xyz/2020/05/19/34-手写promise/</id>
+    <published>2020-05-19T02:51:40.000Z</published>
+    <updated>2022-03-22T17:45:55.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;Promise是解决异步编码的一种方案。手写Promise，会大大加深对Promise的理解，日常在使用Promise时也会更加得心应手。本篇尝试手写一份符合Promises/A+规范的Promise。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法面试需要掌握的数据结构（二）</title>
+    <link href="https://strugglexiang.xyz/2020/05/19/33-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://strugglexiang.xyz/2020/05/19/33-算法面试需要掌握的数据结构（二）/</id>
+    <published>2020-05-19T02:51:39.000Z</published>
+    <updated>2022-03-22T17:45:55.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;线性数据结构&quot;&gt;&lt;a href=&quot;#线性数据结构&quot; class=&quot;headerlink&quot; title=&quot;线性数据结构&quot;&gt;&lt;/a&gt;线性数据结构&lt;/h1&gt;&lt;p&gt;我们知道，数组中的数据呈线性一个接一个排列，我们称其数据结构是线性的。在所有的线性数据结构中，最常见的栈、队列以及链表。本篇就记录有关栈、队列、链表的基础知识。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="数据结构和算法" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法面试需要掌握的数据结构（一）</title>
+    <link href="https://strugglexiang.xyz/2020/05/19/32-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://strugglexiang.xyz/2020/05/19/32-算法面试需要掌握的数据结构（一）/</id>
+    <published>2020-05-19T02:51:37.000Z</published>
+    <updated>2022-03-22T17:45:55.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot; title=&quot;数据结构&quot;&gt;&lt;/a&gt;数据结构&lt;/h1&gt;&lt;p&gt;从前端角度来说，需要掌握的数据结构如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数组&lt;/li&gt;
+&lt;li&gt;栈&lt;/li&gt;
+&lt;li&gt;队列&lt;/li&gt;
+&lt;li&gt;树&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本片主要介绍数组。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="数据结构和算法" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>谈下文档流</title>
+    <link href="https://strugglexiang.xyz/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/"/>
+    <id>https://strugglexiang.xyz/2020/03/28/31-谈下文档流/</id>
+    <published>2020-03-28T06:01:09.000Z</published>
+    <updated>2022-03-22T17:45:55.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://strugglexiang.xyz/categories/CSS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Node.js初识</title>
+    <link href="https://strugglexiang.xyz/2020/03/18/30-Node%E5%88%9D%E8%AF%86/"/>
+    <id>https://strugglexiang.xyz/2020/03/18/30-Node初识/</id>
+    <published>2020-03-18T06:29:24.000Z</published>
+    <updated>2022-03-22T17:45:55.624Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Node-js初识&quot;&gt;&lt;a href=&quot;#Node-js初识&quot; class=&quot;headerlink&quot; title=&quot;Node.js初识&quot;&gt;&lt;/a&gt;Node.js初识&lt;/h1&gt;&lt;p&gt;Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Node.js" scheme="https://strugglexiang.xyz/categories/Node-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>浅解IO</title>
+    <link href="https://strugglexiang.xyz/2020/03/18/30-%E6%B5%85%E8%A7%A3IO/"/>
+    <id>https://strugglexiang.xyz/2020/03/18/30-浅解IO/</id>
+    <published>2020-03-18T06:19:02.000Z</published>
+    <updated>2022-03-22T17:45:55.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;引子&quot;&gt;&lt;a href=&quot;#引子&quot; class=&quot;headerlink&quot; title=&quot;引子&quot;&gt;&lt;/a&gt;引子&lt;/h1&gt;&lt;p&gt;最近在看狼叔写的《狼书》来学习Node.js。书中说到：非阻塞I/O是Node.js的特性，我对此不是很理解。非阻塞I/O是什么？这个概念好像在很多地方都有提及，于是有了这篇探索记录。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="理解计算机" scheme="https://strugglexiang.xyz/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成</title>
+    <link href="https://strugglexiang.xyz/2020/03/18/29-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/"/>
+    <id>https://strugglexiang.xyz/2020/03/18/29-计算机组成/</id>
+    <published>2020-03-18T06:17:27.000Z</published>
+    <updated>2022-03-22T17:45:55.624Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;计算机组成&quot;&gt;&lt;a href=&quot;#计算机组成&quot; class=&quot;headerlink&quot; title=&quot;计算机组成&quot;&gt;&lt;/a&gt;计算机组成&lt;/h1&gt;&lt;p&gt;计算机由硬件和软件两部分组成。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="理解计算机" scheme="https://strugglexiang.xyz/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一周见闻第5期</title>
+    <link href="https://strugglexiang.xyz/2020/01/12/28-%E4%B8%80%E5%91%A8%E8%A7%81%E9%97%BB%E7%AC%AC5%E6%9C%9F/"/>
+    <id>https://strugglexiang.xyz/2020/01/12/28-一周见闻第5期/</id>
+    <published>2020-01-12T12:54:17.000Z</published>
+    <updated>2022-03-22T17:45:55.623Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一周见闻第5期&quot;&gt;&lt;a href=&quot;#一周见闻第5期&quot; class=&quot;headerlink&quot; title=&quot;一周见闻第5期&quot;&gt;&lt;/a&gt;一周见闻第5期&lt;/h1&gt;&lt;p&gt;在过去的一周里，我都会将自己的见闻做记录。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="见识" scheme="https://strugglexiang.xyz/categories/%E8%A7%81%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>菜鸟搭建静态站点之路</title>
+    <link href="https://strugglexiang.xyz/2019/12/12/27-%E8%8F%9C%E9%B8%9F%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E4%B9%8B%E8%B7%AF/"/>
+    <id>https://strugglexiang.xyz/2019/12/12/27-菜鸟搭建静态站点之路/</id>
+    <published>2019-12-12T10:35:49.000Z</published>
+    <updated>2022-03-22T17:45:55.623Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h1&gt;&lt;p&gt;以前都是通过一键lnmp部署站点，自己作为linux和计算机网络的超级小白，从零开始搭建，本篇文章记录搭建的过程，大佬就不要进来见笑了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="运维" scheme="https://strugglexiang.xyz/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="linux" scheme="https://strugglexiang.xyz/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则第七章-正则表达式编程</title>
+    <link href="https://strugglexiang.xyz/2019/12/05/26-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <id>https://strugglexiang.xyz/2019/12/05/26-正则表达式编程/</id>
+    <published>2019-12-05T10:40:50.000Z</published>
+    <updated>2022-03-22T17:45:55.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式编程&quot;&gt;&lt;a href=&quot;#正则表达式编程&quot; class=&quot;headerlink&quot; title=&quot;正则表达式编程&quot;&gt;&lt;/a&gt;正则表达式编程&lt;/h1&gt;&lt;p&gt;学技术是用于服务于现实的，对现实产生价值。如果只学不用，纸上谈兵，对个人来讲其实没有什么帮助。正则也是一样，学习它就是为了在真实的编码生活中使用它。本篇着重于正则表达式的使用。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第六章-正则表达式的构建</title>
+    <link href="https://strugglexiang.xyz/2019/12/05/25-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%9E%84%E5%BB%BA/"/>
+    <id>https://strugglexiang.xyz/2019/12/05/25-正则表达式的构建/</id>
+    <published>2019-12-05T10:36:50.000Z</published>
+    <updated>2022-03-22T17:45:55.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式的构建&quot;&gt;&lt;a href=&quot;#正则表达式的构建&quot; class=&quot;headerlink&quot; title=&quot;正则表达式的构建&quot;&gt;&lt;/a&gt;正则表达式的构建&lt;/h1&gt;&lt;p&gt;对一门语言的掌握程度，可以从两方面衡量：读和写。&lt;/p&gt;
+&lt;p&gt;既要看懂别人的解决方案，也需要自己能够独立解决问题。相对于“读”，“写”显然更重要一些。本篇介绍着重于“写”。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>彻底认清JS中的this</title>
+    <link href="https://strugglexiang.xyz/2019/11/11/24-%E5%BD%BB%E5%BA%95%E8%AE%A4%E6%B8%85JS%E4%B8%AD%E7%9A%84%C2%80this/"/>
+    <id>https://strugglexiang.xyz/2019/11/11/24-彻底认清JS中的this/</id>
+    <published>2019-11-11T11:37:29.000Z</published>
+    <updated>2022-03-22T17:45:55.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;有关&lt;code&gt;JavaScript&lt;/code&gt;中的&lt;code&gt;this&lt;/code&gt;，网络上充斥着大量的知识文章，日常编码和面试时也时常涉及相关的知识。本篇就来梳理一下和&lt;code&gt;this&lt;/code&gt;相关的知识点，夯实基础。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第五章-正则表达式的拆分</title>
+    <link href="https://strugglexiang.xyz/2019/09/23/23-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%8B%86%E5%88%86/"/>
+    <id>https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/</id>
+    <published>2019-09-23T03:50:29.000Z</published>
+    <updated>2022-03-22T17:45:55.621Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式的拆分&quot;&gt;&lt;a href=&quot;#正则表达式的拆分&quot; class=&quot;headerlink&quot; title=&quot;正则表达式的拆分&quot;&gt;&lt;/a&gt;正则表达式的拆分&lt;/h1&gt;&lt;p&gt;对一门语言的掌握程度，可以从两个角度来衡量：读和写。不仅要求自己能够写出来，也要求能看懂别人的解决方案。&lt;/p&gt;
+&lt;p&gt;正则表达式不像其他编程语言，它没有“语句”的概念，它通常就是一堆字符的组合。因此想要读懂一个正则表达式，对正则的拆分是十分重要的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第四章-正则表达式回溯法原理</title>
+    <link href="https://strugglexiang.xyz/2019/09/23/22-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9B%9E%E6%BA%AF%E6%B3%95%E5%8E%9F%E7%90%86/"/>
+    <id>https://strugglexiang.xyz/2019/09/23/22-正则表达式回溯法原理/</id>
+    <published>2019-09-23T03:50:14.000Z</published>
+    <updated>2022-03-22T17:45:55.621Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式回溯法原理&quot;&gt;&lt;a href=&quot;#正则表达式回溯法原理&quot; class=&quot;headerlink&quot; title=&quot;正则表达式回溯法原理&quot;&gt;&lt;/a&gt;正则表达式回溯法原理&lt;/h1&gt;&lt;p&gt;正则表达式的匹配原理中，&lt;code&gt;回溯&lt;/code&gt;出现的频率比较高，跟着老姚的教程，本篇也来理解一下回溯法原理。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第三章-正则表达式中括号的作用</title>
+    <link href="https://strugglexiang.xyz/2019/09/16/21-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%8B%AC%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/</id>
+    <published>2019-09-16T03:55:36.000Z</published>
+    <updated>2022-03-22T17:45:55.620Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式中括号的作用&quot;&gt;&lt;a href=&quot;#正则表达式中括号的作用&quot; class=&quot;headerlink&quot; title=&quot;正则表达式中括号的作用&quot;&gt;&lt;/a&gt;正则表达式中括号的作用&lt;/h1&gt;&lt;p&gt;正则表达式也是一门语言，括号在其中有着十分重要的作用。简单来说，括号的作用就是提供分组，便于引用。下面来详细分析。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第二章-正则表达式位置匹配攻略</title>
+    <link href="https://strugglexiang.xyz/2019/09/16/20-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BD%8D%E7%BD%AE%E5%8C%B9%E9%85%8D%E6%94%BB%E7%95%A5/"/>
+    <id>https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/</id>
+    <published>2019-09-16T03:52:53.000Z</published>
+    <updated>2022-03-22T17:45:55.620Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式位置匹配攻略&quot;&gt;&lt;a href=&quot;#正则表达式位置匹配攻略&quot; class=&quot;headerlink&quot; title=&quot;正则表达式位置匹配攻略&quot;&gt;&lt;/a&gt;正则表达式位置匹配攻略&lt;/h1&gt;&lt;p&gt;正则表达式是匹配模式，要么匹配字符，要么匹配位置，本篇是位置匹配攻略。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>正则第一章-正则表达式字符匹配攻略</title>
+    <link href="https://strugglexiang.xyz/2019/09/09/19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D%E6%94%BB%E7%95%A5/"/>
+    <id>https://strugglexiang.xyz/2019/09/09/19-正则表达式字符匹配攻略/</id>
+    <published>2019-09-09T03:11:06.000Z</published>
+    <updated>2022-03-22T17:45:55.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;正则表达式字符匹配攻略&quot;&gt;&lt;a href=&quot;#正则表达式字符匹配攻略&quot; class=&quot;headerlink&quot; title=&quot;正则表达式字符匹配攻略&quot;&gt;&lt;/a&gt;正则表达式字符匹配攻略&lt;/h1&gt;&lt;p&gt;正则表达式是匹配模式，要么匹配字符，要么匹配位置。本篇是字符匹配攻略。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重学正则</title>
+    <link href="https://strugglexiang.xyz/2019/09/09/18-%E9%87%8D%E5%AD%A6%E6%AD%A3%E5%88%99/"/>
+    <id>https://strugglexiang.xyz/2019/09/09/18-重学正则/</id>
+    <published>2019-09-09T03:08:10.000Z</published>
+    <updated>2022-03-22T17:45:55.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;避不开的弱点&quot;&gt;&lt;a href=&quot;#避不开的弱点&quot; class=&quot;headerlink&quot; title=&quot;避不开的弱点&quot;&gt;&lt;/a&gt;避不开的弱点&lt;/h1&gt;&lt;p&gt;很早之前，我就写过一篇简短的&lt;a href=&quot;https://github.com/strugglexiang/blog/blob/master/%E6%AD%A3%E5%88%99/%E6%AD%A3%E5%88%99%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/old_learn.md&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;正则基础学习文章&lt;/a&gt;，但那仅仅是入门的记录，后来就没有后续了。过了一年，就忘记得差不多了。从这里开始重学正则表达式。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+    
+      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一周见闻第4期</title>
+    <link href="https://strugglexiang.xyz/2019/09/09/17-%E4%B8%80%E5%91%A8%E8%A7%81%E9%97%BB%E7%AC%AC4%E6%9C%9F/"/>
+    <id>https://strugglexiang.xyz/2019/09/09/17-一周见闻第4期/</id>
+    <published>2019-09-09T02:59:00.000Z</published>
+    <updated>2022-03-22T17:45:55.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一周见闻第4期&quot;&gt;&lt;a href=&quot;#一周见闻第4期&quot; class=&quot;headerlink&quot; title=&quot;一周见闻第4期&quot;&gt;&lt;/a&gt;一周见闻第4期&lt;/h1&gt;&lt;p&gt;在过去的一周里，我都会将自己的见闻做记录。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="见识" scheme="https://strugglexiang.xyz/categories/%E8%A7%81%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+</feed>

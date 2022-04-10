@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://strugglexiang.xyz/"/>
-  <updated>2022-04-09T13:52:57.887Z</updated>
+  <updated>2022-04-10T03:57:57.096Z</updated>
   <id>https://strugglexiang.xyz/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="https://strugglexiang.xyz/2022/04/09/36-Vue-js%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0-md/"/>
     <id>https://strugglexiang.xyz/2022/04/09/36-Vue-js的简单实现-md/</id>
     <published>2022-04-09T08:45:38.000Z</published>
-    <updated>2022-04-09T13:52:57.887Z</updated>
+    <updated>2022-04-10T03:57:57.096Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在Vue.js的2.x版本中，响应式原理的核心是数据劫持和依赖收集，通过&lt;code&gt;Object.defineProperties&lt;/code&gt;方法实现对数据存取的拦截，这一步的实现我们称之为数据代理；同时，通过对get方法进行拦截，可以获取到数据的依赖，并将依赖收集到一个集合中，当数据发生变更时，收集到的依赖将对视图进行更新。&lt;/p&gt;
-&lt;p&gt;Vue.js的3.0版本，响应式原理的核心思想不变，将用&lt;code&gt;Proxy&lt;/code&gt;替换&lt;code&gt;Object.defineProperties&lt;/code&gt;实现数据代理。&lt;/p&gt;
+      &lt;p&gt;在Vue.js的2.x版本中，响应式原理的核心是数据劫持和依赖收集，通过&lt;code&gt;Object.defineProperty&lt;/code&gt;方法实现对数据存取的拦截，这一步的实现我们称之为数据代理；同时，通过对get方法进行拦截，可以获取到数据的依赖，并将依赖收集到一个集合中，当数据发生变更时，收集到的依赖将对视图进行更新。&lt;/p&gt;
+&lt;p&gt;Vue.js的3.0版本，响应式原理的核心思想不变，将用&lt;code&gt;Proxy&lt;/code&gt;替换&lt;code&gt;Object.defineProperty&lt;/code&gt;实现数据代理。&lt;/p&gt;
 &lt;p&gt;本篇基于Vue 2.x的核心思想来实现一个简化版的Vue.js。&lt;/p&gt;
     
     </summary>

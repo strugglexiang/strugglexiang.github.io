@@ -19,28 +19,28 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前言本篇大幅参考掘金老姚   正则表达式的拆分对一门语言的掌握程度，可以从两个角度来衡量：读和写。不仅要求自己能够写出来，也要求能看懂别人的解决方案。 正则表达式不像其他编程语言，它没有“语句”的概念，它通常就是一堆字符的组合。因此想要读懂一个正则表达式，对正则的拆分是十分重要的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则第五章-正则表达式的拆分">
-<meta property="og:url" content="https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2019/09/23/23-正则表达式的拆分/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="前言本篇大幅参考掘金老姚   正则表达式的拆分对一门语言的掌握程度，可以从两个角度来衡量：读和写。不仅要求自己能够写出来，也要求能看懂别人的解决方案。 正则表达式不像其他编程语言，它没有“语句”的概念，它通常就是一堆字符的组合。因此想要读懂一个正则表达式，对正则的拆分是十分重要的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1568884976.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1568886120.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1568886291.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1568887055.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1569209433.jpg">
-<meta property="og:updated_time" content="2022-03-22T17:45:55.621Z">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1568884976.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1568886120.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1568886291.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1568887055.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1569209433.jpg">
+<meta property="og:updated_time" content="2026-11-21T17:50:47.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则第五章-正则表达式的拆分">
 <meta name="twitter:description" content="前言本篇大幅参考掘金老姚   正则表达式的拆分对一门语言的掌握程度，可以从两个角度来衡量：读和写。不仅要求自己能够写出来，也要求能看懂别人的解决方案。 正则表达式不像其他编程语言，它没有“语句”的概念，它通常就是一堆字符的组合。因此想要读懂一个正则表达式，对正则的拆分是十分重要的。">
-<meta name="twitter:image" content="https://source.strugglexiang.xyz/1568884976.jpg">
+<meta name="twitter:image" content="https://strugglexiang.github.io/images/1568884976.jpg">
 
-<link rel="canonical" href="https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/">
+<link rel="canonical" href="https://strugglexiang.github.io/2019/09/23/23-正则表达式的拆分/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/23/23-正则表达式的拆分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +308,7 @@
 </blockquote>
 <p><strong>拆分一个正则表达式，就是根据操作符的优先级确认各个结构</strong></p>
 <p>我们来看一个示例，正则是<code>/ab?(c|de*)+|fg/</code>，它是结构形式是：</p>
-<p><img src="https://source.strugglexiang.xyz/1568884976.jpg" alt></p>
+<p><img src="/images/1568884976.jpg" alt></p>
 <p>分析：</p>
 <ol>
 <li><code>(c|de*)</code>有括号，是一个整体。</li>
@@ -318,16 +318,16 @@
 <h1 id="注意要点"><a href="#注意要点" class="headerlink" title="注意要点"></a>注意要点</h1><p>在结构和操作符中，需要注意一些点。</p>
 <h2 id="匹配字符串整体问题"><a href="#匹配字符串整体问题" class="headerlink" title="匹配字符串整体问题"></a>匹配字符串整体问题</h2><p>通常情况下，在匹配字符串整体时，我们会在正则的开头和结尾加上<code>^</code>、<code>$</code>。</p>
 <p>但是要注意字符串整体匹配时有分支的情况，比如我们要整体匹配<code>abc</code>或<code>bcd</code>，正则很容易写成<code>/^abc|bcd$/</code>，但是<code>^</code>、<code>$</code>的优先级比<code>|</code>高，因此<code>/^abc|bcd$/</code>的结构形式是：</p>
-<p><img src="https://source.strugglexiang.xyz/1568886120.jpg" alt></p>
+<p><img src="/images/1568886120.jpg" alt></p>
 <p>它表示匹配<strong>以abc开头</strong>或者<strong>以bcd结尾的字符串</strong>，不是我们想象中的整体匹配。</p>
 <p>应该改成<code>/^(abc|bcd)$/</code>，可视化形式如下：</p>
-<p><img src="https://source.strugglexiang.xyz/1568886291.jpg" alt></p>
+<p><img src="/images/1568886291.jpg" alt></p>
 <h2 id="量词连缀问题"><a href="#量词连缀问题" class="headerlink" title="量词连缀问题"></a>量词连缀问题</h2><p>量词不能连续使用，当连续使用时需作用于整体，比如我们要匹配这样的字符串：</p>
 <blockquote>
 <p>要每个字符只能是a、b、c中的一个<br>字符串的长度是3的倍数<br>很容易写成<code>/([abc]{3})+/</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/[abc]&#123;3&#125;+/</span></span><br><span class="line"><span class="comment">// &gt;=  Uncaught SyntaxError: Invalid regular expression: /[abc]&#123;3&#125;+/: Nothing to repeat</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>报错，<code>+</code>号前没有东西可以重复，需要改成<code>/([abc]{3})+/</code>，结构形式如下：</p>
-<p><img src="https://source.strugglexiang.xyz/1568887055.jpg" alt></p>
+<p><img src="/images/1568887055.jpg" alt></p>
 <h2 id="元字符转义问题"><a href="#元字符转义问题" class="headerlink" title="元字符转义问题"></a>元字符转义问题</h2><p>元字符：也叫特殊字符，就是在正则表达式中有特殊含义的字符。</p>
 <p>所有结构中，共有以下元字符：</p>
 <blockquote>
@@ -358,7 +358,7 @@
 <li><code>^</code>、<code>$</code>代表整体匹配。</li>
 </ol>
 <p>该正则可视化形式如下： </p>
-<p><img src="https://source.strugglexiang.xyz/1569209433.jpg" alt></p>
+<p><img src="/images/1569209433.jpg" alt></p>
 <h2 id="IPV4地址"><a href="#IPV4地址" class="headerlink" title="IPV4地址"></a>IPV4地址</h2><p>正则表达式<code>/^((0{0,2}\d|0?\d{2}|1\d{2}|2[0-4]\d|25[0-5])\.){3}(0{0,2}\d|0?\d{2}|1\d{2}|2[0-4]\d|25[0-5])$/</code></p>
 <p>这个正则看起来很长，实际一眼就看出有如下结构<code>/^(...){3}(...)$/</code>，下面分析前面的括号<code>(0{0,2}\d|0?\d{2}|1\d{2}|2[0-4]\d|25[0-5])</code></p>
 <p>拆分：  </p>
@@ -492,14 +492,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -573,7 +573,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

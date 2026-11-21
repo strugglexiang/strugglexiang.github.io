@@ -19,25 +19,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="引子最近在看狼叔写的《狼书》来学习Node.js。书中说到：非阻塞I/O是Node.js的特性，我对此不是很理解。非阻塞I/O是什么？这个概念好像在很多地方都有提及，于是有了这篇探索记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅解IO">
-<meta property="og:url" content="https://strugglexiang.xyz/2020/03/18/30-浅解IO/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2020/03/18/30-浅解IO/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="引子最近在看狼叔写的《狼书》来学习Node.js。书中说到：非阻塞I/O是Node.js的特性，我对此不是很理解。非阻塞I/O是什么？这个概念好像在很多地方都有提及，于是有了这篇探索记录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://source.strugglexiang.xyz/io1.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/io2.jpg">
-<meta property="og:updated_time" content="2022-03-22T19:11:28.527Z">
+<meta property="og:image" content="https://strugglexiang.github.io/images/io1.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/io2.jpg">
+<meta property="og:updated_time" content="2026-11-21T17:50:47.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅解IO">
 <meta name="twitter:description" content="引子最近在看狼叔写的《狼书》来学习Node.js。书中说到：非阻塞I/O是Node.js的特性，我对此不是很理解。非阻塞I/O是什么？这个概念好像在很多地方都有提及，于是有了这篇探索记录。">
-<meta name="twitter:image" content="https://source.strugglexiang.xyz/io1.jpg">
+<meta name="twitter:image" content="https://strugglexiang.github.io/images/io1.jpg">
 
-<link rel="canonical" href="https://strugglexiang.xyz/2020/03/18/30-浅解IO/">
+<link rel="canonical" href="https://strugglexiang.github.io/2020/03/18/30-浅解IO/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2020/03/18/30-浅解IO/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/18/30-浅解IO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 03:11:28" itemprop="dateModified" datetime="2022-03-23T03:11:28+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,7 +255,7 @@
 <h1 id="一次网络I-O"><a href="#一次网络I-O" class="headerlink" title="一次网络I/O"></a>一次网络I/O</h1><p>计算机的组成其实非常简单，处理器、存储器再加上输入、输出设备就能构成一台计算机。大至超级计算机，小至我们日常使用的手机，都是这样的模型。计算的本质就是处理器读取输入设备的数据处理后再输出。可以说，计算机的任务就是计算和I/O。</p>
 <p>在网络发明之前，计算机从存储设备中读取数据，进程通过内存通道进行通信。互联网发明之后，越来越多的计算机通过互联网连接，将数据传递到世界各地。计算机之间的通信，本质上就是计算机进程之间相互通信。</p>
 <p>网络通信，一般的模式是客户端（client）发起网络请求，服务端（server）接收请求再响应。例如我们平常浏览网页，在浏览器输入网址发起请求，请求服务器上的一个html文件，服务器接收到请求后，会先读取磁盘的html文件，再将html文件返回给客户端。这样一个过程，涉及到了网络I/O和磁盘文件I/O。它的大致流程如下。</p>
-<p><img src="https://source.strugglexiang.xyz/io1.jpg" alt="io"></p>
+<p><img src="/images/io1.jpg" alt="io"></p>
 <p>上图只展示了server端的响应过程：</p>
 <ol>
 <li>server发起read系统调用，内核将磁盘文件的数据copy到内核缓冲区。（此次copy没有cpu的参与）</li>
@@ -270,7 +270,7 @@
 </blockquote>
 <h1 id="一次I-O过程"><a href="#一次I-O过程" class="headerlink" title="一次I/O过程"></a>一次I/O过程</h1><p>什么是I/O呢？程序的运行，会占用内存，而内存又分为用户空间和内核空间。<strong>所谓I/O，就是将硬件（磁盘、NIC网卡）的数据读取到应用程序的内存中</strong>。通常，应用程序很少能和硬件直接交互，需要操作系统作为二者（应用程序、硬件）的桥梁。操作系统有自己的内核buf，先将硬件的数据读取到内核buf中，再将内核buf的数据发送到应用程序的内存。</p>
 <p>以读I/O为例:</p>
-<p><img src="https://source.strugglexiang.xyz/io2.jpg" alt="io"></p>
+<p><img src="/images/io2.jpg" alt="io"></p>
 <ol>
 <li>应用程序首先发送read系统调用。</li>
 <li>系统内核接受应用的请求，如果内核中有数据，就将数据copy到应用buf中，调用结束；如果没有数据，内核就会和I/O模块发送请求，I/O模块和硬件交互。</li>
@@ -425,14 +425,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -506,7 +506,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

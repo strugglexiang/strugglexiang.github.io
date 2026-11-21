@@ -5,9 +5,9 @@
   <subtitle>千里之行，始于足下</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://strugglexiang.xyz/"/>
-  <updated>2022-04-24T15:10:54.538Z</updated>
-  <id>https://strugglexiang.xyz/</id>
+  <link href="https://strugglexiang.github.io/"/>
+  <updated>2022-05-07T14:47:00.338Z</updated>
+  <id>https://strugglexiang.github.io/</id>
   
   <author>
     <name>𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>TypeScript指北</title>
-    <link href="https://strugglexiang.xyz/2022/02/11/37-TypeScript%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://strugglexiang.xyz/2022/02/11/37-TypeScript学习/</id>
+    <link href="https://strugglexiang.github.io/2022/02/11/37-TypeScript%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://strugglexiang.github.io/2022/02/11/37-TypeScript学习/</id>
     <published>2022-02-11T11:30:01.000Z</published>
-    <updated>2022-04-24T15:10:54.538Z</updated>
+    <updated>2022-05-07T14:47:00.338Z</updated>
     
     <summary type="html">
     
@@ -29,15 +29,15 @@
     
     </summary>
     
-      <category term="TypeScript" scheme="https://strugglexiang.xyz/categories/TypeScript/"/>
+      <category term="TypeScript" scheme="https://strugglexiang.github.io/categories/TypeScript/"/>
     
     
   </entry>
   
   <entry>
     <title>Vue.js的简单实现</title>
-    <link href="https://strugglexiang.xyz/2022/01/09/36-Vue-js%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/"/>
-    <id>https://strugglexiang.xyz/2022/01/09/36-Vue-js的简单实现/</id>
+    <link href="https://strugglexiang.github.io/2022/01/09/36-Vue-js%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://strugglexiang.github.io/2022/01/09/36-Vue-js的简单实现/</id>
     <published>2022-01-09T08:45:38.000Z</published>
     <updated>2022-04-21T05:16:03.540Z</updated>
     
@@ -49,17 +49,35 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vite入门初识</title>
+    <link href="https://strugglexiang.github.io/2022/01/01/38-vite%E5%85%A5%E9%97%A8%E5%88%9D%E8%AF%86/"/>
+    <id>https://strugglexiang.github.io/2022/01/01/38-vite入门初识/</id>
+    <published>2022-01-01T14:43:30.000Z</published>
+    <updated>2022-05-07T14:46:52.334Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇是本人Vite入门学习记录，本篇文章使用的Vite1.0版本。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端工程化" scheme="https://strugglexiang.github.io/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
     
   </entry>
   
   <entry>
     <title>浏览器的Event Loop</title>
-    <link href="https://strugglexiang.xyz/2020/05/19/35-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84Event%20Loop/"/>
-    <id>https://strugglexiang.xyz/2020/05/19/35-浏览器的Event Loop/</id>
+    <link href="https://strugglexiang.github.io/2020/05/19/35-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84Event%20Loop/"/>
+    <id>https://strugglexiang.github.io/2020/05/19/35-浏览器的Event Loop/</id>
     <published>2020-05-19T02:51:50.000Z</published>
-    <updated>2022-03-22T19:11:28.530Z</updated>
+    <updated>2026-11-21T17:50:47.006Z</updated>
     
     <summary type="html">
     
@@ -67,17 +85,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
     
   </entry>
   
   <entry>
     <title>手写promise</title>
-    <link href="https://strugglexiang.xyz/2020/05/19/34-%E6%89%8B%E5%86%99promise/"/>
-    <id>https://strugglexiang.xyz/2020/05/19/34-手写promise/</id>
+    <link href="https://strugglexiang.github.io/2020/05/19/34-%E6%89%8B%E5%86%99promise/"/>
+    <id>https://strugglexiang.github.io/2020/05/19/34-手写promise/</id>
     <published>2020-05-19T02:51:40.000Z</published>
-    <updated>2022-03-22T19:11:28.529Z</updated>
+    <updated>2024-10-31T07:17:11.641Z</updated>
     
     <summary type="html">
     
@@ -85,17 +103,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
     
   </entry>
   
   <entry>
     <title>算法面试需要掌握的数据结构（二）</title>
-    <link href="https://strugglexiang.xyz/2020/05/19/33-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>https://strugglexiang.xyz/2020/05/19/33-算法面试需要掌握的数据结构（二）/</id>
+    <link href="https://strugglexiang.github.io/2020/05/19/33-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://strugglexiang.github.io/2020/05/19/33-算法面试需要掌握的数据结构（二）/</id>
     <published>2020-05-19T02:51:39.000Z</published>
-    <updated>2022-03-22T19:11:28.529Z</updated>
+    <updated>2026-11-21T17:50:47.006Z</updated>
     
     <summary type="html">
     
@@ -103,19 +121,19 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="数据结构和算法" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构和算法" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>算法面试需要掌握的数据结构（一）</title>
-    <link href="https://strugglexiang.xyz/2020/05/19/32-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>https://strugglexiang.xyz/2020/05/19/32-算法面试需要掌握的数据结构（一）/</id>
+    <link href="https://strugglexiang.github.io/2020/05/19/32-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://strugglexiang.github.io/2020/05/19/32-算法面试需要掌握的数据结构（一）/</id>
     <published>2020-05-19T02:51:37.000Z</published>
-    <updated>2022-03-22T19:11:28.528Z</updated>
+    <updated>2026-11-21T17:50:47.005Z</updated>
     
     <summary type="html">
     
@@ -130,19 +148,19 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="数据结构和算法" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构和算法" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>谈下文档流</title>
-    <link href="https://strugglexiang.xyz/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/"/>
-    <id>https://strugglexiang.xyz/2020/03/28/31-谈下文档流/</id>
+    <link href="https://strugglexiang.github.io/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/"/>
+    <id>https://strugglexiang.github.io/2020/03/28/31-谈下文档流/</id>
     <published>2020-03-28T06:01:09.000Z</published>
-    <updated>2022-03-22T19:11:28.528Z</updated>
+    <updated>2026-11-21T17:50:47.005Z</updated>
     
     <summary type="html">
     
@@ -150,17 +168,17 @@
     
     </summary>
     
-      <category term="CSS" scheme="https://strugglexiang.xyz/categories/CSS/"/>
+      <category term="CSS" scheme="https://strugglexiang.github.io/categories/CSS/"/>
     
     
   </entry>
   
   <entry>
     <title>Node.js初识</title>
-    <link href="https://strugglexiang.xyz/2020/03/18/30-Node%E5%88%9D%E8%AF%86/"/>
-    <id>https://strugglexiang.xyz/2020/03/18/30-Node初识/</id>
+    <link href="https://strugglexiang.github.io/2020/03/18/30-Node%E5%88%9D%E8%AF%86/"/>
+    <id>https://strugglexiang.github.io/2020/03/18/30-Node初识/</id>
     <published>2020-03-18T06:29:24.000Z</published>
-    <updated>2022-03-22T19:11:28.527Z</updated>
+    <updated>2026-11-21T17:50:47.004Z</updated>
     
     <summary type="html">
     
@@ -168,17 +186,17 @@
     
     </summary>
     
-      <category term="Node.js" scheme="https://strugglexiang.xyz/categories/Node-js/"/>
+      <category term="Node.js" scheme="https://strugglexiang.github.io/categories/Node-js/"/>
     
     
   </entry>
   
   <entry>
     <title>浅解IO</title>
-    <link href="https://strugglexiang.xyz/2020/03/18/30-%E6%B5%85%E8%A7%A3IO/"/>
-    <id>https://strugglexiang.xyz/2020/03/18/30-浅解IO/</id>
+    <link href="https://strugglexiang.github.io/2020/03/18/30-%E6%B5%85%E8%A7%A3IO/"/>
+    <id>https://strugglexiang.github.io/2020/03/18/30-浅解IO/</id>
     <published>2020-03-18T06:19:02.000Z</published>
-    <updated>2022-03-22T19:11:28.527Z</updated>
+    <updated>2026-11-21T17:50:47.004Z</updated>
     
     <summary type="html">
     
@@ -186,15 +204,15 @@
     
     </summary>
     
-      <category term="理解计算机" scheme="https://strugglexiang.xyz/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="理解计算机" scheme="https://strugglexiang.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
   </entry>
   
   <entry>
     <title>计算机组成</title>
-    <link href="https://strugglexiang.xyz/2020/03/18/29-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/"/>
-    <id>https://strugglexiang.xyz/2020/03/18/29-计算机组成/</id>
+    <link href="https://strugglexiang.github.io/2020/03/18/29-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/"/>
+    <id>https://strugglexiang.github.io/2020/03/18/29-计算机组成/</id>
     <published>2020-03-18T06:17:27.000Z</published>
     <updated>2022-03-22T19:11:28.527Z</updated>
     
@@ -204,15 +222,15 @@
     
     </summary>
     
-      <category term="理解计算机" scheme="https://strugglexiang.xyz/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+      <category term="理解计算机" scheme="https://strugglexiang.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     
   </entry>
   
   <entry>
     <title>一周见闻第5期</title>
-    <link href="https://strugglexiang.xyz/2020/01/12/28-%E4%B8%80%E5%91%A8%E8%A7%81%E9%97%BB%E7%AC%AC5%E6%9C%9F/"/>
-    <id>https://strugglexiang.xyz/2020/01/12/28-一周见闻第5期/</id>
+    <link href="https://strugglexiang.github.io/2020/01/12/28-%E4%B8%80%E5%91%A8%E8%A7%81%E9%97%BB%E7%AC%AC5%E6%9C%9F/"/>
+    <id>https://strugglexiang.github.io/2020/01/12/28-一周见闻第5期/</id>
     <published>2020-01-12T12:54:17.000Z</published>
     <updated>2022-03-22T17:45:55.623Z</updated>
     
@@ -222,17 +240,17 @@
     
     </summary>
     
-      <category term="见识" scheme="https://strugglexiang.xyz/categories/%E8%A7%81%E8%AF%86/"/>
+      <category term="见识" scheme="https://strugglexiang.github.io/categories/%E8%A7%81%E8%AF%86/"/>
     
     
   </entry>
   
   <entry>
     <title>菜鸟搭建静态站点之路</title>
-    <link href="https://strugglexiang.xyz/2019/12/12/27-%E8%8F%9C%E9%B8%9F%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E4%B9%8B%E8%B7%AF/"/>
-    <id>https://strugglexiang.xyz/2019/12/12/27-菜鸟搭建静态站点之路/</id>
+    <link href="https://strugglexiang.github.io/2019/12/12/27-%E8%8F%9C%E9%B8%9F%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E4%B9%8B%E8%B7%AF/"/>
+    <id>https://strugglexiang.github.io/2019/12/12/27-菜鸟搭建静态站点之路/</id>
     <published>2019-12-12T10:35:49.000Z</published>
-    <updated>2022-03-22T17:45:55.623Z</updated>
+    <updated>2026-11-21T17:50:47.003Z</updated>
     
     <summary type="html">
     
@@ -240,19 +258,19 @@
     
     </summary>
     
-      <category term="运维" scheme="https://strugglexiang.xyz/categories/%E8%BF%90%E7%BB%B4/"/>
+      <category term="运维" scheme="https://strugglexiang.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
-      <category term="linux" scheme="https://strugglexiang.xyz/tags/linux/"/>
+      <category term="linux" scheme="https://strugglexiang.github.io/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>正则第七章-正则表达式编程</title>
-    <link href="https://strugglexiang.xyz/2019/12/05/26-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    <id>https://strugglexiang.xyz/2019/12/05/26-正则表达式编程/</id>
+    <link href="https://strugglexiang.github.io/2019/12/05/26-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <id>https://strugglexiang.github.io/2019/12/05/26-正则表达式编程/</id>
     <published>2019-12-05T10:40:50.000Z</published>
-    <updated>2022-03-22T17:45:55.622Z</updated>
+    <updated>2026-11-21T17:50:47.003Z</updated>
     
     <summary type="html">
     
@@ -261,19 +279,19 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>
   
   <entry>
     <title>正则第六章-正则表达式的构建</title>
-    <link href="https://strugglexiang.xyz/2019/12/05/25-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%9E%84%E5%BB%BA/"/>
-    <id>https://strugglexiang.xyz/2019/12/05/25-正则表达式的构建/</id>
+    <link href="https://strugglexiang.github.io/2019/12/05/25-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%9E%84%E5%BB%BA/"/>
+    <id>https://strugglexiang.github.io/2019/12/05/25-正则表达式的构建/</id>
     <published>2019-12-05T10:36:50.000Z</published>
-    <updated>2022-03-22T17:45:55.622Z</updated>
+    <updated>2026-11-21T17:50:47.002Z</updated>
     
     <summary type="html">
     
@@ -283,17 +301,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>
   
   <entry>
     <title>彻底认清JS中的this</title>
-    <link href="https://strugglexiang.xyz/2019/11/11/24-%E5%BD%BB%E5%BA%95%E8%AE%A4%E6%B8%85JS%E4%B8%AD%E7%9A%84%C2%80this/"/>
-    <id>https://strugglexiang.xyz/2019/11/11/24-彻底认清JS中的this/</id>
+    <link href="https://strugglexiang.github.io/2019/11/11/24-%E5%BD%BB%E5%BA%95%E8%AE%A4%E6%B8%85JS%E4%B8%AD%E7%9A%84%C2%80this/"/>
+    <id>https://strugglexiang.github.io/2019/11/11/24-彻底认清JS中的this/</id>
     <published>2019-11-11T11:37:29.000Z</published>
     <updated>2022-03-22T17:45:55.622Z</updated>
     
@@ -303,17 +321,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
     
   </entry>
   
   <entry>
     <title>正则第五章-正则表达式的拆分</title>
-    <link href="https://strugglexiang.xyz/2019/09/23/23-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%8B%86%E5%88%86/"/>
-    <id>https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/</id>
+    <link href="https://strugglexiang.github.io/2019/09/23/23-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%8B%86%E5%88%86/"/>
+    <id>https://strugglexiang.github.io/2019/09/23/23-正则表达式的拆分/</id>
     <published>2019-09-23T03:50:29.000Z</published>
-    <updated>2022-03-22T17:45:55.621Z</updated>
+    <updated>2026-11-21T17:50:47.002Z</updated>
     
     <summary type="html">
     
@@ -323,19 +341,19 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>
   
   <entry>
     <title>正则第四章-正则表达式回溯法原理</title>
-    <link href="https://strugglexiang.xyz/2019/09/23/22-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9B%9E%E6%BA%AF%E6%B3%95%E5%8E%9F%E7%90%86/"/>
-    <id>https://strugglexiang.xyz/2019/09/23/22-正则表达式回溯法原理/</id>
+    <link href="https://strugglexiang.github.io/2019/09/23/22-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9B%9E%E6%BA%AF%E6%B3%95%E5%8E%9F%E7%90%86/"/>
+    <id>https://strugglexiang.github.io/2019/09/23/22-正则表达式回溯法原理/</id>
     <published>2019-09-23T03:50:14.000Z</published>
-    <updated>2022-03-22T17:45:55.621Z</updated>
+    <updated>2026-11-21T17:50:47.002Z</updated>
     
     <summary type="html">
     
@@ -344,17 +362,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>
   
   <entry>
     <title>正则第三章-正则表达式中括号的作用</title>
-    <link href="https://strugglexiang.xyz/2019/09/16/21-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%8B%AC%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <id>https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/</id>
+    <link href="https://strugglexiang.github.io/2019/09/16/21-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E6%8B%AC%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>https://strugglexiang.github.io/2019/09/16/21-正则表达式中括号的作用/</id>
     <published>2019-09-16T03:55:36.000Z</published>
     <updated>2022-03-22T17:45:55.620Z</updated>
     
@@ -365,19 +383,19 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>
   
   <entry>
     <title>正则第二章-正则表达式位置匹配攻略</title>
-    <link href="https://strugglexiang.xyz/2019/09/16/20-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BD%8D%E7%BD%AE%E5%8C%B9%E9%85%8D%E6%94%BB%E7%95%A5/"/>
-    <id>https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/</id>
+    <link href="https://strugglexiang.github.io/2019/09/16/20-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%BD%8D%E7%BD%AE%E5%8C%B9%E9%85%8D%E6%94%BB%E7%95%A5/"/>
+    <id>https://strugglexiang.github.io/2019/09/16/20-正则表达式位置匹配攻略/</id>
     <published>2019-09-16T03:52:53.000Z</published>
-    <updated>2022-03-22T17:45:55.620Z</updated>
+    <updated>2026-11-21T17:50:47.001Z</updated>
     
     <summary type="html">
     
@@ -386,30 +404,9 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://strugglexiang.github.io/categories/JavaScript/"/>
     
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>正则第一章-正则表达式字符匹配攻略</title>
-    <link href="https://strugglexiang.xyz/2019/09/09/19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D%E6%94%BB%E7%95%A5/"/>
-    <id>https://strugglexiang.xyz/2019/09/09/19-正则表达式字符匹配攻略/</id>
-    <published>2019-09-09T03:11:06.000Z</published>
-    <updated>2022-03-22T17:45:55.619Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本篇大幅参考&lt;a href=&quot;https://juejin.im/post/5965943ff265da6c30653879&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;掘金老姚&lt;/a&gt;  &lt;/p&gt;
-&lt;h1 id=&quot;正则表达式字符匹配攻略&quot;&gt;&lt;a href=&quot;#正则表达式字符匹配攻略&quot; class=&quot;headerlink&quot; title=&quot;正则表达式字符匹配攻略&quot;&gt;&lt;/a&gt;正则表达式字符匹配攻略&lt;/h1&gt;&lt;p&gt;正则表达式是匹配模式，要么匹配字符，要么匹配位置。本篇是字符匹配攻略。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://strugglexiang.xyz/categories/JavaScript/"/>
-    
-      <category term="正则表达式" scheme="https://strugglexiang.xyz/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="正则表达式" scheme="https://strugglexiang.github.io/categories/JavaScript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
   </entry>

@@ -19,25 +19,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="数据结构从前端角度来说，需要掌握的数据结构如下：  数组 栈 队列 树  本片主要介绍数组。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法面试需要掌握的数据结构（一）">
-<meta property="og:url" content="https://strugglexiang.xyz/2020/05/19/32-算法面试需要掌握的数据结构（一）/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2020/05/19/32-算法面试需要掌握的数据结构（一）/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="数据结构从前端角度来说，需要掌握的数据结构如下：  数组 栈 队列 树  本片主要介绍数组。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://source.strugglexiang.xyz/20_5_14_1.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/20_5_14_2.jpg">
-<meta property="og:updated_time" content="2022-03-22T19:11:28.528Z">
+<meta property="og:image" content="https://strugglexiang.github.io/images/20_5_14_1.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/20_5_14_2.jpg">
+<meta property="og:updated_time" content="2026-11-21T17:50:47.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法面试需要掌握的数据结构（一）">
 <meta name="twitter:description" content="数据结构从前端角度来说，需要掌握的数据结构如下：  数组 栈 队列 树  本片主要介绍数组。">
-<meta name="twitter:image" content="https://source.strugglexiang.xyz/20_5_14_1.jpg">
+<meta name="twitter:image" content="https://strugglexiang.github.io/images/20_5_14_1.jpg">
 
-<link rel="canonical" href="https://strugglexiang.xyz/2020/05/19/32-算法面试需要掌握的数据结构（一）/">
+<link rel="canonical" href="https://strugglexiang.github.io/2020/05/19/32-算法面试需要掌握的数据结构（一）/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2020/05/19/32-算法面试需要掌握的数据结构（一）/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/05/19/32-算法面试需要掌握的数据结构（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 03:11:28" itemprop="dateModified" datetime="2022-03-23T03:11:28+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,10 +295,10 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除数组尾部元素</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">arr.pop()</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除指定索引处的数组元素</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr) <span class="comment">// ["a", "c"]</span></span><br></pre></td></tr></table></figure>
 <h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><p>大部分情况下，我们使用的都是一维数组，如： <code>const arr = [1, 2, 3]</code>。它的逻辑结构如下：</p>
-<p><img src="https://source.strugglexiang.xyz/20_5_14_1.jpg" alt></p>
+<p><img src="/images/20_5_14_1.jpg" alt></p>
 <p>从逻辑上来讲，一维数组的数据是线性的，数组中的每个元素都是除数组以外的值。</p>
 <p>那么什么是二维数组？从形式上来上，二维数组也是数组，只不过它的每一个元素都是数组。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] </span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<p>它的逻辑结构图如下：<br><img src="https://source.strugglexiang.xyz/20_5_14_2.jpg" alt></p>
+<p>它的逻辑结构图如下：<br><img src="/images/20_5_14_2.jpg" alt></p>
 <p>从图上可以看到，二维数组的数组看上去就是<strong>长方阵列排列的复数或实数的集合</strong>，这在数学上称为矩阵。所以算法中如果出现<strong>矩阵</strong>这样的词汇，要将其理解为二维数组就行了。</p>
 <h2 id="二维数组的遍历"><a href="#二维数组的遍历" class="headerlink" title="二维数组的遍历"></a>二维数组的遍历</h2><p>遍历二维数组需要使用2个for循环，第一个循环遍历一维数组，第二个循环遍历一维数组的中的元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], </span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>] </span><br><span class="line">]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> innerLen = arr[i].length</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; innerLen; j++) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(arr[i][j], i, j)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>同理，遍历3维数组需要使用3个for循环，遍历n维数组是要使用n个for循环。</p>
@@ -416,14 +416,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -497,7 +497,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

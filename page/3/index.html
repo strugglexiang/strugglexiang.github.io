@@ -19,13 +19,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="咸鱼的人生">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ST&#39;s blog">
-<meta property="og:url" content="https://strugglexiang.xyz/page/3/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/page/3/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="咸鱼的人生">
 <meta property="og:locale" content="zh-CN">
@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="ST&#39;s blog">
 <meta name="twitter:description" content="咸鱼的人生">
 
-<link rel="canonical" href="https://strugglexiang.xyz/page/3/">
+<link rel="canonical" href="https://strugglexiang.github.io/page/3/">
 
 
 <script id="page-configurations">
@@ -192,7 +192,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/11/11/24-彻底认清JS中的this/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/12/05/25-正则表达式的构建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+      <meta itemprop="description" content="咸鱼的人生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/05/25-正则表达式的构建/" class="post-title-link" itemprop="url">正则第六章-正则表达式的构建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-05 18:36:50" itemprop="dateCreated datePublished" datetime="2019-12-05T18:36:50+08:00">2019-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/正则表达式/" itemprop="url" rel="index"><span itemprop="name">正则表达式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇大幅参考<a href="https://juejin.im/post/5965943ff265da6c30653879" target="_blank" rel="noopener">掘金老姚</a>  </p>
+<h1 id="正则表达式的构建"><a href="#正则表达式的构建" class="headerlink" title="正则表达式的构建"></a>正则表达式的构建</h1><p>对一门语言的掌握程度，可以从两方面衡量：读和写。</p>
+<p>既要看懂别人的解决方案，也需要自己能够独立解决问题。相对于“读”，“写”显然更重要一些。本篇介绍着重于“写”。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/05/25-正则表达式的构建/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/11/11/24-彻底认清JS中的this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -273,7 +360,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/23/23-正则表达式的拆分/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/23/23-正则表达式的拆分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -304,7 +391,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,7 +447,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/23/22-正则表达式回溯法原理/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/23/22-正则表达式回溯法原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -391,7 +478,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -446,7 +533,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/16/21-正则表达式中括号的作用/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/16/21-正则表达式中括号的作用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -532,7 +619,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/16/20-正则表达式位置匹配攻略/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/16/20-正则表达式位置匹配攻略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -563,7 +650,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -618,7 +705,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/09/19-正则表达式字符匹配攻略/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/09/09/19-正则表达式字符匹配攻略/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -649,7 +736,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:53" itemprop="dateModified" datetime="2026-11-22T01:50:53+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -681,91 +768,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/09/09/19-正则表达式字符匹配攻略/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/09/09/18-重学正则/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/xianyu.jpg">
-      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
-      <meta itemprop="description" content="咸鱼的人生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ST's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/09/18-重学正则/" class="post-title-link" itemprop="url">重学正则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-09 11:08:10" itemprop="dateCreated datePublished" datetime="2019-09-09T11:08:10+08:00">2019-09-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/正则表达式/" itemprop="url" rel="index"><span itemprop="name">正则表达式</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="避不开的弱点"><a href="#避不开的弱点" class="headerlink" title="避不开的弱点"></a>避不开的弱点</h1><p>很早之前，我就写过一篇简短的<a href="https://github.com/strugglexiang/blog/blob/master/%E6%AD%A3%E5%88%99/%E6%AD%A3%E5%88%99%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/old_learn.md" target="_blank" rel="noopener">正则基础学习文章</a>，但那仅仅是入门的记录，后来就没有后续了。过了一年，就忘记得差不多了。从这里开始重学正则表达式。<br>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/09/18-重学正则/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -855,14 +857,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -936,7 +938,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

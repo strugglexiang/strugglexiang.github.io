@@ -19,24 +19,24 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js初识">
-<meta property="og:url" content="https://strugglexiang.xyz/2020/03/18/30-Node初识/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2020/03/18/30-Node初识/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://source.strugglexiang.xyz/node.png">
-<meta property="og:updated_time" content="2022-03-22T19:11:28.527Z">
+<meta property="og:image" content="https://strugglexiang.github.io/images/node.png">
+<meta property="og:updated_time" content="2026-11-21T17:50:47.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js初识">
 <meta name="twitter:description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
-<meta name="twitter:image" content="https://source.strugglexiang.xyz/node.png">
+<meta name="twitter:image" content="https://strugglexiang.github.io/images/node.png">
 
-<link rel="canonical" href="https://strugglexiang.xyz/2020/03/18/30-Node初识/">
+<link rel="canonical" href="https://strugglexiang.github.io/2020/03/18/30-Node初识/">
 
 
 <script id="page-configurations">
@@ -196,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2020/03/18/30-Node初识/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/18/30-Node初识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 03:11:28" itemprop="dateModified" datetime="2022-03-23T03:11:28+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
 <li>Node.js是轻量和高效的，每个函数都是同步的，而I/O操作是异步的。所有由JS编写的函数的I/O都将由libuv（由c/c++编写）事件循环处理库来处理，隐藏了非阻塞I/O的具体细节，简化了编程模型，可以轻松编写高性能的web应用。</li>
 </ul>
 <p>Node.js的架构模式如下图：</p>
-<p><img src="https://source.strugglexiang.xyz/node.png" alt="node"></p>
+<p><img src="/images/node.png" alt="node"></p>
 <p>Chrome V8 引擎负责解释并执行JS代码。Libuv由事件循环和线程池组成，负责分发和执行i/o任务。</p>
 <p>JS是单线程的，也就意味着任务需要排队，一个任务执行前需等待前面的任务执行完成。</p>
 <p>一般情况下，cpu时闲着的，其实cpu完全可以不管i/o设备而直接挂起处于等待中任务，先执行后面的任务。</p>
@@ -391,14 +391,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -472,7 +472,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

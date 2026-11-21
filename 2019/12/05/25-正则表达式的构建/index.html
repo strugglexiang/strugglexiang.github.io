@@ -19,28 +19,28 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.xyz","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前言本篇大幅参考掘金老姚   正则表达式的构建对一门语言的掌握程度，可以从两方面衡量：读和写。 既要看懂别人的解决方案，也需要自己能够独立解决问题。相对于“读”，“写”显然更重要一些。本篇介绍着重于“写”。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则第六章-正则表达式的构建">
-<meta property="og:url" content="https://strugglexiang.xyz/2019/12/05/25-正则表达式的构建/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2019/12/05/25-正则表达式的构建/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="前言本篇大幅参考掘金老姚   正则表达式的构建对一门语言的掌握程度，可以从两方面衡量：读和写。 既要看懂别人的解决方案，也需要自己能够独立解决问题。相对于“读”，“写”显然更重要一些。本篇介绍着重于“写”。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1569311728.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1569313224.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/1569313497.jpg">
-<meta property="og:image" content="https://source.strugglexiang.xyz/reg_6_1.png">
-<meta property="og:image" content="https://source.strugglexiang.xyz/reg_6_2.png">
-<meta property="og:updated_time" content="2022-03-22T17:45:55.622Z">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1569311728.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1569313224.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/1569313497.jpg">
+<meta property="og:image" content="https://strugglexiang.github.io/images/reg_6_1.png">
+<meta property="og:image" content="https://strugglexiang.github.io/images/reg_6_2.png">
+<meta property="og:updated_time" content="2026-11-21T17:50:47.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则第六章-正则表达式的构建">
 <meta name="twitter:description" content="前言本篇大幅参考掘金老姚   正则表达式的构建对一门语言的掌握程度，可以从两方面衡量：读和写。 既要看懂别人的解决方案，也需要自己能够独立解决问题。相对于“读”，“写”显然更重要一些。本篇介绍着重于“写”。">
-<meta name="twitter:image" content="https://source.strugglexiang.xyz/1569311728.jpg">
+<meta name="twitter:image" content="https://strugglexiang.github.io/images/1569311728.jpg">
 
-<link rel="canonical" href="https://strugglexiang.xyz/2019/12/05/25-正则表达式的构建/">
+<link rel="canonical" href="https://strugglexiang.github.io/2019/12/05/25-正则表达式的构建/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.xyz/2019/12/05/25-正则表达式的构建/">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/12/05/25-正则表达式的构建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -324,7 +324,7 @@
 <li>进一步简写，<code>/^(0\d{2,3}-?|\(0\d{2,3}\))[1-9]\d{6,7}$/</code></li>
 </ol>
 <p>这样得到最终的正则<code>/^(0\d{2,3}-?|\(0\d{2,3}\))[1-9]\d{6,7}$/</code>，其可视化行形式：</p>
-<p><img src="https://source.strugglexiang.xyz/1569311728.jpg" alt></p>
+<p><img src="/images/1569311728.jpg" alt></p>
 <p>上述构建正则的步骤看起来很啰嗦，但是能保证正则是正确的。</p>
 <p>不然就很容易的想当然的写成<code>/^\(?0\d{2,3}\)?-?[1-9]\d{6,7}$/</code>，虽然它也能匹配上述目标字符串，但是也匹配了<code>(0551-88888888</code>这样的字符串，这显然不符合要求。</p>
 <p>其实，这个正则也是不完美的，因为并不是每个3-4个数字都是区号。这就是一个平衡取舍问题，一般够用就行。</p>
@@ -342,9 +342,9 @@
 </ol>
 <p>这3个部分并不是要求都出现，很容易想当然地写成<code>/^[+-]?(\d+)?(\.\d+)?$/</code>， 虽然也能匹配上述形式，但也匹配了空字符串<code>&quot;&quot;</code>。</p>
 <p>对于<code>1.23、+1.23、-1.23</code>，可以使用<code>/^[+-]?\d+\.\d+$/</code><br>对于<code>10、+10、-10</code>，可以使用<code>/^[+-]?\d+$/</code><br>对于<code>.2、+.2、-.2</code>，可以使用<code>/^[+-]?\.\d+$/</code><br>他们之间是或的关系，使用<code>|</code>构成分支，<code>/^[+-]?\d+\.\d+$|^[+-]?\d+$|^[+-]?\.\d+$/</code><br>提取公共部分，写成<code>/^[+-]?(\d+\.\d+|\d+|\.\d+)$/</code>，其可视化形式为：</p>
-<p><img src="https://source.strugglexiang.xyz/1569313224.jpg" alt></p>
+<p><img src="/images/1569313224.jpg" alt></p>
 <p>如果要求不匹配<code>+.2</code>、<code>-.2</code>，正则写成<code>/^([+-]?(\d+\.\d+|\d+)|\.\d+)$/</code>，其可视化形式为：</p>
-<p><img src="https://source.strugglexiang.xyz/1569313497.jpg" alt></p>
+<p><img src="/images/1569313497.jpg" alt></p>
 <p>当然，<code>/^[+-]?(\d+\.\d+|\d+|\.\d+)$/</code>也不是完美的：</p>
 <ul>
 <li>整数部分也会匹配01、02、01234这种形式。如何要求不匹配，需要修改整数部分的规则。</li>
@@ -373,10 +373,10 @@
 <p>从上述示例可以看出，匹配会出现效率问题，主要体现在第3步和第4步。因此，主要的优化手段也就是针对第3步和第4步。即减少尝试匹配的次数。</p>
 <h2 id="使用具体字符组替代通配符"><a href="#使用具体字符组替代通配符" class="headerlink" title="使用具体字符组替代通配符"></a>使用具体字符组替代通配符</h2><p>第3步是尝试匹配，最大的问题就是回溯。</p>
 <p>例如用<code>/&quot;.*&quot;/</code>去匹配字符串<code>123&quot;abc&quot;456</code>中的<code>&quot;abc&quot;</code>（粉色表示.*匹配的内容），匹配过程如下：</p>
-<p><img src="https://source.strugglexiang.xyz/reg_6_1.png" alt></p>
+<p><img src="/images/reg_6_1.png" alt></p>
 <p>可见，回溯导致匹配次数增多。</p>
 <p>如果用<code>/&quot;.*?&quot;/</code>，可以减少回溯次数。匹配过程如下（粉色表示.*匹配的内容）：</p>
-<p><img src="https://source.strugglexiang.xyz/reg_6_2.png" alt></p>
+<p><img src="/images/reg_6_2.png" alt></p>
 <p>由于回溯法原理，引擎需要保存多种可能中未尝试过的状态，方便后续回溯使用。这注定会占用一些内存。</p>
 <p>此时我们可以使用具体的字符组代替通配符<code>.</code>，消除不必要匹配的字符，减少匹配次数，使用正则<code>/&quot;[^&quot;]*&quot;/</code>即可。</p>
 <h2 id="使用非捕型分组"><a href="#使用非捕型分组" class="headerlink" title="使用非捕型分组"></a>使用非捕型分组</h2><p>括号的作用之一就是捕获分组和分支的数据，方面后面引用，这就需要内存来保存括号记忆的内容。</p>
@@ -505,14 +505,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -586,7 +586,7 @@
 <div class="copyright">
   
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

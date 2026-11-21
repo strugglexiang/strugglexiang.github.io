@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.8.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg">
@@ -13,370 +13,105 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="概念观察者模式：又称发布订阅模式，或消息机制。它定义了一种一对多的依赖关系，解除了观察者和被观察者之间的耦合。 我们假定有一个消息中心，某个任务执行完成后就向这个消息中心发送一个信号，其他任务可以向这个消息中心订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。 实现步骤 创建消息中心。 订阅者订阅某个信号。 向消息中心发布信号。">
-<meta name="keywords" content="JavaScript">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"strugglexiang.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="概念观察者模式：又称发布订阅模式，或消息机制。它定义了一种一对多的依赖关系，解除了观察者和被观察者之间的耦合。 我们假定有一个消息中心，某个任务执行完成后就向这个消息中心发送一个信号，其他任务可以向这个消息中心订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。 实现步骤 创建消息中心。 订阅者订阅某个信号。 向消息中心发布信号。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="观察者模式">
-<meta property="og:url" content="https://strugglexiang.github.io/2019/05/27/8-观察者模式/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2019/05/27/8-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="概念观察者模式：又称发布订阅模式，或消息机制。它定义了一种一对多的依赖关系，解除了观察者和被观察者之间的耦合。 我们假定有一个消息中心，某个任务执行完成后就向这个消息中心发送一个信号，其他任务可以向这个消息中心订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。 实现步骤 创建消息中心。 订阅者订阅某个信号。 向消息中心发布信号。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-03-22T17:45:55.628Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-27T07:08:50.000Z">
+<meta property="article:modified_time" content="2022-03-22T17:45:55.628Z">
+<meta property="article:author" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="观察者模式">
-<meta name="twitter:description" content="概念观察者模式：又称发布订阅模式，或消息机制。它定义了一种一对多的依赖关系，解除了观察者和被观察者之间的耦合。 我们假定有一个消息中心，某个任务执行完成后就向这个消息中心发送一个信号，其他任务可以向这个消息中心订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。 实现步骤 创建消息中心。 订阅者订阅某个信号。 向消息中心发布信号。">
-
-<link rel="canonical" href="https://strugglexiang.github.io/2019/05/27/8-观察者模式/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+<link rel="canonical" href="https://strugglexiang.github.io/2019/05/27/8-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
-  <title>观察者模式 | ST's blog</title>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://strugglexiang.github.io/2019/05/27/8-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/","path":"2019/05/27/8-观察者模式/","title":"观察者模式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>观察者模式 | ST's blog</title>
   
 
+
+
+
+
+
+
+
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ST's blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">ST's blog</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/05/27/8-观察者模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/xianyu.jpg">
-      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
-      <meta itemprop="description" content="咸鱼的人生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ST's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          观察者模式
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-27 15:08:50" itemprop="dateCreated datePublished" datetime="2019-05-27T15:08:50+08:00">2019-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/设计模式/行为型/" itemprop="url" rel="index"><span itemprop="name">行为型</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>观察者模式：又称发布订阅模式，或消息机制。它定义了一种<strong>一对多</strong>的依赖关系，解除了观察者和被观察者之间的耦合。</p>
-<p>我们假定有一个<strong>消息中心</strong>，某个任务执行完成后就向这个<strong>消息中心</strong>发送一个<strong>信号</strong>，其他任务可以向这个<strong>消息中心</strong>订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。</p>
-<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><ol>
-<li>创建消息中心。</li>
-<li>订阅者订阅某个信号。</li>
-<li>向消息中心发布信号。</li>
-</ol>
-<a id="more"></a>
-<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><ol>
-<li><p>创建消息中心<br>消息中心有3个基本的方法：注册、发布、退订。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proObserver = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> msg = &#123;&#125;</span><br><span class="line">    <span class="comment">//-------- 订阅</span></span><br><span class="line">    <span class="keyword">const</span> register = <span class="function">(<span class="params">eventName, handler</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(msg[eventName]) &#123;</span><br><span class="line">            msg[eventName].push(handler)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            msg[eventName] = [handler]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//-------- 发布</span></span><br><span class="line">    <span class="keyword">const</span> publish = <span class="function"><span class="keyword">function</span> (<span class="params">eventName, ...args</span>) </span>&#123;</span><br><span class="line">        msg[eventName].map(<span class="function"><span class="params">handler</span> =&gt;</span> &#123;</span><br><span class="line">            handler.call(<span class="keyword">this</span>, ...args)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//-------- 退订</span></span><br><span class="line">    <span class="keyword">const</span> remove = <span class="function">(<span class="params">eventName, handler</span>) =&gt;</span> &#123;</span><br><span class="line">        msg[eventName] = msg[eventName].filter(<span class="function"><span class="params">v</span> =&gt;</span> (v !== handler))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//--------</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        register,</span><br><span class="line">        publish,</span><br><span class="line">        remove</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> observer1 = proObserver()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>订阅信号</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'handler1接收到消息'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> handler2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'handler2接收到消息'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'handler3接收到消息'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer1.register(<span class="string">'test'</span>, handler1)</span><br><span class="line">observer1.register(<span class="string">'test'</span>, handler2)</span><br><span class="line">observer1.register(<span class="string">'test'</span>, handler3)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>任务<strong>handler1</strong>、<strong>handler2</strong>、<strong>handler3</strong>订阅了<strong>test</strong>这个信号。</p>
-<ol start="3">
-<li>向消息中心发布信号<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observer1.publish(<span class="string">'test'</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>执行结果：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handler1接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line">Arguments(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br><span class="line"></span><br><span class="line">handler2接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line">Arguments(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br><span class="line"></span><br><span class="line">handler3接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line">Arguments(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注意</p>
-<ul>
-<li>我们在定义publish方法时没有使用箭头函数，方便<strong>订阅者</strong>可以通过<code>this</code>访问<strong>消息中心</strong></li>
-<li>同理，订阅者<strong>handler</strong>为了能够接收<code>this</code>和<code>arguments</code>，本身也尽量不要作为箭头函数声明。</li>
-</ul>
-</blockquote>
-
-    </div>
-
-    
-    
-    
+</header>
         
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2019/05/27/7-模板方法模式/" rel="prev" title="模板方法模式">
-      <i class="fa fa-chevron-left"></i> 模板方法模式
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/05/27/9-状态模式/" rel="next" title="状态模式">
-      状态模式 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -385,156 +120,252 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现步骤"><span class="nav-number">2.</span> <span class="nav-text">实现步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码演示"><span class="nav-number">3.</span> <span class="nav-text">代码演示</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">实现步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">代码演示</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏" src="/images/xianyu.jpg">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏"
+      src="/images/xianyu.jpg">
   <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
   <div class="site-description" itemprop="description">咸鱼的人生</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="/categories/">
         <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/strugglexiang" title="GitHub → https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/strugglexiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;strugglexiang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
+        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;5a45b66f6fb9a044ff31c7d4" rel="noopener me" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
       </span>
   </div>
 
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
-        </li>
-    </ul>
-  </div>
-
+        </div>
       </div>
-
     </div>
+
+    
   </aside>
-  <div id="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </div>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+    <div class="main-inner post posts-expand">
 
-        
-  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>
-  </div>
 
-<div class="copyright">
   
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2026</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2019/05/27/8-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+      <meta itemprop="description" content="咸鱼的人生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="观察者模式 | ST's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          观察者模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-05-27 15:08:50" itemprop="dateCreated datePublished" datetime="2019-05-27T15:08:50+08:00">2019-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-23 01:45:55" itemprop="dateModified" datetime="2022-03-23T01:45:55+08:00">2022-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">行为型</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>观察者模式：又称发布订阅模式，或消息机制。它定义了一种<strong>一对多</strong>的依赖关系，解除了观察者和被观察者之间的耦合。</p>
+<p>我们假定有一个<strong>消息中心</strong>，某个任务执行完成后就向这个<strong>消息中心</strong>发送一个<strong>信号</strong>，其他任务可以向这个<strong>消息中心</strong>订阅这个这个信号，这样其他任务就可以知道自己什么时候执行。</p>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><ol>
+<li>创建消息中心。</li>
+<li>订阅者订阅某个信号。</li>
+<li>向消息中心发布信号。</li>
+</ol>
+<span id="more"></span>
+
+<h1 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h1><ol>
+<li>创建消息中心<br>消息中心有3个基本的方法：注册、发布、退订。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">proObserver</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> msg = &#123;&#125;</span><br><span class="line">    <span class="comment">//-------- 订阅</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">register</span> = (<span class="params">eventName, handler</span>) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span>(msg[eventName]) &#123;</span><br><span class="line">            msg[eventName].<span class="title function_">push</span>(handler)</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            msg[eventName] = [handler]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//-------- 发布</span></span><br><span class="line">    <span class="keyword">const</span> publish = <span class="keyword">function</span> (<span class="params">eventName, ...args</span>) &#123;</span><br><span class="line">        msg[eventName].<span class="title function_">map</span>(<span class="function"><span class="params">handler</span> =&gt;</span> &#123;</span><br><span class="line">            handler.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//-------- 退订</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">remove</span> = (<span class="params">eventName, handler</span>) =&gt; &#123;</span><br><span class="line">        msg[eventName] = msg[eventName].<span class="title function_">filter</span>(<span class="function"><span class="params">v</span> =&gt;</span> (v !== handler))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//--------</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        register,</span><br><span class="line">        publish,</span><br><span class="line">        remove</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> observer1 = <span class="title function_">proObserver</span>()</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>订阅信号</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler1 = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;handler1接收到消息&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> handler2 = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;handler2接收到消息&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler3 = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;handler3接收到消息&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observer1.<span class="title function_">register</span>(<span class="string">&#x27;test&#x27;</span>, handler1)</span><br><span class="line">observer1.<span class="title function_">register</span>(<span class="string">&#x27;test&#x27;</span>, handler2)</span><br><span class="line">observer1.<span class="title function_">register</span>(<span class="string">&#x27;test&#x27;</span>, handler3)</span><br></pre></td></tr></table></figure>
+<p>任务<strong>handler1</strong>、<strong>handler2</strong>、<strong>handler3</strong>订阅了<strong>test</strong>这个信号。</p>
+<ol start="3">
+<li>向消息中心发布信号</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observer1.<span class="title function_">publish</span>(<span class="string">&#x27;test&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">handler1接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line"><span class="title class_">Arguments</span>(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br><span class="line"></span><br><span class="line">handler2接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line"><span class="title class_">Arguments</span>(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br><span class="line"></span><br><span class="line">handler3接收到消息</span><br><span class="line">&#123;<span class="attr">register</span>: ƒ, <span class="attr">publish</span>: ƒ, <span class="attr">remove</span>: ƒ&#125; </span><br><span class="line"><span class="title class_">Arguments</span>(<span class="number">2</span>) [<span class="number">1</span>, <span class="number">2.</span>..]</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>我们在定义publish方法时没有使用箭头函数，方便<strong>订阅者</strong>可以通过<code>this</code>访问<strong>消息中心</strong></li>
+<li>同理，订阅者<strong>handler</strong>为了能够接收<code>this</code>和<code>arguments</code>，本身也尽量不要作为箭头函数声明。<blockquote>
+</blockquote>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
         
 
-
-
-
-
-
-
-
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/05/27/7-%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" rel="prev" title="模板方法模式">
+                  <i class="fa fa-angle-left"></i> 模板方法模式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/27/9-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/" rel="next" title="状态模式">
+                  状态模式 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
+    </div>
+  </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  <script type="text/javascript" src="/js/struggle/love.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json',
+      scale: 1
+    },
+    display: { position: 'left', width: 150, height: 200 },
+    mobile: { show: true, scale: 0.5 },
+    react: { opacityDefault: 0.7, opacityOnHover: 0.2 }
+  });
+</script>
+</body>
 </html>

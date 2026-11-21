@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.8.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg">
@@ -13,359 +13,106 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"strugglexiang.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js初识">
-<meta property="og:url" content="https://strugglexiang.github.io/2020/03/18/30-Node初识/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2020/03/18/30-Node%E5%88%9D%E8%AF%86/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://strugglexiang.github.io/images/node.png">
-<meta property="og:updated_time" content="2026-11-21T17:50:47.004Z">
+<meta property="article:published_time" content="2020-03-18T06:29:24.000Z">
+<meta property="article:modified_time" content="2026-11-21T17:50:47.004Z">
+<meta property="article:author" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.js初识">
-<meta name="twitter:description" content="Node.js初识Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。">
 <meta name="twitter:image" content="https://strugglexiang.github.io/images/node.png">
 
-<link rel="canonical" href="https://strugglexiang.github.io/2020/03/18/30-Node初识/">
+
+<link rel="canonical" href="https://strugglexiang.github.io/2020/03/18/30-Node%E5%88%9D%E8%AF%86/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://strugglexiang.github.io/2020/03/18/30-Node%E5%88%9D%E8%AF%86/","path":"2020/03/18/30-Node初识/","title":"Node.js初识"}</script>
 
-  <title>Node.js初识 | ST's blog</title>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Node.js初识 | ST's blog</title>
   
 
+
+
+
+
+
+
+
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ST's blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">ST's blog</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/18/30-Node初识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/xianyu.jpg">
-      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
-      <meta itemprop="description" content="咸鱼的人生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ST's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Node.js初识
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-18 14:29:24" itemprop="dateCreated datePublished" datetime="2020-03-18T14:29:24+08:00">2020-03-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node-js/" itemprop="url" rel="index"><span itemprop="name">Node.js</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="Node-js初识"><a href="#Node-js初识" class="headerlink" title="Node.js初识"></a>Node.js初识</h1><p>Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。</p>
-<a id="more"></a>
-<h1 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h1><p>Node.js是基于Chorme V8引擎而构建的JavaScript运行时。</p>
-<ul>
-<li>Node.js不是编程语言（JavaScript是编程语言），也不是某种语言的框架（如Js的React、PHP的Laravel），更不是类似ngixn这样的web服务器。Node.js是JavaScript的运行时环境。</li>
-<li>Node.js构建于Chorme V8这个JavaScirpt引擎之上。Chorme V8引擎是通过c/c++编写的，相当于是将Javascript转换为更偏向底层的C或C++代码后再执行，通过JavaScript的这层包装，大大降低了偏底层语言的学习成本。</li>
-<li>Node.js结合libuv扩展了JS的功能，使得JS除了具有操作浏览器DOM的能力，还有了一般后端语言才具有的I/O、文件读写、操作数据库等能力。</li>
-<li>Node.js是轻量和高效的，每个函数都是同步的，而I/O操作是异步的。所有由JS编写的函数的I/O都将由libuv（由c/c++编写）事件循环处理库来处理，隐藏了非阻塞I/O的具体细节，简化了编程模型，可以轻松编写高性能的web应用。</li>
-</ul>
-<p>Node.js的架构模式如下图：</p>
-<p><img src="/images/node.png" alt="node"></p>
-<p>Chrome V8 引擎负责解释并执行JS代码。Libuv由事件循环和线程池组成，负责分发和执行i/o任务。</p>
-<p>JS是单线程的，也就意味着任务需要排队，一个任务执行前需等待前面的任务执行完成。</p>
-<p>一般情况下，cpu时闲着的，其实cpu完全可以不管i/o设备而直接挂起处于等待中任务，先执行后面的任务。</p>
-<p>将处于等待的任务放到事件循环中，事件循环由libuv提供。事件循环负责将i/o任务放入线程池中。</p>
-<p>线程池也由libuv提供，它负责将<strong>文件io任务</strong>放入线程池中执行（网络io任务不通过线程池完成）。然后事件循环只需要等待执行结果就行。 </p>
-<p>总之，只要cpu有资源，就要全力执行。</p>
-<p>Node Bindings层负责将V8引擎暴漏的c/c++接口封装成Javascript API。结合这些JS API编写成最顶层的Node.js标准库。这些API被统称为Node.js JDK。</p>
-<p>而我们的日常编程就是利用Node.js标准库代码来编写应用程序。</p>
-<h1 id="Node-js的特点"><a href="#Node-js的特点" class="headerlink" title="Node.js的特点"></a>Node.js的特点</h1><p>总的来说就是一句话：适合构建web应用、高性能、简单、可扩展。</p>
-<h2 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h2><p>Node.js高性能是指以下几点：</p>
-<ol>
-<li>执行速度快，JS执行于V8引擎比较快。</li>
-<li>天生异步：事件循环和非阻塞io的特性决定了Node.js必须使用异步机制,线程池中的每个io任务都是异步的。</li>
-<li>适用于i/o密集型的网络应用，因为网络应用开发（包括web应用开发）的瓶颈在于i/o处理，即大部分情况是CPU在等I/O（硬盘/内存的读写操作) 。</li>
-</ol>
-<h1 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h1><p><a href="https://www.jianshu.com/p/fa7bdc4f3de7" target="_blank" rel="noopener">程序员该如何理解io</a></p>
-<p><a href="https://www.cnblogs.com/aspirant/p/11441353.html" target="_blank" rel="noopener">什么是CPU密集型和IO密集型</a></p>
-
-    </div>
-
-    
-    
-    
+</header>
         
-
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/03/18/30-浅解IO/" rel="prev" title="浅解IO">
-      <i class="fa fa-chevron-left"></i> 浅解IO
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/28/31-谈下文档流/" rel="next" title="谈下文档流">
-      谈下文档流 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -374,156 +121,234 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js初识"><span class="nav-number">1.</span> <span class="nav-text">Node.js初识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Node-js"><span class="nav-number">2.</span> <span class="nav-text">什么是Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js的特点"><span class="nav-number">3.</span> <span class="nav-text">Node.js的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高性能"><span class="nav-number">3.1.</span> <span class="nav-text">高性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识"><span class="nav-number">4.</span> <span class="nav-text">知识</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js%E5%88%9D%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">Node.js初识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFNode-js"><span class="nav-number">2.</span> <span class="nav-text">什么是Node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">Node.js的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD"><span class="nav-number">3.1.</span> <span class="nav-text">高性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">知识</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏" src="/images/xianyu.jpg">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏"
+      src="/images/xianyu.jpg">
   <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
   <div class="site-description" itemprop="description">咸鱼的人生</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="/categories/">
         <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/strugglexiang" title="GitHub → https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/strugglexiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;strugglexiang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
+        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;5a45b66f6fb9a044ff31c7d4" rel="noopener me" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
       </span>
   </div>
 
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
-        </li>
-    </ul>
-  </div>
-
+        </div>
       </div>
-
     </div>
+
+    
   </aside>
-  <div id="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </div>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+    <div class="main-inner post posts-expand">
 
-        
-  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>
-  </div>
 
-<div class="copyright">
   
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2026</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/18/30-Node%E5%88%9D%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/xianyu.jpg">
+      <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ST's blog">
+      <meta itemprop="description" content="咸鱼的人生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Node.js初识 | ST's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Node.js初识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-18 14:29:24" itemprop="dateCreated datePublished" datetime="2020-03-18T14:29:24+08:00">2020-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Node-js/" itemprop="url" rel="index"><span itemprop="name">Node.js</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Node-js初识"><a href="#Node-js初识" class="headerlink" title="Node.js初识"></a>Node.js初识</h1><p>Node.js因后端简化并发编程而受关注，因作为前端辅助开发工具而流行，因异步流程控制和回调地狱而受人诟病，因npm批量安装模块而被人敬仰和敬畏。</p>
+<span id="more"></span>
+
+
+<h1 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js"></a>什么是Node.js</h1><p>Node.js是基于Chorme V8引擎而构建的JavaScript运行时。</p>
+<ul>
+<li>Node.js不是编程语言（JavaScript是编程语言），也不是某种语言的框架（如Js的React、PHP的Laravel），更不是类似ngixn这样的web服务器。Node.js是JavaScript的运行时环境。</li>
+<li>Node.js构建于Chorme V8这个JavaScirpt引擎之上。Chorme V8引擎是通过c&#x2F;c++编写的，相当于是将Javascript转换为更偏向底层的C或C++代码后再执行，通过JavaScript的这层包装，大大降低了偏底层语言的学习成本。</li>
+<li>Node.js结合libuv扩展了JS的功能，使得JS除了具有操作浏览器DOM的能力，还有了一般后端语言才具有的I&#x2F;O、文件读写、操作数据库等能力。</li>
+<li>Node.js是轻量和高效的，每个函数都是同步的，而I&#x2F;O操作是异步的。所有由JS编写的函数的I&#x2F;O都将由libuv（由c&#x2F;c++编写）事件循环处理库来处理，隐藏了非阻塞I&#x2F;O的具体细节，简化了编程模型，可以轻松编写高性能的web应用。</li>
+</ul>
+<p>Node.js的架构模式如下图：</p>
+<p><img src="/images/node.png" alt="node"></p>
+<p>Chrome V8 引擎负责解释并执行JS代码。Libuv由事件循环和线程池组成，负责分发和执行i&#x2F;o任务。</p>
+<p>JS是单线程的，也就意味着任务需要排队，一个任务执行前需等待前面的任务执行完成。</p>
+<p>一般情况下，cpu时闲着的，其实cpu完全可以不管i&#x2F;o设备而直接挂起处于等待中任务，先执行后面的任务。</p>
+<p>将处于等待的任务放到事件循环中，事件循环由libuv提供。事件循环负责将i&#x2F;o任务放入线程池中。</p>
+<p>线程池也由libuv提供，它负责将<strong>文件io任务</strong>放入线程池中执行（网络io任务不通过线程池完成）。然后事件循环只需要等待执行结果就行。 </p>
+<p>总之，只要cpu有资源，就要全力执行。</p>
+<p>Node Bindings层负责将V8引擎暴漏的c&#x2F;c++接口封装成Javascript API。结合这些JS API编写成最顶层的Node.js标准库。这些API被统称为Node.js JDK。</p>
+<p>而我们的日常编程就是利用Node.js标准库代码来编写应用程序。</p>
+<h1 id="Node-js的特点"><a href="#Node-js的特点" class="headerlink" title="Node.js的特点"></a>Node.js的特点</h1><p>总的来说就是一句话：适合构建web应用、高性能、简单、可扩展。</p>
+<h2 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h2><p>Node.js高性能是指以下几点：</p>
+<ol>
+<li>执行速度快，JS执行于V8引擎比较快。</li>
+<li>天生异步：事件循环和非阻塞io的特性决定了Node.js必须使用异步机制,线程池中的每个io任务都是异步的。</li>
+<li>适用于i&#x2F;o密集型的网络应用，因为网络应用开发（包括web应用开发）的瓶颈在于i&#x2F;o处理，即大部分情况是CPU在等I&#x2F;O（硬盘&#x2F;内存的读写操作) 。</li>
+</ol>
+<h1 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fa7bdc4f3de7">程序员该如何理解io</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/aspirant/p/11441353.html">什么是CPU密集型和IO密集型</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
         
 
-
-
-
-
-
-
-
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/18/30-%E6%B5%85%E8%A7%A3IO/" rel="prev" title="浅解IO">
+                  <i class="fa fa-angle-left"></i> 浅解IO
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/" rel="next" title="谈下文档流">
+                  谈下文档流 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
+    </div>
+  </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  <script type="text/javascript" src="/js/struggle/love.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json',
+      scale: 1
+    },
+    display: { position: 'left', width: 150, height: 200 },
+    mobile: { show: true, scale: 0.5 },
+    react: { opacityDefault: 0.7, opacityOnHover: 0.2 }
+  });
+</script>
+</body>
 </html>

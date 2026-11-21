@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.8.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/huaji.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/huaji.jpg">
@@ -13,232 +13,228 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css">
-  <script src="//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js"></script>
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"strugglexiang.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="引言如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"strugglexiang.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="引言如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谈下文档流">
-<meta property="og:url" content="https://strugglexiang.github.io/2020/03/28/31-谈下文档流/index.html">
+<meta property="og:url" content="https://strugglexiang.github.io/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/index.html">
 <meta property="og:site_name" content="ST&#39;s blog">
 <meta property="og:description" content="引言如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://strugglexiang.github.io/images/normal-flow.jpg">
-<meta property="og:updated_time" content="2026-11-21T17:50:47.005Z">
+<meta property="article:published_time" content="2020-03-28T06:01:09.000Z">
+<meta property="article:modified_time" content="2026-11-21T17:50:47.005Z">
+<meta property="article:author" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谈下文档流">
-<meta name="twitter:description" content="引言如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？">
 <meta name="twitter:image" content="https://strugglexiang.github.io/images/normal-flow.jpg">
 
-<link rel="canonical" href="https://strugglexiang.github.io/2020/03/28/31-谈下文档流/">
+
+<link rel="canonical" href="https://strugglexiang.github.io/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://strugglexiang.github.io/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/","path":"2020/03/28/31-谈下文档流/","title":"谈下文档流"}</script>
 
-  <title>谈下文档流 | ST's blog</title>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>谈下文档流 | ST's blog</title>
   
 
+
+
+
+
+
+
+
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ST's blog" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ST's blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">ST's blog</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">千里之行，始于足下</p>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text">文档流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%99%AE%E9%80%9A%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">什么是普通流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A6%E5%8F%91%E6%99%AE%E9%80%9A%E6%B5%81"><span class="nav-number">4.</span> <span class="nav-text">如何触发普通流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E6%99%AE%E9%80%9A%E6%B5%81"><span class="nav-number">5.</span> <span class="nav-text">理解普通流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Box%E4%B8%8EFormatting-context"><span class="nav-number">5.1.</span> <span class="nav-text">Box与Formatting context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E8%AE%A4%E5%85%83%E7%B4%A0%E5%8F%82%E4%B8%8E%E4%BD%95%E7%A7%8D%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">5.2.</span> <span class="nav-text">如何确认元素参与何种格式上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">5.3.</span> <span class="nav-text">创建格式化上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC%E7%9A%84%E5%AE%9A%E4%BD%8D%E8%A7%84%E5%88%99"><span class="nav-number">5.4.</span> <span class="nav-text">BFC的定位规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC%E7%9A%84%E5%AE%9A%E4%BD%8D%E8%A7%84%E5%88%99"><span class="nav-number">5.5.</span> <span class="nav-text">IFC的定位规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC"><span class="nav-number">5.6.</span> <span class="nav-text">FFC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC"><span class="nav-number">5.7.</span> <span class="nav-text">GFC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%84%B1%E7%A6%BB%E6%96%87%E6%A1%A3%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">如何理解脱离文档流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8"><span class="nav-number">6.1.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="nav-number">6.2.</span> <span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%92%E5%BA%A6%E6%9D%A5%E7%90%86%E8%A7%A3"><span class="nav-number">7.</span> <span class="nav-text">从代码的角度来理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">8.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏"
+      src="/images/xianyu.jpg">
+  <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
+  <div class="site-description" itemprop="description">咸鱼的人生</div>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/strugglexiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;strugglexiang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;5a45b66f6fb9a044ff31c7d4" rel="noopener me" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
 
     </div>
-  </div>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+    <div class="main-inner post posts-expand">
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+  
 
-          <div class="content post posts-expand">
-            
 
-    
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/28/31-谈下文档流/">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://strugglexiang.github.io/2020/03/28/31-%E8%B0%88%E4%B8%8B%E6%96%87%E6%A1%A3%E6%B5%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/xianyu.jpg">
       <meta itemprop="name" content="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏">
-      <meta itemprop="description" content="咸鱼的人生">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="ST's blog">
+      <meta itemprop="description" content="咸鱼的人生">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="谈下文档流 | ST's blog">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           谈下文档流
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-28 14:01:09" itemprop="dateCreated datePublished" datetime="2020-03-28T14:01:09+08:00">2020-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2020-03-28 14:01:09" itemprop="dateCreated datePublished" datetime="2020-03-28T14:01:09+08:00">2020-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-22 01:50:47" itemprop="dateModified" datetime="2026-11-22T01:50:47+08:00">2026-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -246,11 +242,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody"><h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？</p>
+<span id="more"></span>
 
-      
-        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>如果你从事过前端工作，你是否经常听人说起过文档流、BFC？如果你知道的话，能用自己的语言将其解释清楚吗？</p>
-<a id="more"></a>
 <h1 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h1><p>关于文档流，其实在CSS规范中并没有这个概念，CSS规范只有普通流的说法（normal flow）。为什么要将普通流说成文档流呢？是因为很多翻译书就是这么翻译的，然后大家都将普通流说成了文档流。</p>
 <h1 id="什么是普通流"><a href="#什么是普通流" class="headerlink" title="什么是普通流"></a>什么是普通流</h1><p>什么是普通流（normal flow）？普通流是指元素按照在HTML文件中出现的位置顺序来进行排列的过程，这个过程遵循W3C标准定义的规则。</p>
 <p>首先要理解flow的概念？flow代表元素排列和定位的过程，所以<code>normal flow</code>就是指一般情况下元素排列和定位的过程。</p>
@@ -281,7 +275,7 @@
 <p>Formatting context：翻译为格式上下文。它是指页面上的一块渲染区域，它规定了内部盒子如何布局。常见的formatting context有BFC、IFC、FFC、GFC。</p>
 <p>Formatting context既然是一块区域，这块区域在哪里？有多大？这是由创建页面区域的元素来决定的。</p>
 <p>在普通流中，每个盒子都要参与并且只参与一个格式上下文。参与格式上下文，就是说该盒子要按照这个格式上下文的规则来在父元素中定位。</p>
-<p>在这里要弄清<strong>参与和创建</strong>的区别，参与指的是本元素在父级盒子中的定位方式，而创建是指本盒子的子元素在本元素内的定位。参与与创建不会相互影响，例如<code>display</code>值为<code>inline-block</code>的元素，它参与IFC，但是内部渲染环境却是BFC。（<a href="https://stackoverflow.com/questions/43215834/what-is-meant-by-participate-in-the-definition-of-normal-flow-in-the-css-2-1" target="_blank" rel="noopener">不理解请看这里</a>）</p>
+<p>在这里要弄清<strong>参与和创建</strong>的区别，参与指的是本元素在父级盒子中的定位方式，而创建是指本盒子的子元素在本元素内的定位。参与与创建不会相互影响，例如<code>display</code>值为<code>inline-block</code>的元素，它参与IFC，但是内部渲染环境却是BFC。（<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/43215834/what-is-meant-by-participate-in-the-definition-of-normal-flow-in-the-css-2-1">不理解请看这里</a>）</p>
 <p>介绍到了这一步，有2个十分重要的问题需要我们想清楚，想明白。</p>
 <ol>
 <li>如何确认元素参与何种格式化上下文？</li>
@@ -305,24 +299,26 @@
 <p>IFC的创建是比较难以理解的。在此之前，先补充几个概念：</p>
 <ol>
 <li>块容器盒子（block container boxes）：充当容器的盒子。它包括所有的块级盒子，以及行内块（如图片、表格单元格）。所有的块级盒子都是块容器盒子，但是块容器盒子并不一定是块级盒子。</li>
-<li><p>匿名行盒子：如果块级元素中直接出现文本内容，则文本内容外则都由一个匿名的行级盒子包围着它。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>this is just a text <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- this is just a text 被一个匿名inline box包围着 --&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匿名块盒子：当元素中具至少一个块级盒子时，我们说其出现的空文本外侧都具有一个匿名块级盒子。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     Some text</span><br><span class="line">  <span class="tag">&lt;<span class="name">P</span>&gt;</span>More text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 首先some text外侧有一个匿名的inline box，这个inline box外侧又有一个匿名block box --&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>匿名行盒子：如果块级元素中直接出现文本内容，则文本内容外则都由一个匿名的行级盒子包围着它。</li>
 </ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>this is just a text <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- this is just a text 被一个匿名inline box包围着 --&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>匿名块盒子：当元素中具至少一个块级盒子时，我们说其出现的空文本外侧都具有一个匿名块级盒子。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     Some text</span><br><span class="line">  <span class="tag">&lt;<span class="name">P</span>&gt;</span>More text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 首先some text外侧有一个匿名的inline box，这个inline box外侧又有一个匿名block box --&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    text1</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>more text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    text2 </span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果行级元素中出现了块级元素，块级元素两侧的文本外侧都会产生匿名的块盒子 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 当然这种写法在标准中是不推荐的 --&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>现在我们来说IFC的创建。事实上，CSS中并不能显示地创建IFC，IFC总是作为块容器盒子的子元素出现，IFC的创建是浏览器自发的行为。</p>
 <p>当块容器盒子内部只出现行级盒子，我们说其内部的渲染环境是IFC。</p>
-<p>以例子来理解一下IFC的生成：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>text<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>以例子来理解一下IFC的生成：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>text<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>块容器盒子内部只有行级盒子，所以块级盒子会创建一个IFC控制内部行内盒子的布局。本例中只有一个匿名的行内盒子。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>inline<span class="tag">&lt;<span class="name">p</span>&gt;</span>block<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>inline外侧有一个匿名的行级盒子，匿名行级盒子外侧有一个匿名块级盒子，这个匿名块级盒子创建了IFC控制其内的匿名行盒子进行布局。</p>
 <blockquote>
 <p>注意：在IFC的环境中，是不能存在块级元素的，如果将块级元素插入到 IFC 中，那么此 IFC 将会被破坏掉变成 BFC，而块级元素前的元素或文本和块级元素后的元素或文本将会各自自动产生一个匿名块盒其包围</p>
 </blockquote>
-<p>如果还是不懂IFC如何生成，建议<a href="https://stackoverflow.com/questions/16936297/when-does-a-box-establish-an-inline-formatting-context" target="_blank" rel="noopener">看看这里</a></p>
+<p>如果还是不懂IFC如何生成，建议<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/16936297/when-does-a-box-establish-an-inline-formatting-context">看看这里</a></p>
 <h2 id="BFC的定位规则"><a href="#BFC的定位规则" class="headerlink" title="BFC的定位规则"></a>BFC的定位规则</h2><p>这里列出规则，有关对规则的理解，我会写另一篇笔记</p>
 <ul>
 <li>内部的盒子会在垂直方向，一个接一个放置。</li>
@@ -345,8 +341,8 @@
 <li>行盒的高度由内部元素中实际高度最高的元素计算出来。具体来说就是按照line-height计算规则。</li>
 <li>在一个行盒中，当他包含的内部容器的高度小于行盒的高度的时候，内部容器的垂直位置可由自己的 vertical-align 属性来确定。</li>
 </ul>
-<h2 id="FFC"><a href="#FFC" class="headerlink" title="FFC"></a>FFC</h2><p>参考<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰Flex布局教程</a></p>
-<h2 id="GFC"><a href="#GFC" class="headerlink" title="GFC"></a>GFC</h2><p>参考<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">阮一峰Grid布局教程</a></p>
+<h2 id="FFC"><a href="#FFC" class="headerlink" title="FFC"></a>FFC</h2><p>参考<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">阮一峰Flex布局教程</a></p>
+<h2 id="GFC"><a href="#GFC" class="headerlink" title="GFC"></a>GFC</h2><p>参考<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">阮一峰Grid布局教程</a></p>
 <h1 id="如何理解脱离文档流"><a href="#如何理解脱离文档流" class="headerlink" title="如何理解脱离文档流"></a>如何理解脱离文档流</h1><p>元素脱离文档流就是元素脱离普通流。</p>
 <p>脱离普通流流，也就是将元素从普通的布局排版中拿走。其他盒子在定位的时候，会视脱离普通流的元素不存在来进行定位。</p>
 <p>脱离普通流有两种方式：浮动和绝对定位。需要注意的是，使用浮动脱离文档流，其他盒子虽然会无视这个盒子，但是其他盒子的文本依然会为这个盒子让出位置，围绕在其周围。而对于使用绝对定位脱离文档流的盒子，其他盒子及其内部的文本都会无视它。</p>
@@ -355,8 +351,9 @@
 <h2 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h2><p>position取值为absolute或者fixed的元素，其定位方式为绝对定位。</p>
 <p>当positon为absolute时，其位置相对于最近非static定位的祖先元素来偏移。</p>
 <p>当position为fixed时，元素相对于屏幕视口（viewport）的位置来进行偏移。元素的位置在屏幕滚动时不会改变。当元素祖先的 transform, perspective 或 filter 属性非 none 时，容器由视口改为祖先。</p>
-<h1 id="从代码的角度来理解"><a href="#从代码的角度来理解" class="headerlink" title="从代码的角度来理解"></a>从代码的角度来理解</h1><p>说了这么多，还是从代码的角度解析一下页面是如何渲染的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span>,<span class="selector-class">.box2</span>,<span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="undefined">            margin-top: 10px;</span></span><br><span class="line"><span class="undefined">            width: 200px;</span></span><br><span class="line"><span class="undefined">            height: 100px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="undefined">            margin-top: 10px;</span></span><br><span class="line"><span class="undefined">            width: 500px;</span></span><br><span class="line"><span class="undefined">            height: 200px;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ddd</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box4child</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">float</span><span class="selector-pseudo">:left</span>;</span></span><br><span class="line"><span class="undefined">            width: 50px;</span></span><br><span class="line"><span class="undefined">            height: 50px;</span></span><br><span class="line"><span class="undefined">            background: black;</span></span><br><span class="line"><span class="undefined">            margin: 10px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3"</span>&gt;</span></span><br><span class="line">        我是匿名行级盒子</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>我是内联盒子<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        我也是匿名行级盒子</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/normal-flow.jpg" alt></p>
+<h1 id="从代码的角度来理解"><a href="#从代码的角度来理解" class="headerlink" title="从代码的角度来理解"></a>从代码的角度来理解</h1><p>说了这么多，还是从代码的角度解析一下页面是如何渲染的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box1</span>,<span class="selector-class">.box2</span>,<span class="selector-class">.box3</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box4</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.box4child</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">float</span><span class="selector-pseudo">:left</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: black;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span></span><br><span class="line">        我是匿名行级盒子</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>我是内联盒子<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        我也是匿名行级盒子</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box4child&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">            这是文字这是文字这是文字这是文字这是文字这是文字这是文字</span><br><span class="line">        <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/normal-flow.jpg"></p>
 <ol>
 <li>页面渲染从body开始，当普通流遇见body时，发现它是一个块级元素，所以普通流告诉它，你要从html顶部开始放置，并紧贴左边，所以body就布局好了</li>
 <li>然后到了box1，普通流发现它也是个块级元素，要应用BFC规则，普通流告诉它，因为你是body的第一个元素，所以你从body的顶部开始，紧贴左边</li>
@@ -366,254 +363,84 @@
 <li>然后到了box4的第一个子元素，发现它设置了float属性，跳出了普通流，其后元素的定位会当作它不存在。根据浮动的规则，它浮动在包含块的左边。然到了后面的span元素，它是内敛元素，所以先创建一个line box，line box的左侧可以不必挨着包含块的边界，可以挨着浮动元素的边界，所以就造成了文字环绕效果。</li>
 </ol>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>在我们最开始学习前端的时候，都会被简单告知，HTML元素中块级元素独占一行，行级元素共占一行，但是为什么会这样呢？深入下去，这就是根据浏览器的渲染规则决定的，理解这些规则，你就会理解平常开发过程中出现的诡异效果。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.w3.org/TR/CSS21/visuren.html#containing-block" target="_blank" rel="noopener">css2规范</a><br><a href="https://swordair.com/css-positioning-schemes-normal-flow/" target="_blank" rel="noopener">https://swordair.com/css-positioning-schemes-normal-flow/</a><br><a href="https://www.zhihu.com/question/24529373" target="_blank" rel="noopener">https://www.zhihu.com/question/24529373</a><br><a href="https://www.zhihu.com/question/21911352" target="_blank" rel="noopener">https://www.zhihu.com/question/21911352</a><br><a href="https://www.cnblogs.com/todayhappy/p/4608476.html" target="_blank" rel="noopener">浅显易懂的cnblogs</a><br><a href="https://juejin.im/post/5c4ab5f2e51d4551c75fdcc9#heading-1" target="_blank" rel="noopener">https://juejin.im/post/5c4ab5f2e51d4551c75fdcc9#heading-1</a><br><a href="https://www.jianshu.com/p/c0cdc4096e96?utm_campaign" target="_blank" rel="noopener">简书</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/CSS21/visuren.html#containing-block">css2规范</a><br><a target="_blank" rel="noopener" href="https://swordair.com/css-positioning-schemes-normal-flow/">https://swordair.com/css-positioning-schemes-normal-flow/</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24529373">https://www.zhihu.com/question/24529373</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21911352">https://www.zhihu.com/question/21911352</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/todayhappy/p/4608476.html">浅显易懂的cnblogs</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5c4ab5f2e51d4551c75fdcc9#heading-1">https://juejin.im/post/5c4ab5f2e51d4551c75fdcc9#heading-1</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c0cdc4096e96?utm_campaign">简书</a></p>
 
     </div>
 
     
     
     
-        
 
-  <div class="followme">
-    <p>欢迎关注我的其它发布渠道</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
+    <footer class="post-footer">
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/03/18/30-Node初识/" rel="prev" title="Node.js初识">
-      <i class="fa fa-chevron-left"></i> Node.js初识
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/19/32-算法面试需要掌握的数据结构（一）/" rel="next" title="算法面试需要掌握的数据结构（一）">
-      算法面试需要掌握的数据结构（一） <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/18/30-Node%E5%88%9D%E8%AF%86/" rel="prev" title="Node.js初识">
+                  <i class="fa fa-angle-left"></i> Node.js初识
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/05/19/32-%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88%E4%B8%80%EF%BC%89/" rel="next" title="算法面试需要掌握的数据结构（一）">
+                  算法面试需要掌握的数据结构（一） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
           </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档流"><span class="nav-number">2.</span> <span class="nav-text">文档流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是普通流"><span class="nav-number">3.</span> <span class="nav-text">什么是普通流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何触发普通流"><span class="nav-number">4.</span> <span class="nav-text">如何触发普通流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解普通流"><span class="nav-number">5.</span> <span class="nav-text">理解普通流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Box与Formatting-context"><span class="nav-number">5.1.</span> <span class="nav-text">Box与Formatting context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何确认元素参与何种格式上下文"><span class="nav-number">5.2.</span> <span class="nav-text">如何确认元素参与何种格式上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建格式化上下文"><span class="nav-number">5.3.</span> <span class="nav-text">创建格式化上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC的定位规则"><span class="nav-number">5.4.</span> <span class="nav-text">BFC的定位规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC的定位规则"><span class="nav-number">5.5.</span> <span class="nav-text">IFC的定位规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC"><span class="nav-number">5.6.</span> <span class="nav-text">FFC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC"><span class="nav-number">5.7.</span> <span class="nav-text">GFC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何理解脱离文档流"><span class="nav-number">6.</span> <span class="nav-text">如何理解脱离文档流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浮动"><span class="nav-number">6.1.</span> <span class="nav-text">浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绝对定位"><span class="nav-number">6.2.</span> <span class="nav-text">绝对定位</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从代码的角度来理解"><span class="nav-number">7.</span> <span class="nav-text">从代码的角度来理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">8.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏" src="/images/xianyu.jpg">
-  <p class="site-author-name" itemprop="name">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</p>
-  <div class="site-description" itemprop="description">咸鱼的人生</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">38</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/strugglexiang" title="GitHub → https://github.com/strugglexiang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" title="掘金 → https://juejin.im/user/5a45b66f6fb9a044ff31c7d4" rel="noopener" target="_blank"><i class="fa fa-book fa-fw"></i>掘金</a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.v2ex.com/" title="https://www.v2ex.com/" rel="noopener" target="_blank">V2EX</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://flatuicolors.com/" title="https://flatuicolors.com/" rel="noopener" target="_blank">色彩搭配</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cn.lipsum.com/" title="https://cn.lipsum.com/" rel="noopener" target="_blank">随机文字</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://www.ruanyifeng.com/blog/" title="http://www.ruanyifeng.com/blog/" rel="noopener" target="_blank">阮一峰的网络日志</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.voidking.com/" title="https://www.voidking.com/" rel="noopener" target="_blank">voidking</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://anata.me/" title="http://anata.me/" rel="noopener" target="_blank">深红结界</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://ssshooter.com/" title="http://ssshooter.com/" rel="noopener" target="_blank">ssshooter</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://xin-tan.com/" title="https://xin-tan.com/" rel="noopener" target="_blank">心谭博客</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备17023507号-2 </a>
-  </div>
-
-<div class="copyright">
-  
-  &copy; 2019 – 
-  <span itemprop="copyrightYear">2026</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
-</div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">𝓼͏𝓽͏𝓻͏𝓾͏𝓰͏𝓰͏𝓵͏𝓮͏𝔁͏𝓲͏𝓪͏𝓷͏𝓰͏</span>
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
-<script src="/js/next-boot.js"></script>
-
-
+    </div>
+  </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  <script type="text/javascript" src="/js/struggle/love.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":true},"react":null,"log":false});</script></body>
+<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script>
+<script>
+  L2Dwidget.init({
+    model: {
+      jsonPath: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json',
+      scale: 1
+    },
+    display: { position: 'left', width: 150, height: 200 },
+    mobile: { show: true, scale: 0.5 },
+    react: { opacityDefault: 0.7, opacityOnHover: 0.2 }
+  });
+</script>
+</body>
 </html>

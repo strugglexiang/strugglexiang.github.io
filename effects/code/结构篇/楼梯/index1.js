@@ -7,7 +7,8 @@ function elementInView(element, fn) {
         return
     }
     const rect = element.getBoundingClientRect()
-    const condition1 = rect.top <= window.innerheight const condition2="rect.bottom">= 0
+    const condition1 = rect.top <= window.innerHeight
+    const condition2 = rect.bottom >= 0
     if(condition1 && condition2) {
         fn && fn()
     }
@@ -85,4 +86,3 @@ function getElementTop(element) {
 
 
 
-</=>
